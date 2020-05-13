@@ -1,0 +1,377 @@
+Hello guys, welcome to this video. 
+In this video, we are going to be talking 
+about linear regression. 
+As you can see from the slide itself. 
+So, the idea is that I will be discussing
+various things in linear regression like how 
+does it work and how does it differ from 
+other class of problems like classification 
+problems. And also I will also be discussing 
+how to actually implement linear regression and using pseudocode,
+so I will not be going over the exact Python code in this 
+particular video, but I will be going over, what are the 
+various components that go into implementing this linear regression algorithm.
+
+So, let us get started.
+
+So first of all, before I actually discuss anything about linear regression and
+
+first of all let me discuss a little bit about what is machine learning and what are 
+the various components. And what are these things that we need to remember before actually 
+understanding anything in machine learning or anything in linear regression. So, machine learning is
+nothing fancy just intelligently used mathematics. If we care to dig a little bit deeper.
+ So what do we mean by this statement. So, by this statement
+
+what I'm trying to say is that if you try to dig a little bit deeper into the mathematics of machine learning, 
+then you will understand everything. So nothing fancy is going on in machine learning, usually we think that since we are 
+predicting the future in machine learning something fancy is going on, but no, nothing is like that we are just doing some fancy 
+mathematics and intelligently used mathematics. And if we understand it from the very beginning from the basics, then we will be able to 
+understand what is exactly going on with machine learning. Okay, so let's move on to the next slide, and actually understand one fundamental 
+difference that I feel most of the people struggle with, and that difference is task versus
+
+algorithm difference. So let me first of all, give you an example before
+
+actually reading anything from that slide.
+
+Okay, so the, what is
+
+task, and what is algorithm see, there are many task that we humans have face on on our day to day lives.
+
+Okay.
+
+Some of those tasks have been able to solve. And some of those tasks, we are still trying to solve. Right. 
+So, machine learning is about solving some tasks using some algorithms, now what is exactly algorithm.
+
+Algorithm is a sequence of steps set of steps to solve a specific task.
+
+So remember this thing that machine learning is
+
+not about studying tasks machine in machine learning, we don't study task, but rather we study
+
+various algorithms to study, to solve a specific
+
+task. Now I have given few examples here. Notice here that that I have given that
+
+we have a task of solving a quadratic
+
+equation.
+
+Now, to solve this quadratic equation, we might be having various
+
+algorithms, like for example we have a discriminant rule. Okay. In the similar manner. We have a task of predicting the price of
+
+a house, based on some features of the house. Okay, so in that case,
+
+we have a, we have an algorithm called linear regression now this linear regression algorithm is what we're going to be studying in this particular video. 
+So I hope you understand the difference between task and algorithm and also
+
+you should notice that machine learning is not
+
+about the study task, it is about studying algorithms. So I hope you understand this point, so let us move on.
+
+Okay, So now I need you to understand what what do we mean by
+
+programmable and no programmable task. What do we mean by programming task. and non programmable. ser, programming languages
+
+have been there for quite a
+
+long time. And there are many tasks, which are humans are capable of solving
+
+using just program, we don't need machine learning for those tasks. So machine learning is about solving those tasks, which are non programmable. 
+So we want to solve those tasks, which are we are not able to solve
+
+using traditional
+
+programming. So usually we are not able to solve a task which is not programmable for which we are not
+
+able to clearly state what is the algorithm for that.
+
+For example,
+
+I want to train my computer train my
+
+a system to differentiate between the image of a cat and dog. So for that,
+
+I don't know exactly how our brain processes that information. But on the other hand, if I have to program a task of, say for example solving a quadratic equation. 
+So in that case, I know the exact sequence of steps that go into solving a quadratic equation. So in that case, I know the algorithm. I know the sequence of steps that 
+are going to be going to solve this particular task, so I can program this particular task, but whereas the task of computer vision, I will not be able to solve using 
+traditional programming so that is why we have this distinction
+
+of programmable and non programmable task. So machine learning is about studying those tasks, which are non programmable by traditional computing methods.
+
+Okay, so let us move on.
+
+Machine learning is about solving those tasks, which are non programmable, which
+
+we have already studied in the previous slides. So, I have given this small differentiation between CS algorithm and ml. Earlier, I discussed in one of my slides 
+that machine learning is about algorithms. It is not about tasks. So in machine learning, we are only study of algorithms.
+
+So, what is the difference between computer science algorithms
+
+and machine learning. See this difference. Clearly captures what exactly is the difference. Okay so this first diagram, which is which you're seeing here. 
+This one. This is corresponding to the cs algorithm. Now, with this particular diagram. If you notice, we have this algorithm this black box. 
+In this algorithm we put some data, we input some data, and we input rules.
+
+So notice here with CS algorithm, we know
+
+the rules we know the correct rules that will go into the algorithm. So, what we get as a result we get output. 
+Okay, so we put our data in in this algorithm we input the rules also because we know the rules for some with CS algorithm and for CS algorithm 
+We know that rules So this is one of the main thing that you need to understand and
+
+With the machine learning, I mean, we have the input we have the
+
+output, but we don't know the rules, and we're trying to infer the rules. And that, rules, is what we are trying to get from the machine learning. 
+So I hope this small discussion made sense to you and everything related to the difference between our CS algorithm and machine learning algorithm made sense. 
+For let us know move on. Okay, so you might be wondering, what is the linear regression. So here we studied the difference between and then they'll go to come and 
+see us and we have also studied that machine learning is about studying algorithms, not studying tasks. Okay. You might be wondering what is linear regression because 
+this video is all about linear regression. Now, since linear regression is a part of machine learning. So you might know from my earlier discussion that linear regression 
+has to do with algorithm because we said earlier that machine learning is all about studying algorithm. So, one thing is clear that linear regression is a algorithm. 
+Okay. So, but what type of algorithm is this before we study what type of a algorithm is linear regression, we need to understand what type of task does linear regression 
+solve, because everything algorithm needs to be a task associated with it, because machine learning is about solving, providing various algorithms
+
+to solve various tasks. So, linear regression is one of such
+
+algorithms that machine learning provides. And then there's got to be some some tasks that might be associated with this linear regression and.
+
+So let us now move on and understand what
+
+are the various, what are the various tasks collection of various that linear regression or tries to solve. Okay, so let's discuss this
+
+It solve tasks, where the variable that we want to predict is continuous type. Notice this difference.
+
+The linear regression
+
+is an algorithm, which solve task
+
+to predict the variable of continuous type. Now what do we mean by a variable of continuous type. a variable is said to be continuous type when the variable can take 
+any possible value, we don't. We cannot. We cannot predict the exact value that it can take for example price of a house or height of an individual so it can possibly 
+take the values ranging from negative infinity to infinity, obviously, height cannot take infinity values but we are just taking an example that continuous   
+type, We don't have any distinct number of values that continuous type can take it can take any value whatsoever. So here I have given a few examples of such problems. 
+The first example is prediction of the price of the house fear, which we are going to study a little bit later, after some slides, and then the We have taken a problem 
+of prediction of height and weight of an individual so this might be a problem which involves regression task. Okay, so the next problem is revenue in coming year for a 
+firm, so we might be interested in predicting the revenue of a firm. Okay. So, let us now move on. So these type of tasks are collectively known as a regression problem. 
+Okay, so now I hope you understand what do we mean by a regression problem. Now, remember, here, that linear regression is not talking
+
+about this regression problem. So linear regression is one of the algorithm, which solve this regression problem,
+
+but is linear regression The only algorithm which solve a regression problem no there are other algorithms like
+
+decision tree regression decision tree regression is one such a one more such algorithm which tries to solve this regulation problem. So, linear regression is one of the many algorithms which solve this particular task. Okay, so I hope you understand. Let us now move on and understand what if the variable type is not continuous, so if the variable type is not continuous. The other type of variable, of which it can be can take is categorical
+
+so categorical is one
+
+more type of variable that it can take. So let us understand what do we mean by categorical.
+
+So, a categorical variable
+
+is is a variable where number of distinct values are countable where we can count the number of distinct values. On the other end. if i talk about price of a house. In that case, I will not be able to count the price. Counting distinct number of price of different houses. Because price can possibly take any value, whereas in categorical problems. The variable that we want to predict can take only a finite set of values which we can count. Now, just like for continuous type problems. We have a. We have a collective name known as a regression problems. These type of problems are collectively known as classification problems because essentially what we are trying to do in these problems is to predict the class because we can count those class. Okay, there are finite or distinct values which are countable. Okay, so here I have taken three examples. The first example is predicting whether a given email is spam or not. So you receive an email app on your on your phone, and on your email app. And you might wonder how your email is deciding whether a particular email is spam or not. So it is using classification algorithms to solve those tasks. Okay. The second type of problem that we might encounter is predicting whether a given tweet is positive, negative or neutral. So on a daily basis. Many people, tweet about various different popular personalities,
+
+so they tweet, and we might
+
+be able to
+
+somehow tell whether those tweets that they're posting are positive negative, or they're neutral.
+
+So, with classification tasks. We can do that. So since
+
+there are only three possible values that we are  interested in predicting. So this type of problem is also known as a classification problem. The third one is predicting whether an image has a cat or dog. So again, we are only talking about two categories. So again, I can count to the number of possible distinct words. So again this type of task is also known as classification task. So these type of tasks are collectively known as classification problems
+
+I hope it makes sense to you. So, finally,
+
+to summarize. To summarize, we have two type of tasks, we have a regression task, and we have classification task not remember. Machine learning is not the study of these tasks, but rather, is the study of various algorithm that solve these tasks, so we have about these tasks, and we are talking about algorithm which solve all of these tasks, specifically. Okay, so in this video I'm going to be talking about linear regression algorithm and  linear regression
+
+is an algorithm for solving regression task.
+
+Okay. Okay. There can be many other algorithms to solve regression related task, but we are studying linear regression algorithm in this video. Okay, so I hope you understand everything. So far, So let's study how does linear regression work.
+
+Okay, so to actually understand
+
+the linear regression what I've done is I've taken
+
+an example where we want to predict the
+
+price of the house. Okay, so this is a very classical
+
+problem in linear regression. So, let us take this particular variable, and the variable is price of the house, as Y. Okay. And in the second slide, I have taken the feature because whenever we are talking about any machine learning algorithm we are talking about features features means all the variables with which we
+
+want to predict a particular variable. So, what are the
+
+features of houses that we might be interested in. There are many variable that we might be interested in, but for this example we want to be. We want to take an example as simple as possible so we are only talking about only one feature really well, and that variable is number of rooms we are not talking about any other features. Now, notice here that this variable will be our x, this will be a capital X. Okay, this is a, this capital X is a collective name for all the features, but here we are only talking about only one feature, what are the other features that we might be interested in other feature that we might be interested in, he can be a yoga house, or number of balconies, or other features like that so you get the point. So we have for the time being, assume, only one x, but the results are
+
+easily extended for more than x. So, we just need to understand
+
+the concepts behind this particular algorithm for this particular variable. And once we understand it for one variable, we will be able to understand it for more than one variable. Okay, so what are we doing in linear regression so what is the main objective in linear regression, so linear regression is a procedure for finding a linear
+
+expression for a line
+
+between y and x. Now, there are two variables that we are taking.
+
+Okay, so the y is
+
+the variable that you want to predict, x is a feature with which we want to predict y. So what we are essentially trying to do in linear regression is we are trying to find a linear expression between these. These y and x. So, this y and x are variables that we want to find the linear expression with. Okay,
+
+so
+
+here, one might ask the question that what type of linear expression that we might be interested in. So you might have studied up a form of linear expression like this, y is equal to mx plus C. Now, this particular form is a very popular linear expression for two variable. Okay. It is easily extended for more than two variables have two variables, but for the time being, let's just understand that we are interested in two variable a linear relationship. Now here, x is our features
+
+and y is the variable that we want to predict. So, what what what are these
+
+two variables m and c. What we mean by M and c Now, there is a special name in mathematics for these two types of variables and the stands for the slope of the line. Now, this element decide whether or line will be steep, or flat. This c will be fixed, m can be, m is what that will vary the value of m y will always be fixed, and will also be fixed. But, m is a value which will change. Why, because M is getting multiplied
+
+with x. So, m will
+
+decide the magnitude of change of y, whereas C will always be fixed. Okay.
+
+So one example that we might take is
+
+where C's is 100 and m is one. So, in that case what we will be doing to predict y is. We will be adding 100 plus our input x multiplied by one. So, I hope you get the idea so, linear expression in two variables, so this is a linear expression into it, it was y is equal to mx plus C. Now, based on the values of m, which is a slope, and C, which is intercept, we can have many, many infinitely many different types of lines. Okay, so example of lined, we can have y is equal to two x plus 10. We can have y is equal to three x plus 20, we can have all sorts of different types of lines. So now the question arises, which one that we want to choose, and we want to choose of that line, or how are we going to choose that particular line for our final model. So, this is a question that we would like to answer in the next slides. Okay, so to actually demonstrate what will be the best line in our, in our linear regression. What I have done is I've created this a small data set of the number of rooms versus price. And as we discussed in the earlier slide that price will be our variable that we want to predict, whereas number of rooms, will be our variable that that we are teaching these features. Okay,
+
+so try to look at this particular data set and
+
+try to infer or what type of relationship that are we are able to see, without actually doing any machine learning. So, one thing is very clear from this very data itself that as the number of rooms, is increasing the price of the house is also increasing. We are not able to tell the exact model that we're going to be using. And what do we mean by model a model is a, is a special is a particular linear expression for particular values of M and C. Earlier we talked about these equations y is equal to mx plus C. Now, what are the various of, what are what are the various values of m and c, that will be best for this particular data that is our job to decide. Okay, so for this particular data set. There might be some value of M and C, which will be best, which will be best compared to other names. So what are those names, that is our task to find out. Okay. So let us move on to the next slide. Now, the very first thing that we want to do is we want to plot this particular data. We are going to be plotting this number of foods on the x axis and price on the y axis, and notice that we are able to get this. This type of scatter plot. And from this plot. What we can do is we can see that
+
+this line fits this data best, so we first of all let me draw a few lines.
+
+Okay, so what I have done here is I have drawn three or four lines, and I need to tell out of these four lines which one will be the best. 
+So to answer this question. One thing is that intuitively we can say that the this particular line looks the best. So this second line from the top looks the best, 
+and the reason that this line looks the best is because the difference between this line, and these points is actually lowest. So, this is how we can say, whether a particular line is best or not. Okay. Whereas, if I have to mention this last line then I can clearly see the difference between these this point and this line
+
+is quite large. So that is why we will we will see
+
+that this line is not the idea. Okay. So as you can see, the difference is quite large. And this is true for for the third line also. So that is why intuitively 
+from the graph itself, we know that the second line will be the best line. Okay, So, but how can we get our computers to know which line will be the best time. 
+That is the task of this particular video and that that is what I'm going to be talking about in the next slides. But before we actually do that. I need you to 
+read this slide and make sure that you are able to understand everything, because we have already discussed this.
+
+So what which one
+
+will be the best, which line will be the best, the one which is as close as possible to the data, which we have already explained, using this particular plot. 
+But how do we get our computers to get that line from infinitely, different possible lines, and
+
+let me first of all talk, one more thing that might be important for you to understand. Let us take this line and
+
+this line. So what is the difference between these two lines. And if I talk about the difference in terms of mathematical perspective, then the difference arises 
+because of the different values of M and C. So these two lines are different because of different values of m and c. And if you know, what do we mean by M and C then 
+you will notice that these two different lines have same intercept, same y intercept, but they have different slope. The second line is flatter than the first time. 
+And that flatness, or steepness is decided by the slope, or m. Okay, so I hope these two things make sense to you, and two
+
+different values of M and c, this is what I need you to understand.
+
+We want our computers to actually tell us what will be the best line. What will be the best one which fulfills this criteria of as close as possible to the data. 
+So, so okay so you, you will be able to understand this particular slide because we, what we are telling here is that computers are able to do next, or even thousands 
+of calculation in seconds, and we are going to be utilizing this particular facility to come up with the best use of M and C, which are as close as possible to our data.
+ Okay, so we follow these three steps to come up with a best line. The first thing that we do is we start with random values of M and C. Okay. And then the second step is 
+we define the number of the interations that we are going to retreat. Okay, this number of iteration is very important and this is something that we need to do hittin trial, 
+and we need to see which number of iterations is the best for us. And whatever number of iterations we have chosen. we are going to repeat, repeat that many number of times 
+these three steps. And what are those steps. We are going to be taking up random data points x and y. And we will be inputting this x in the equation formed by this random 
+this random values of M and C that we have just formed in the first step we are going to get a prediction, based on these MNC, and we will compare that prediction with the 
+actual one, and we will consist, the M and C according to that. Now notice this is very important for you to understand that. First we take random and unseen the first sister. 
+And then we design number of iterations, and then we repeat by first of all taking the random data points, and the point that we have chosen. Are we are going to be obtaining 
+the prediction for that point.
+
+So we have a prediction and
+
+we have an actual value. Because this y is essentially the actual value, and we will have y hat,
+
+and Y hat is essentially denoting all predictions. And once we know y and y hat, we can compute their difference. And the difference will tell us how accurate our predictions are. So, if the difference is close to zero, then we will we will get to know that the predictions were quite good because if the difference is close to zero, that means, the value y and y hat, are quite close, if the difference is large, then that means we will be, we will be having a y hat, which is quite, quite far away from y.
+
+Okay, so in the second step what we
+
+do is, obtain the prediction using the above random data point or using the above data random data point and the values of M and C in the first step. 
+And in the second, third is what we do is update this these values by a very small margin called Learning rate.
+
+So, what we do is we update these values. Now, how are we going to decide on whether we have to decrease the values of m or increase the values of m.
+
+So, that can be decided based on the difference of this. y and y hat. Because if this difference is quite low. Then you're going to be changing very small margin. 
+If the difference is large we are or we have to change by a very large margin. So I hope this is small discussion made sense. So let us now move on. Okay, so the idea is 
+that if we do this many times larger number of times then eventually the values of m and c will be perfect, or optimal. In other words, so notice in the third step what 
+you're doing is updated these values, what do I use MMC we are updating these two values by a very small margin, and that small margin is called a learning rate now up to 
+this third step,
+
+many number of times, if the number of iterations
+
+is say, 10,000, or one lakh, then this step will be done over and over again, and eventually the value of M and C will be perfect. So, i hope it makes sense. 
+Okay, so the only question that we now have is how do we update the values of MNC. So, the next slides will be talking about this question only, so I hope every other point, 
+should make sense. So, the first point of taking random values should make sense. And also, how can we be deciding about number of iterations, but this should not be a 
+perfect where you've number of iterations,
+
+you should try to play with various different
+
+types of number of iterations and try to see which works best. You should be able to understand what do we mean by taking a random data point and obtain prediction, 
+the only step that we need to understand is how are they updating and how does in this particular update made sense. Makes sense. Okay, so let us now move on and understand 
+what do we mean by update. Okay, so we each loop what we do is we check the prediction and check its value. Okay. And what we believe as we are comparing the production and 
+the actual value for the price. In our example of price prediction of price of house. And then if the prediction is close to the actual
+
+value then we don't change that much. Okay, so we are not changing that much.
+
+And then see if the predictions are very close to the actual. Okay. But if it is far away. Then we move the line towards the actual point. 
+So what we are doing is we are moving that line towards the actual points, say for example, our prediction. So let me demonstrate this point using the graph.
+
+So, for example,
+
+we have got m and C, which is making this line. And if I'm taking this particular point. The prediction, based on the five number of rooms, from the line. 
+If I have to draw the prediction, then I'm getting a prediction close to 300, whereas the actual prediction is close to 350. Okay, so you see the difference.
+
+So, this difference is a little. So that is why
+
+I am going to move this line towards this point. So I'm going to move it upward direction. Okay, how I'm going to accomplish this by changing the value of m and c. 
+So I hope this makes sense.
+
+Now what we are going to do is we are going to be looking at the
+
+pseudocode for linear regression model.
+
+So let us get started.
+
+Okay, so let me.
+
+Decrease the slide size. Okay. Yeah, so the first step, what I have done is I have taken that those three steps, and I have converted those three steps into this pseudocode in
+Python, so that you will be able to understand what are we are doing. Exactly. So first of all we have decided the number of iterations that we are going to choose. 
+
+In this case, we have decided that we are going to be iterating for 10,000 times. Then we have initialized some M and C valuee, and that m and C can be anything because 
+eventually it will be updated here. Okay, then we are going to be looping for 10,000 times and in each loop, what we do is randomly Start with x&y from our data point, 
+and we get the prediction from our current m and c. So we have this these M and C values. So we have these M and C values, which have been initialized randomly, and based 
+on these M and C values we get this prediction. And what we do is be uploaded MMC based on the difference of this x one y, and prediction. So, so we update this m  and C 
+value by updating M and C what we're essentially doing is, we're moving the line upward and downward, depending upon where the actual point lies, if the actual point lies 
+above the line, then we will be moving that line upward, and the actual point lies below the line then we will be moving that line down. So this is the all idea. Now after 
+this will loop runs 10,000 times, then hopefully the values of m and c will be updated and it will be very near perfect so this is all. So you hope this pseudocode for linear 
+regression made sense. So now, the difference between actual and prediction makes sense. But why we why in update of MV multiply randomness. Notice here. If you haven't 
+noticed in the. update of m. We're not just taking the difference of actual y in prediction but rather we are also considering this. What are we doing this because these 
+don't have a new x, the
+
+position of the line
+
+will be changed, because if the value of this line of x is negative, this, this value of m will be changed differently than the, then if the value of this x is positive. 
+So, so there are, there can be two situations. If this random x is positive, then this will remain same, because no effect is taking place. If this is negative, then you can 
+visualize it like this, if it is negative then here instead of positive, it will be negative, but for our example, we don't have to worry about this because. For our example, 
+the X is number of foods and number of rooms, it does not a value or negative,
+
+so we don't have to worry about
+
+this so we only have to worry about this plus, because it is the. It is the only thing that it is an only case that people will get in our example. 
+Okay, so the reason. The reason is, M stands for slow, which is dependent on the sign of input x, but for our example, the sign of input will always be positive. 
+But, if, if you, you might take some example where the sign of input might be having some of the new, which is negative. In that case, you might be interested in 
+adding this and understanding of why does this make sense,
+
+introducing this random x in the update of m. Okay.
+
+So,
+
+I hope you were able to follow through everything that we discussed in this particular video.
+
+So, what we discuss in this particular video is as follows, First of all we started with a little overview of machine learning, and we also studied how machine learning 
+differs from classical computer science. And how does the algorithm of machine learning and computer science differs, and then we studied about classification and we 
+differentiated classification tasks and regression tasks machine learning, and interrogation class, and also study how does linear regression works by actually taking up an 
+example of a house price prediction. And, yeah, that is it.
+
+We also demonstrated the code for a pseudo code for
+
+actually implementing this linear regression step from scratch.
+
+So yeah, so we have come to the end of
+
+the
+
+video.
+
+Okay, so thank you so much for watching the video.

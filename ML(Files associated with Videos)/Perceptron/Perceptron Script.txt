@@ -1,0 +1,368 @@
+Hello guys, welcome to this new video. This is a video about hands on lab on perceptron algorithm. So in this video we are going to be learning about how does perceptron algorithm works and we also are going to be coding this particular algorithm from scratch in Python programming language. And further we will be demonstrating how does this particular algorithm works by using one external party library which is known as SK learn, which is quite popular among Python programmers who are into machine learning. Okay, so, these are all the things that we are going to be discussing in this particular video. But before I actually start the content, I would like to first of all, go over the agenda of this particular video. So let us move on to the next slide. So this particular strap slide demonstrates what are all the things that I will be going over in this particular video.
+
+So, the first thing obviously is what is the perceptron algorithm? So, we will be getting a very brief overview of what a perceptron algorithm is all about. And the next thing is what type of task does it solve? Now, since perceptron algorithm is a part of machine learning and machine learning is about solving specific tasks. So, there has to be some task which perceptron algorithm solves right. So, afterwards we will be understanding one important fundamental concept in human biology, which is known as neuron. Okay, so, why are we studying neurons in the class of machine learning because neurons if you are very comfortable about neuron, you don't need to know the ins and outs of neuron but rather you should be aware of what are the various functions of neuron and how does it work? And further we will be learning how does artificial neurons work
+
+Now,
+
+we will also be learning the difference between two different type of neurons, the one is biological neuron and the another one is artificial neuron. Okay. So, once we understand this, we will be understanding how does this particular algorithm works? And how does it relates to the concept of neurons. Okay, I hope it makes sense. And afterwards, we will be sketching out our pseudocode for perceptron algorithm to kind of see how does the actual code looks like because pseudocode captures what the actual code code looks like. Okay, so afterwards, the practical aspect of this video starts and we will be actually taking up an example called loan default toy data set. Now with this particular example, I have created this particular example by myself. And with this particular example, I would like to show how we can code
+
+perceptron algorithm to classify whether a person is going to pay back the loan or not. So we want to predict whether he is capable of paying back the loan or not right. So we are taking up the application of loan default. And finally, we will be uploading this data set in Python. There is a library called matplotlib. We will be plotting that dataset in that and finally, we will be coding the algorithm from scratch. Okay, so in Python, we will be showing you guys that how we can code this particular perceptron algorithm in Python from scratch. And after we are done with coding the algorithm from scratch, we will be understanding how to actually use the perceptron class which exists for us to use a scalar library. Okay, and finally, I'm going to share some tasks with you. Okay, so I hope you are very excited to get started with this particular video. So you
+
+Let's get started.
+
+So, let me move on to the next slide. And the first topic is What is exactly perceptron algorithm and
+
+what are the various historical aspects and who developed or who
+
+discovered this particular algorithm. We are going to be talking about all of these in this particular slide. So, as you can see from the slide perceptron algorithm is one of the early algorithms by Frank Rosenblatt, I cannot pronounce his last name, but it is saying Frank Rosenblatt in 1957. And it was in that time, when computers were not not capable of doing machine learning, then only we developed, we were seeing all these developments in the field of machine learning. So, this particular algorithm is actually one of the first algorithms that came to solve what is known as binary classification problem.
+
+I'm going to be actually showing you and talking or talking to you about what is exactly a binary classification problem. Okay, so this algorithm is based on the artificial neurons. Now what do we mean by artificial neurons? In every human brain, there is a concept of neuron and there are billions of neurons in every human brain. Now, if I have to create a artificial artificial neuron or a neuron, I have to demonstrate that neuron without having the brain So, I hope you're getting the point. So, what I'm trying to say is, if I want to demonstrate or create a neuron artificially, then that particular neuron that I have created will be known as artificial neuron. So what is the basic idea? The basic idea is that
+
+to create a system to create a neuron, which will behave the way our biological neuron works, so our biological
+
+neuron works in a in a manner in a similar manner the way electricity works. So, rather I should say the way electrical bulb burns work because electrical bulb is either on or off. So, in the similar manner a particular neuron or other I should see biological neuron is either on and off. So, this is a similar manner in which this Frank Rosen bet are created this artificial neuron model and he has he has created this perceptron algorithm to classify two categorical problems. So, I will I will be going over exactly what type of problem or did he solve, right. So, this particular point you should read neuron fires are not fires and decide almost all the things that we do on a constant basis. Right. So, in our human brain, we have got billions of neurons. Now, these neurons, when combined make complex behaviors and costs
+
+complex functions in our body or in our outside world, how are we seeing right now. So, the way we are seeing is because of these neurons, when billions and millions of neurons combined their functions, then they give us the ability to see the outs outside the world. So, the essentially, the one point that I want you to take from this slide is that
+
+each neuron each individual neuron, in its own can either fire or not fire and by firing and not firing, what I'm essentially trying to say is a neuron can either send a signal to other neurons or not. So it can be either on and off. So, if it is on then we will say it is firing and if it is off, then I will say it is not firing. So I hope you got the basic idea of perceptron and neurons. So now let us move on what type of task does this perceptron algorithm solve? So when this perceptron algorithm got developed,
+
+For the first time, it solved a binary classification problem and what is the what are the various examples some of the examples that I would like to discuss with you the first example can be predicting whether a particular text message is spam or not. So, you get a message and you want to
+
+teach a computer to recognize whether this particular message is spam or not. So, this is a binary classification problem and further if I have got one image and I want to decide whether that image has a cat in it or not, that particular problem is also known as binary classification problem. So, there are numerous hundreds and even thousands of examples of binary classification problem. So, I hope you get get the point what are the various different type of tasks does this particular perceptron algorithm solves Okay, so, let me move on to the next slide. Okay, so now, the concept of neurons, I have
+
+Mostly discussed about neurons neurons are there in human brains and they are known as biological neuron because they exist biologic in our biology. And on the other hand, we have got one more type of neurons which are known as a human made neurons or rather I should say artificial neurons and those neurons are what are used by Frank Rosenblatt to create perceptron algorithm, okay. So, I have already discussed the this thing that every human action or function that happens in our body is essentially are decided by these dense of neurons. So, various different neurons combined themselves to create complex complex functions in our body. And the way we are seeing the way we are hearing all of these are data is sent to our of my mind and our neurons interpret these
+
+these data in some way or another way and I have also discussed that the only way a particular news
+
+works is by either firing or not firing or rather I should say, if they can only be in two states they can they can either been firing state or non firing state. So, I hope you get the point.
+
+So, let me move on to the next slide, what are artificial neurons, so, the neurons that are created by humans with without the help of biology, so, we call those type of neurons as artificial neurons. So, you get the point. So, there is not a much many things that I have to discuss here discuss here. So, basically the idea is that can we create some create or somehow mimic the neuron function in the real world. So, if we can that particular thing that we will be creating will be known as artificial neurons okay. So, this is a point that I want to discuss in this particular slide. So, essentially what we want to create is a mechanism which takes some input and produces some output nada. The essential part is what what can be the output type the whole
+
+Input can be either zero or one, where one might represent whether the neuron is firing or not. or other one my might represent the neuron is firing and zero might represent neuron is not firing. And this is a concept that most of the computer memory works inside all the computer, all the data is stored in the form of zero and one in the form of binary. So this is this is the same way in which our human mind also works. Human Brain also works. Okay, something happens inside the neuron to mimic whether it has been fired or not. Okay.
+
+All right. So let us now move on. Now, before I actually move on, let me quickly discuss this particular slide with you. So the idea is that I just want to make sure that every one of you is on the same page because some might be aware of these particular points and some might not be so I just want to discuss some background before I actually move on to coding the perceptron algorithm.
+
+So, the idea is that we have given this pair x and y and the y will be a categorical type or rather I should say it will be a binary categorical type. And I want to create a decision rule. And I want to train my machine to build a rule, which will take this x and it will predict to buy for me. Okay, so the way I'm going to do is is by using some algorithms, and in this particular video, I want to talk about perceptron algorithm. But I want to also discuss in this particular slide that what is what do we mean by decision? So, one example of decision rule might be something like this, and it is actually a binary classification or decision rule. And you can clearly see what we are doing is we are predicting spam. If the dot product notice here the term or that I'm using the dot product between this W and x is greater than zero. Now this is just a hypothetical.
+
+decision rule do not dwell too much upon this particular rule, just understand what I'm trying to say. So, we are predicting spam if W dot product by x is greater than zero and otherwise we are predicting ham. I want you to notice this w which is colored or highlighted in orange. The reason that I have highlighted this particular variable is because this is what we are trying to learn in every machine learning algorithm, we are basically trying to learn this weight vector. So this is a vector and this x is also a vector and what we do is we take their corresponding elements and we multiply their corresponding elements and the resulting elements we add all of those resulting elements to get this.so. If this dot product is greater than zero, then we do the span and if it is less than zero, this is this will be known as M. So this is an example of decision to this is the rule that we got we are trying to come
+
+up with in most of the most of the classification of problems, okay. So, I hope you got the point and in fact, you will later see that this is what is known as perceptron decision rule, okay in perceptron decision rule this is what we are trying to come up with, but on in the perceptron rule obviously, this is spam and ham can be replaced with any particular class. Okay. So, I hope you got this particular point. So, let me move on to the next slide. Now, how does the algorithm work? How does the perceptron algorithm work? The idea is that we have some inputs and what are those inputs, we have these inputs in the form of x, okay. And we want to learn or rather learn is very fancy word or other we should use find. So, we want to find some weights, we want to find these weights are highlighted in orange. So, how do we go about those? How do we go about finding those weights
+
+We can find those weights with using various different type of rules. There are various different types of algorithms to find those weights and one such algorithm is perceptron algorithm and it is one of the simplest and one of the most earliest example of machine learning algorithm Okay. Why it is same one of the simplest algorithm is because it does not use any concept of optimization, it does not use the concept of cost functions, it just produces this very simple decision rule which is quite intuitive in nature. So, let me go through this particular point. So, what we do is, we start with some random weights. So, first of all we assign some random weights to to whatever away whatever number of weights we are trying to learn. And the second step is we loop through the training data. Now, we are looping through the training data Say for example, our data training data has 500 rows in it. So, we are going to look to five
+
+hundred times and we do the following two points for each point for each data point sorry. So, for each data point in our in our training data, what do we do is we do the following two steps. So, what we do is first of all, we get the prediction. So, based on the input training data, we check the prediction on these random weights that we have just initialized and we get a using this current weight and input we get the prediction. So we have a predicted value based on these weights, okay. And after that, what we do is we update the wait
+
+and this is what is known as perceptron algorithm. And notice this update is step this is very important. Now, the way we are updating weight is we are first of all taking the difference between actual and predicted value. The reason that we have added this line is quite intuitive, because if this actual and predicted are equal, then there is no
+
+Need for any update the update will simply not happen. The reason is that if actual and predicted are equal, then this down will converge to zero and the whole town will get to zero and hence update will be of zero. Only if these two quantities are different, then only we will have some update and also we have a controlling parameter and the controlling parameter is known as learning rate and this learning rate parameter will take value from zero to one and this parameter is a parameter which controls the way we are updating rates. So, if it is not there, the the update might be very large. That is why to control the amount of update, we add this particular learning date and we also add the corresponding x parameter. So corresponding x is because so to actually make you understand what is exactly corresponding x, first of all, let me
+
+Move to the previous slide. Remember that when we multiply w times x, so, that means, we are trying to learn that many number of weights
+
+that many number of weights.
+
+So, we are trying to learn the number of weights which is equal to number of input values. So, we are having num equal number of weights to the number of input values. So, for each weight we have a corresponding input value. So, we we add the corresponding input value to corresponding weight update. Okay. And we do this particular step for how many times we basically trying to we basically loop through the training data and we do this for all the data points, all the rules. And after
+
+all the data points are all exhausted. What we do is we check our weights and we see whether we have a good
+
+Got the optimal results or not sometimes this does not work. So, what we do is we do this particular step a number of times, how many number of times that is something we decide beforehand Say for example, we decide that we are going to do this 400 times then we will set number of iterations has 100 okay and we will loop
+
+this particular this whole steps 100 times, so, we are going to do this again and again. So, I hope you get the idea All right. So, why does the update make sense I have already discussed about this update makes sense because if these two values are equal, then wait will not be updated. If these two values differs, if they are very closely equal, then the weight will be little. If they are very
+
+far from each other, then the update will be very large, okay. So the update is directly proportional to
+
+to the difference of actual
+
+Land predicted that is why this particular update step makes sense. So this is what I have discussed in this particular slide. Okay, so I hope it makes sense. Now I'm going to be discussing the pseudocode for perceptron algorithm which is quite simple if you closely look at it. Now in this particular video, I am going to be talking about a data set where I have to predict a variable or whether a particular person is going to default or not for paying back his loan. For that I have taken two variables two input variables x one and x two I'm going to be discussing what are those variables in later slides, but for the time being, let's understand that we have a data set with three variables. So one variable is so two variables are feature videos and one variable is a variable that we are trying to predict, okay. So since we have two input variables, we will we will be having three weights. One weight will be corresponding to intercept two weights will be caused by
+
+To those two variables, okay, so I hope you get the point. So the first step in this pseudocode is some, some initializations. So first, we first of all decide what will be the number of iterations, what will be the learning rate? What will be the random bits because the first step was to make a random initialization. Then we repeat this particular step, how many times this number of iteration number of times Okay, what step do we repeat, we loop through the data, we take each row and we do these things. We take each row row and we get the prediction of that row and our current weight and current weight is four for the first step will be randomly initialized, and we get the prediction we get the actual value and actual value will be got from the data itself. Okay, and we update the weight. Okay, so for the intercept, we update the weight like this. And for the
+
+Actual waits for rather I should say slope not exactly but slope for for slow bits, I have done this. Now, the reason that I have added corresponding x in the weights one and two, but not in a zero is because we will be having two features, but the one intercept corresponding to the intercept we won't be having any
+
+any feature corresponding to it that is why we will be taking the corresponding x s one okay. So, I hope this particular slide makes sense now that we understand this particular pseudo code for perceptron algorithm. The second thing is actually taking up the this default data set and actually starting with the coding part, but before I actually move on to the coding part, let me first of all quickly talk about one important point in the perceptron algorithm because that is the point which makes perceptron algorithm
+
+The way it is referred currently, because if you notice any particular algorithm in machine learning then these two steps are there in that, but what makes perceptron algorithm different from other
+
+algorithms is the first step that how are we getting the predictions of these inputs and current Wait, how are we getting that predict prediction? That is what makes this perceptron algorithm is spatial. So, let me discuss that particular point right now. Okay. So, what we do is, let me quickly go to this particular slide. So what we do is, we first of all calculate the dot product of weights and inputs, okay. And once that dot product has been computed, so in the first step, we will compute the dot product between input and current. And once that dot product is computed, we get a value and then we map it to this
+
+particular function, if it is greater than zero, then it will belong to a particular class. Now, this is just an example of his payment here, but we can define we can declare it to be any class whatsoever. So, long as it is a two class problem. So, what we do is we take the dot product, we see whether it is positive or negative, if it is positively we call it a particular class, if it is negative, we call it another particular class. So, so I hope you get the point. So, this first point is what our first step is what makes perceptron algorithm different from other algorithms. So, now, why do we Why do we call it why rather I should say why do we say that perceptron algorithm is related to neurons is because, if you notice this particular step, we have just done something like whether a particular neuron fires or not. So, we computed some input
+
+If that input is zero, then it will fire otherwise it will not fire. So, you get the point right. So, that is why it is related to perceptron algorithm. So, now, let us move on to the loan default toy dataset. So, this data set that I have created myself the way you need to interpret this particular data set is as follows We have got these two features income in thousand dollars total asset valuing hundred dollars okay. So, what we do is based on this feature we have given whether that particular person has defaulted in the past or not. So, you can see these persons have defaulted, the persons with income up to $17,000 and total assessed value up to 430 hundred dollars have defaulted, but all the persons after that did not default. So, we would like to train a perceptron algorithm to actually learn these particular behavior.
+
+Right. But first of all, let us quickly plot this particular data set. So this is the first step. Okay, so what I've done is I've created a CSV value, or rather I shoot a CSV file, and I loaded this particular CSV file. Here, you can notice here, I've loaded this particular CSV file in my Jupiter notebook. And now what I'm going to do is I'm going to create an empty Jupiter notebook. Let me do that real quick. And I'm going to be visualizing, so let me quickly rename this particular
+
+this particular notebook
+
+as perceptron
+
+or other app. Okay. So the first thing I'm going to do is I'm going to import matplotlib.
+
+So I've imported matplotlib and now I need to import pandas. The reason that I'm going to import
+
+Word pandas is loading this particular data set.
+
+All right, so now let us quickly import this data,
+
+read CSV. And here I'm going to say demo.
+
+Okay. So let us quickly look at this particular data set. Okay, so you can see this is the same data set that we have just seen here.
+
+Now, the way I want to plot this particular data set is as follows. I just want to plot first two columns, but I want to color them according to default or not default. Okay, so for that, I would like to create two data set, first default data. And the reason the way I'm going to do that is by
+
+by subsetting. I'm going to subset
+
+this particular topic.
+
+So let me copy this particular column.
+
+So I'm going to say
+
+there it is equal to defaulted. And let me copy paste this. And, okay.
+
+I have misspelled this default.
+
+Okay? And I'm going to call this non default,
+
+non default.
+
+Okay. And in here, I'm going to say
+
+known for other What did I use non default.
+
+So, we have got these two separate data sets. So, let us quickly look at these data sets.
+
+So this is the data set corresponding to the default persons, the persons who have who did not pay the loan
+
+Let me see, let me look at the data set who did not default. So this is the data set. Now I would like to plot this particular data set. And let me quickly do that.
+
+So let me say, PLT dot scatter.
+
+And I'm going to say default.
+
+And I'm going to first of all, plot this on x axis. So I'm going to copy this
+
+and
+
+I'm going to plot
+
+this on y axis.
+
+Okay.
+
+And since this is corresponding to
+
+this data is corresponding to the default of individuals, I'm going to add a label of default
+
+And I'm going to copy paste this particular code. And I'm going to add non default.
+
+I have just realized that I have misspelled these default,
+
+but it doesn't matter. I just want to concentrate on my code. So non default, and I'm going to add the label as non default. Now since default color is
+
+same, so I'm going to add the color also. So I'm going to add the red color because these people have defaulted. That is why it is danger. And I'm going to add a green color to these individuals. Okay.
+
+I think it is in small. And finally I'm going to add the legend position.
+
+I'm going to say best, so legend should be on the best position. And finally, I'm going to show this particular plot
+
+Let's see,
+
+okay. So, I hope you got this particular graph, sometimes it gets tricky to create such a kind of plot. So, that is why I have demonstrated this particular plot to you. So, you can clearly notice there is a clear distinction. So, let me draw this particular line. So, there is a clear distinction between the people who have defaulted and the people who did not default. So, I hope you got this particular point and how to draw this particular plot. So, let us now move on to the next slides. So, the first next point was how to plot the data in matplotlib. And the next slide is coding the algorithm from scratch in Python.
+
+So, let us get started with coding. So, to do that, let me move on to the Jupiter lab. And let me get started. So, if I look at the pseudocode of perceptron algorithm, then this particular code is quite intuitive. The only thing that
+
+We will need to take care of this how to get the prediction and we have talked about earlier also this particular step is what makes a perceptron algorithm different from other algorithms because this step is mostly same and is mostly a they are in almost all of the other algorithms okay. So, let me quickly code this particular algorithm. So, these steps are quite easy to do. So, let me quickly do them first. So, we have this data and let us do first thing, let us do one thing first, first of all let us code this particular column default or not as numerical values. So, what I'm going to do is I'm going to add
+
+a label member. And here I'm going to say
+
+if it is defaulter
+
+I'm going to map it to
+
+Zero. And if it is non default
+
+I'm going to map it to one.
+
+Okay? And then I'm going to add one column to the data as
+
+label.
+
+Okay, let me see the column name was default or not.
+
+So I'm going to map it to map it using this label mapper.
+
+And let me now look at this particular data set.
+
+Okay, so I think
+
+Yeah, so you can clearly look at this
+
+particular data set now that we have this added column called label and corresponding to this corresponding to each value of defaulted we have got the zero value and corresponding to non default we will have a value of one. So, if we can clearly see here and what are the next steps that we have to take to code this particular algorithm is first of all let me
+
+let me make a new step a new function
+
+called get predictions.
+
+And this get predictions is going to take two arguments, one is weights and another one is features.
+
+And what this is going to do is it is going to first of all calculate net input.
+
+First of all it is going to
+
+okay before I do that, let me import one package called NumPy.
+
+Because I am going to use this particular function from NumPy. So np.so, I'm going to take a dot product of weights and features.
+
+But for the weights, I'm going to take all the values and starting from one index or other since in Python indexing starts from zero, so that is why I have added this index from one. And then I'm going to add, once this dot product is ready, I'm going to add the intercept of it. Okay. And then I'm going to check whether net input is less than zero or not. And if it is less than zero, I am going to return
+
+I'm going to return
+
+zero. And as
+
+I'm going to return one, so with this particular function, I have just quoted this functionality
+
+of neurons. So this is a function which takes
+
+Whether the neuron will fire or not, so, it will fire only if net input is greater than zero. So, this is the basic idea behind a perceptron algorithm. So, now, let us code this pseudocode because this prediction function I have coded because this prediction function I have coded to kind of show you what is the difference between perceptron algorithm and other algorithms okay. So, let us do that let us get started with this functions. So, let me know
+
+define the variables like any at any iteration is 10 we can do we can initialize it anything, but but for the time being let me initialize it to 10
+
+learning rate is equal to one
+
+or rather, I would say I should say 0.01 and then
+
+we need to initialize weights randomly. So, for that we need to have
+
+Okay, we can do that using NumPy. Also, so we don't need to. So I was thinking that I should import a random library. So I should do something like weights.
+
+weights is equal to NP dot random dot normal. And I'm importing I'm
+
+generating random numbers, how many random numbers I'm going to generate three random numbers. And I'm going to generate two for these two columns, and one for the intercept. And the first two parameters are actually defining the mean and variance of normal distribution. You don't need to understand these two things. You just need to understand the way this code is written. Okay. So we have just
+
+obtained around three random weights. And then we are going to start our code for iteration in range of editor.
+
+OK, so for iteration in range of editor
+
+and then for data in range of df dot shape zero. Now, what I have done here is, first of all, let me print the dealership and you can see df shape is 14 comma four. This means this particular data has got 14 rows and four columns. So what I have done is I have extracted this 14 by here, so I am going to loop it for 14 times. Okay, and
+
+the next step is to get the current rule. So I'm going to do something like
+
+current row.
+
+Row is equal to df
+
+dot index location,
+
+all rows and I'm going to pass data in
+
+Okay.
+
+So, let me quickly print this current row and see the way it is getting displayed. So, current row is five 300
+
+Wait a second 510 why it is showing 510 okay it is printing this first
+
+why it is printing like this
+
+okay so because the reason that this is happening is we we wanted all columns let me print this again
+
+okay so, this time we are getting the way we expected it to get So, we are getting first through five 300 defaulters zero, you can see here and then we are getting second rules. So, let me
+
+quickly see whether if I extract it like this, it is working or not. Yeah, it is working. So, for now for each row, I can
+
+Extract the corresponding value for each row, I can extract the corresponding points. Okay. So now what I'm going to do is I'm going to call this get prediction function. Okay? 
+Okay. So now what I'm going to do is I'm going to call this get prediction function. Okay? So I'm going to call this get prediction function
+
+on this current row, but current row also includes this, these two unnecessary columns, we are only going to pass these two values, okay, in this feature, value, right. So for that, what we need is we need to extract these two columns in this particular in this file from this particular row. So the way I'm going to do this is, so let me quickly check whether this particular behavior is expected or not accepted or not. Okay, so I'm going to say df dot
+
+index location.
+
+Okay, so now let me
+
+see Yeah, so we can do this. Let me see values. Yeah. So we are getting this particular point.
+
+So I'm going to save
+
+features.
+
+And I'm going to copy this particular point.
+
+And in place of this I'm going to say current true.
+
+OK, so we are getting the first two values and I'm getting the values also. So now I'm going to call this function predictions
+
+is equal to get prediction.
+
+And
+
+and I'm going to pass this weights and features that we have just caught
+
+OK, so we have got this prediction. And using this prediction, we are going to now execute this weights update step. So we I'm going to literally copy this exact step, but I'm going to just change corresponding x.
+
+Okay, so let me do that. So weights, zero will be updated.
+
+So actual value is what? So current row
+
+and I'm going to extract the label, so this will be the actual value or rather, I should say, actual, I should save this particular value in a separate variable actual. So I'm going to say actual subtracted by prediction.
+
+times learning rate since it is an intercept, I don't need to add any
+
+any corresponding x for let me copy this particular weight line.
+
+And in place of one I'm going to save features to zero.
+
+And the same line I'm going to
+
+paste for weights too and in place of feature one okay. So, I hope you got this particular perceptron algorithm from scratch. So, let me now run this particular algorithm with these configurations which are feature number of iteration as 10 and learning rate as 0.01. So let me quickly run this particular function okay. So we are getting an error which is learning so learning rate rather I should have
+
+Okay, so we have got some, so we did not get any error. So, let's print the beats.
+
+We are getting these values for our weights, okay. So now what we can do is we can check the predictions based on these weights okay. So, we can check the prediction for
+
+let us see let let us pause
+
+weights and let me pass some value
+
+let me pass 30 for income and
+
+400 for asset
+
+Okay, so, we are getting one. So, if I'm having a 3030 as my income and total assets as 400 that then I am going to be unknown defaulter. So, the reason that I know that one is corresponding to non defaulter is because we have defined this label mapper and one is corresponding to this non default. Okay, so I hope you got this part
+
+perceptron algorithm step. So, let us now move on to further slides.
+
+Okay. So, we have plotted the data set we have coded the algorithm from scratch in Python and let us now see perceptron class in a scalar. So, once we understand how we can code this particular algorithm from scratch in Python, we also can use perceptron class which is already there in a scalar library. Okay. So, let us quickly do that to use the perceptron class from the SK learn library first of all we need to import it. So, we are going to do from SK learn dot linear model
+
+import
+
+perceptron
+
+and in scaler the model fitting always takes place in threes.
+
+The first step is initializing the perceptron class. The second step is
+
+calling the fit fit method of that class. And the third method is calling the predict method of that particular class. So let me first of all initialize the perceptron class. So I'm going to say percept
+
+perceptron.
+
+And there are certain configurations that we can pass and you can see here the configuration if you want to bring this particular tooltip, then you have to enter Shift Tab. Okay, so when once you enter Shift Tab, these are the configurations that we can pass. Now obviously, you can improve the performance of any machine learning model by tweaking these configurations and making sure that the right kind of configuration you get but I'm going to accept the default one. Okay. So afterwards, we can call
+
+the fit method of this particular perceptron class, living quickly.
+
+Call this particular method on
+
+data frame dot index location. So I'm going to extract all the rows and two columns because till two columns, we are we are having the features, okay? So that's the second argument is the label. So label okay let me call this particular class okay. So, we have called this particular class and now what I can do is I can predict this particular class, this I can predict using this particular class some input so, np dot Edie, let me predict the same clause that I predicted using my my algorithm that I developed using using inbuilt by not using inbuilt libraries. So, let's do that. But before I do that, let me quickly reshape this particular error.
+
+Okay, so let's see. Okay, so
+
+All predictions match. So, the predictions of the default
+
+this perceptron loss from the scalar library and the
+
+predictions of my own
+
+perceptron method matches. So, I hope you got this particular point and further if you have to improve and try different bunch of values of this particular perceptron class, you can do that. Because if for this particular data set, it was quite easy to code and use this particular class, but for other data sets real life data set, you will not be able to get that exact combination of values in the first trial. So, you need to make hitting trial and you need to configure the right kind of values for these hyper parameters as we call it in machine learning. So, I hope you got this particular point and you will either
+
+Actually this eventually try these, these guidelines or try these tips that I'm sharing with you okay. So, let me know Do one thing, let me share one task with you.
+
+Okay. So, the final step is to share one task with you. And as a task, I want you to build a perceptron classification model to predict whether an individual So, I have assumed that individuals name is a is going to purchase a product or not. So, for that individual, we have given some some of his past decisions. So with this particular client price and this particular rating, he has not purchased if the rating is somewhere near two. And if the price is less than 20, he has not purchased in that situation he has only purchased if the price is greater than 30 or rating is somewhere around four. Okay, so for that I need you to build this perceptron model and thank you
+
+You so much for watching the video. Have a nice day.

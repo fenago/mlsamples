@@ -1,0 +1,401 @@
+Hello guys,
+
+welcome to this new hands on lab on Naive Bayes algorithm. So Naive Bayes algorithm is one of the most popular algorithm. And its popularity lies in the fact that it is one of the most simplest and easy to use algorithm and also easy to understand algorithms. So in this video lab, what we are going to do is we're going to be talking about how to implement Naive Bayes algorithm. And we are also going to be reviewing some of the fundamental aspects that make up this particular algorithm. And all of this we are going to be doing in Python programming language. So I hope you are as excited as I am. So let us get started. So the very first thing that I want to start talking about is what will be the aging of this video. So the agenda is more focused towards the hands on side so we will be spending most of our time on building things rather than talk talking, I'm talking too much about purely theoretical
+
+aspects okay.
+
+So, but still we are going to be reviewing some of the fundamental concepts of Naive Bayes algorithm in a very brief manner, so that we can get started with the implementation as quick as possible. So, first of all, we are going to be briefly touching about touching upon Naive Bayes algorithm, what is naive Bayes and how does this work? We are going to be reviewing one of the most classical algorithms In probability theory, which is known as Bayes theorem. We are going to be reviewing what exactly is that and we will be having a small discussion on our prior and posterior probability. Then we are going to be talking about what do we mean by feature independence and how this is related to the name of the night Boom. So, why do we have knife in front of this algorithm? So, this particular point is related to the fourth discussion. And finally, we will be having a small algorithm discussion or rather I should say algorithm description in which we are going to be talking about how does this particular algorithm work. And after that I'm going to be talking about distributions of likelihood. So, there can be three different types of distributions of likelihood, Gaussian distribution, Bernoulli distribution and multinomial distribution. Now, you might be wondering which one to use. So, it is entirely dependent dependent upon the type of data set we are having. So, it is depending upon the features that we are having. So, you will be exactly seeing how does that all work out. And then we are going to be taking up an example and that example I've created myself or other I should not say, I've created my, this particular example myself, but rather I have taken this particular example from the Wikipedia website. So what I will be doing is I will be building a Gaussian likelihood or other Gaussian Naive Bayes algorithm from scratch in Python. So, this particular data set I have picked up from Wikipedia website from the naive Bayes algorithms, Wikipedia webpage. Okay. And next, we're going to be coding this particular algorithm for Gaussian likelihood. And you will be able to exactly understand why are we using Gaussian likelihood for this particular data set? Why aren't we using Bernoulli or a multinomial likelihoods? Okay. So you will be able to identify where to use for. And finally, we are also going to be reviewing one class for implementing this Gaussian, Naive Bayes algorithm. In SK learn, for which we don't have to implement anything, we just can use this particular class. So why do we implement things just to learn And once we learn something, then we can use the inbuilt or other pre built stuff that is used by so many people that is trusted by so many people. So that is why we are just implementing to make sure that we understand the underlying concepts that go into a particular algorithm. Okay, and finally, I'm going to be sharing two tasks with you. Okay. So, I hope you are excited. So, let us now move on to the next slide, which will be a brief overview of NIH Bizzle good. So what is naive Bayes algorithm? so naive Bayes algorithm is one of the fundamental algorithms for classification problems. And it uses a very popular and popular theorem,
+
+which
+
+is called Bayes theorem In probability theory, so in the next slide, I'm going to be reviewing very quickly what do we mean by beast hero, but if you have to understand knives or Gotham, very briefly, then I would say that It is an algorithm which enables us to calculate the probability of a particular class given some features. So, that idea is what we are using in this particular algorithm. So, we have a sometimes we get confused as to why we are calling this particular algorithm as knives. So, we call this algorithm as knife is because,
+
+we assume
+
+a feature independence in in this particular algorithm which is rarely true in real world, but in this particular algorithm we assume that the features are independent of each other, which is not the case in real world but still we assume it and
+
+even
+
+even with this particular assumption, which is quite nice, which is quite oversimplified assumption, we are able to get quite powerful results. Okay. And, uh, why do we have bees in it? You you would have probably guessed it right? Because we are using Bayes theorem as a fundamental concept of base base algorithm. So that is why this particular algorithm is known as Bayes algorithm or rather Naive Bayes algorithm. So I hope the name of this particular algorithm and how does this work? Make sense? Now, what do we mean by Bayes theorem? So, Bayes theorem is a mathematical formula, which is one of the most popular mathematical formula probability theory. And what this formula allow us to do is calculate what is known as posterior probability. So, what do we mean by posterior probability? So, to understand what do we mean by posterior probability, we need to understand what do we mean by prior probability prior probability is a probability without any information. So, for example, I take any event of whether it is going to rain tomorrow or not. In this case, what I'm giving you an example of an event now, what you might See that there is a half chance of raining and half chance of not raining. So, in this case it is a prior probability. But, on the other hand, if I tell you that tomorrow there will be this much temperature, there will be this much cloud. So, if I provide you further information, then you will be able to better estimate the probability of whether it is going to rain tomorrow or not. So, when you will account these additional information to make your decision as to whether it is going to rain or not, then what what you are calculating is your calculating posterior probability and how does this all these things work. So, in this formula, which which is getting displayed here. Consider this event is the event that we are interested in. So, in our example, this event will be the event of whether it is going to rain More or not. Now, this probability of A represents probability without any information and this probability of A now this symbol, this vertical symbol is a read in mathematical mathematical notations as given. So, this this whole expression will be read as A given B. So, B is some amount of information or other we can call it evidence. So, B's evidence and a is the event we are interested in. Now, this whole expression will then be known as posterior probability. And how are we going to compute this posterior probability, we are just going to multiply the probability of evidence given this event. So, what we do here is we are we are actually seeing and we are observing how many times this evidence occurred with this event A So, this evidence can be whether the the The weather is cloudy or not. So, in this
+
+case,
+
+we will be checking the probability of weather it is. So how many times and the I know the weather was cloudy, and it rained. So given it rained. Okay. So the thing is we can we can compute this penalty, and we can multiply this penalty with the prior probability, which is in for without updating our information, what was the probability and we will be dividing this probability by the probability of evidence alone. So, we are not taking into consideration anything, we are just taking the probability of
+
+this evidence.
+
+So, I hope this formula makes sense. So, now let us move on. Okay, so, again this is the same slide I have just discussed the concept of prior and posterior So, you can pause the video and read this through and make sure that everything on this particular slide makes sense. I've already discussed all the things that that What what is what is the difference between prior and posterior probabilities and I have also taken this particular example before okay. So, pause this slide and make sure you understand it. So, let me move on. Now, let me talk about feature independence. And I have also briefly touched upon this particular concept in an earlier slide. So, let me talk about this particular thing again. So, feature independence means, all the features with which we want to predict the class, they will be independent. For example, I want to predict whether a particular whether a particular email is spam or not.
+
+Now,
+
+I might be interested in various features of that particular I think this is not the perfect example, let me or take this particular example, which is getting displayed on your slides. So, if I'm trying to predict whether a customer of bank will default or not, features might be the features of the individual That I might be interested in number of family members, that particular person has what is the income of that particular person what what are the total value of the asset? So, these three features, if I have to use Naive Bayes algorithm, I need to assume that these features are independent of each other, what does that mean? That means, the number of family members will be independent of income income will be independent of number of family members. Obviously, these things are rarely true in real life scenarios, but the still knives are good gives us very good results even without even violating this particular assumption. So, that is why this algorithm is no known as Naive Bayes because it is making a very naive assumption about the features. Okay, so, I hope this particular small discussion about feature independence made sense. So, you can pause this video and read this particular slide a little bit more. All right. So, let us now move on Let's start talking about the algorithm description. So, how does this algorithm work? So, to understand how does this algorithm work I have
+
+I have written this particular expression,
+
+which is known as a feature set. So, I have assumed that
+
+I am having a feature set
+
+from x one x two to accent So, I have got n features and I have a variable for class and that variable i have represented as white obviously, this y will be taking a distinct number of values.
+
+If for example,
+
+I am solving a problem of weather predicting whether a person is going to default or not, then in that case y will take two values, he might default or he might not. Or in other case, if I am having a news news article, and I am trying to group that particular news article in various categories, then in that case, why will Having number of values which is equal to the number of categories that I want to predict. So, here I have assumed that this particular variable will be having k classes and I have represented those k classes in small y one small y two x one up to
+
+small y k.
+
+Now, what are we interested in we are interested in let us say we are having a new sample vector. Now, let us say let us represent the sample vectors x cap. Now, this x cap will be a vector of
+
+n numbers
+
+each number will be representing the value corresponding to that feature. Now, this feature you might think like how many how many members are there in his family and x two might be what what is his total income what what is the value of total asset x cap will represent our vector of values
+
+where
+
+each value will represent the corresponding feature value. So, I hope you are getting the point. So, we are given this particular x Kept variable new sample vector and we are interested in predicting whether this person is going to default or not or any problem that you might think so, we are trying to predict how out of these k class which class it is this particular example is most likely going to belong. So, for that what we are going to do is we are going to be calculating this probability we are going to be saying what is the probability of Y
+
+now, where y is
+
+any class, so, obviously, this probability will be calculated k times okay for all the y's, so, what is a plurality of y given and that given will be can be replaced by this symbol vertical symbol as we have already seen in our earlier discussion on Bayes theorem. So, what is the purity of this y given
+
+x cap? We are
+
+going to be calculating this for all k. And we are going to be choosing that class for which this probability is maximum and we will predict that particular class. So this is all about this Naive Bayes algorithm. But this calculating this probability is not that easy. We need to understand few more concepts before we actually can, you know, actually implement this particular algorithm. So, I hope you're getting this particular point. In further slides, I'm going to further break this particular probability down so that you can understand what are we actually calculating okay. So, in this particular slide, what I have done is I have continued with that algorithm description and I have opened this formula using Naive Bayes sorry, using Bayes theorem and what does base differences Bayes theorem says, we can split we can rather expand this probability of A given B in this form. Now, assume for the time being,
+
+that this is
+
+this is why
+
+and this given will be this vertical symbol and this x capital VB. Now, using this symbols, what we can do is we can
+
+expand this
+
+particular formula in this manner,
+
+this is what I have done here.
+
+So, what I, what I have done here is x, y given x cap will be equal to probability of X, given y,
+
+which is clarity, you'll be given a
+
+times probability of Y now, we are interested in posterior probability of y, we are we will be multiplying it with prior probability. So, this is the prior probability as we have already discussed earlier, and we will be dividing it by probability of x cube which is the evidence.
+
+Now, what we can do
+
+is we can get rid of denominator, the reason that we are getting rid of denominator is because it is independent of y. So, it has no contribution in predicting Hawaii. So, we can just get rid of this y point and what we will be left with is probability of X given Y times per to y. So, this particular concept this particular probability Which is probability of Y given X gap can be written as this probability multiplied by this penalty, we have already discussed that this poverty is nothing but prior probability and we are calculating posterior probability. Now, what does this imply? So, this particular probability is what is known as what is known as likelihood. So, this is what we are interested in calculating, we can calculate this once we have this prior probability. Now, how do we compute this prior to it, it is very easy to compute. I'm going to be showing you exactly how to do that in this video. But if I have to tell you very quickly how to compute this, provided to via what we are going to be doing is whatever number of clause we are having in our data set. We will just see how many times they are repeating Suppose, for example, I'm trying to predict whether a particular email is spam or not. In our data set what I will do is, I will count all the examples for which the email was a spam. Let us say, the number of spam emails were 10 and number Have non spam emails were 20. So, in that case, the probability of the spam email will be 10 upon total emails, so 10 upon 30 will be the answer. So, so, this will be the probability of a corresponding to a spam. So, via takes two values here, one value will be spam and one value will be non spam. So, for spam, it will be 10 by 30 for non spam, it will it will be 20 by 30. So, I hope this particular thing makes sense, the probability of X given Y is what we need to understand how to compute and this is what I'm going to be showing in the next slides. Okay, so, how to come up with the distribution of likelihood. Now, it depends features to feature since we are considering here x gap we are we are talking about x here. So this is a this is why we need to understand what is the type of variable that I'm dealing with. If I'm dealing with continuous data, then we will be using Gaussian likelihood Now do not get scared by hearing these are difficult terminologies these are just different forms of calculating the probability. So you will be given a formula. So in this particular video, I'm going to be taking an example of Gaussian likelihood you will just have to understand how this formula will count and everything else is just same okay. So for binary data, so, if our data is like yes or no type, then in that case, we have we are we are we will have to use Bernoulli likelihood and if we have multiple class data set for example, a particular feature which is taking multiple values more than two values, for that case, we will be using multinomial likelihood. So, I hope it makes sense. Now, we will be understanding what is Gaussian likelihood. So, Gaussian likelihood is a likelihood first of all let us understand or let us not talk about what is Gaussian likelihood, but rather let us talk about what how are we going to coming up with this likelihood So, what we do is we are going to be splitting our whole data set
+
+into key parts
+
+for each distinct label. So, let us say we are having wire with two values whether a particular email is spam or not. In that case we will be having two separate data set one data set will be corresponding to label spam and one data set will be corresponding to label ham or in other words not spam. Once we have these two data sets, what we need to do is we need to compute for each data set for each features. So, each data set will contain multiple features and how many features it will contain it will contain and features okay. So, for each feature, what we need to do is we need to compute the mean and variance of that particular feature. And to calculate this likelihood probability what we do is we use this particular formula. Now, let me give you an example. Now, let us say I need to calculate this particular point Okay, now, this x cap will be taking multiple values because this is a vector, this is a vector of n values, okay, now we will be having n features, let's consider x one for the time being, I need to compute probability of x one
+
+given y.
+
+So, what will I do is I will just use this particular formula and replace this sigma, this is a, this is known as sigma with variance and this mean with mu
+
+and x will be the point
+
+at which I'm trying to calculate the probability. So, whatever point I'm trying to calculate the probability, I will replace it with this and these E and pi symbol will have their corresponding values. Now, what I will do is it will give me the probability corresponding to x one So, I will replace x with x one and in the similar manner, I can compute one more expression for x two and again I can compute the expression for x
+
+three.
+
+So these all are giving me various probabilities. And I didn't repeat this process all the way till
+
+accent.
+
+Now, at the end, what I'm going to do is I'm going to just multiply these feature probabilities. And once I multiply this probability, I will get this final
+
+value which is
+
+which will be this probability
+
+of X given Y.
+
+Now, the reason that I am multiplying these various Bertie is because of this feature independence. Earlier we talked about this feature independence and that is what why precisely this algorithm assumes
+
+that this
+
+this algorithm assumes that our features will be independent. So I hope you you're getting this particular point. So now let us move on. So I hope you were able to understand this feature independence concept. So the reason That now you now you should be able to understand that the reason that we took this assumption of feature independence because we were, we were trying to multiply all those probabilities. And to make sure that we are able to multiply those probabilities, we need to assume this independence property, because In probability theory, we have this we have this property, that is the joint joint probabilities of various events can be computed, if the individual events are independent, then we can just multiply those events to come up with the joint probability and that is what we that is what we are using this particular in this particular example, right. So, I hope this discussion on Gaussian likely would make sense. Now, let us start discussing the example that we need to code in Python. So this example is related to a classification example classification tasks. The task is to predict whether a particular person with three attributes height and weight and food size, we need to predict whether that particular corresponding person is male or female. So, we need to predict the sex of the person. So, to actually predict this particular thing, we are going to be coding a Gaussian Naive Bayes algorithm. Now, let me move on move back to that discussion in which I talked about the variable types. Now, I discussed that for continuous data, we need to use Gaussian likelihood and now you will you will be able to understand why I am using a Gaussian likelihood here because if you look at this these variable types, then these variable types will look like continuous variable types and that is why I'm using Gaussian likelihood okay. So, now let us go back to the Jupiter lab environment and start coding the naive Bayes algorithm in Scratch Ok. So, to actually code this particular algorithm, first we need to get the access of that particular data. So that is why what I have done is I have uploaded this person dot CSV data in my Jupiter lab environment. And now I'm going to be opening up opening up a new notebook, a new Python three notebook. And in this particular notebook, the first thing that we need to do is we need to first of all import pandas and NumPy. So, let us import these two libraries so that we can work with this particular
+
+example.
+
+So okay, so let me import load the data set first. And this data set is having name person dot CSV. So I'm going to load this particular data and let it print this data. So this is the same data set that we have just looked at in this particular slide. Okay, now we are going to be starting with the code. All right. So what are the various things that we need to do? We need to come up with the probabilities of this for male, male and female. Okay. And we need to build a mechanism with which we can predict the, the gender of the of the person based on these given features, height, weight and full size. Okay, so let us get started. So the first thing that we need to do is we need to split this data set into two parts. And the reason that I'm splitting this data into two parts because I have got this person with two distinct values. So what I'm going to do is I'm going to name mail data which will be corresponding to the data set of with mail class. So I'm going to do subsetting. So data
+
+dot person
+
+where it is male, and I'm going to say female data. And I'm going to subset this data again.
+
+All right. So let's load this this data okay. So, we
+
+have got now male data and female data okay. So, we are we are having these two different data types or rather these two different data frames for both groups. Okay. So, let me now go back to the naive Bayes
+
+discussion and
+
+there I want to talk about this Gaussian likelihood point. Again, what we discussed in this particular slide was we need to split the data into separate data sets which we have already done. Now, the next thing is for each data now, notice this thing we need to do for each data we need to compute each features mean and variance, okay. So, we need to somehow stole the mean and variance of this height, weight and food size, height, weight and foot size for both male and female. So, for this what I will do is I We'll use a NumPy inbuilt mean and variance function. So let me quickly demonstrate you the NumPy mean and variance function. So if I pass in the NP dot mean a list of some values, then I'm going to get the mean of these a bunch of numbers, and it is true with variance also.
+
+Okay, and
+
+so if if I need need are these meaning videos, so what I can do, I need to have mean and variance for both the type of data. So first I will do first I what I will do is I will restore something like female data height, okay. And what I'm going to do is I'm going to make a list of two numbers. And these two numbers will represent mean and variance, the first number will be me and the second number will be v DS corresponding to this female data. So what I'm going to do is I'm going to do and P dot mean and I'm going to call it
+
+Female data
+
+or other female data, and I'm going to extract height Okay, female data, and I'm going to extract height and let me do this same but with NP dot variance. Okay. So yeah, so we have got this female or data hide argument and let me run this particular cell and if I print this cell
+
+so we are getting two numbers,
+
+one for mean and another for variance. Now let me do this very quickly for all the features. So let me
+
+copy paste this.
+
+Since we are having three features,
+
+we have to do the same for weight and food size also. So I'm going to do weight and
+
+and I'm going to do food sighs
+
+All right, but here We have to change the weight
+
+or gain
+
+weight and here we have to right foot size
+
+All right,
+
+and the same we need to do for males also. So, the only thing that I need to replace is I need to remove this FC from the beginning
+
+Okay, and
+
+from here also I need to remove because I have named this male data as male data. So it's easy to do this
+
+Alright, so, we are having this
+
+small collection of values, what we need to do we have successfully done and once I run this particular cell, after that, what I can do, I can I can make a dictionary, I can make a dictionary of parameters. So, these are values that I have just computed these values In the form of meaning videos are what are known as parameters of Naive Bayes algorithm. Okay, so I'm going to make parameters and I'm going to make two separate separate keys. So, first will be made and second will be for female. And
+
+again
+
+who corresponding to this female key will be again a dictionary. And again for female key it will be a dictionary and corresponding to male corresponding to male Okay, let me let me do one thing. So, let me make three keys
+
+for storing
+
+the mean and variance corresponding to each feature. I hope you are getting the point that I'm trying to accomplish here. So what I have done is I have I have created this male key which which is corresponding which is giving us this
+
+dictionary with
+
+three keys corresponding to each values and Each key will store the mean and variance. Okay? So let me copy and paste
+
+this particular first of all let me fill
+
+out these values. So males height are stored in this variable. So I'm going to copy paste this, the first value value will be mean and the second value will be variance. Okay,
+
+so now let me do that for weight.
+
+Let me do the same for food
+
+sighs
+
+All right. Let me see.
+
+Yes, so we have got this result. Now what I need to do is I need to just copy paste this dictionary. This is this dictionary which is corresponding to me.
+
+And I can just paste
+
+this here, but I need to replace few things. I need to add F in the beginning of each Later because they will now correspond to female data All right. So, we are having this this parameter dictionary with the appropriate parameters for both the data sets Okay. Now, if for example suppose a situation where we are having rather than only two classes, we are having more than two classes, say for example, we are having three or four classes. To do that for them to do this procedure for that situation, what we instead need to do is we need to somehow create some kind of loop to kind of automate this process, okay, but that is not very difficult. We could have done that also, but for only two classes, it doesn't make sense to create a loop. Okay. So now what I need to do is I need to code a function which will calculate this probability for us. Okay, so what I'm going to do is I I'm going to declare a function. So, let me run this particular parameter All right. So it is giving me an error first. So let's see All right, so, we need to close this dictionary. So now let me print to this particular dictionary All right. So we are having these values.
+
+And now let me code this particular
+
+function which will compute this probability. So I'm going to call this particular function as
+
+calculate
+
+normal probability.
+
+Now, this function is going to take one argument called point and the second argument it is going to take mean and variance so point will be corresponding to this x and mean and variance will be mu and sigma.
+
+Okay?
+
+So let's call me and obedience. Okay. So, now I what I need to return is I need to return one divided by NP dot square root and I'm going to multiply two multiplied by np.pi
+
+multiplied by v Yes,
+
+and what why I have done this particular point because we are having to multiplied by variance. Now, this whole sigma squared is corresponding to radians, if I have to look at sigma alone then sigma is corresponding to standard deviation and this PI value and next
+
+we are going to be multiplying this particular expression
+
+with NP dot exponential
+
+and what we are going to do is we are going to be having negative
+
+one and
+
+this point that we have been taken subtracted by me and we are going to be taking the square of this particular expression. And once we have done that, we need to divide this expression
+
+by two times
+
+variance and why I have done this because we are dividing here also two times variance. Okay, so, I hope this particular Calculate normal probability function makes sense. So I happen to run this particular set. Now what I need to do is I need to create a function for computing
+
+posterior probabilities.
+
+So how can I compute posterior? So, let me move on to the slide where I discuss this. So posterior probability will be computed by multiplying likelihood and priors Okay, and likelihood will be computed using this function All right, but prior will be computed how not for this particular data set, notice this we are having four values in male and four values in female data set. So in this case, male and female probabilities are equal. So, hence probability of prior for both classes are equal which is point five. So, what I'm going to do is I'm going to create a function, I'm going to call the first function as posterior mean. Now this posterior made is going to take three arguments. height, weight, and foot size. And what I'm going to do is, first of all, I'm going to say prior
+
+is equal to point five.
+
+Okay, so prior is point five. Now what I need to do is I need to compute the likelihood for height, likelihood for weight and likelihood for foot size.
+
+And how I'm going to do, I'm going to be passing one number
+
+in this function, and these numbers will be paused here.
+
+And they are mean and variance will be taken from here, I hope you're getting the point. So what I'm going to do is, I'm going to say, meal,
+
+height,
+
+likelihood. And I'm going to call this calculate
+
+normal probability. And
+
+then in this function, I'm going to first of all pause height. And in place of me what I need to do is I need to
+
+call parameters.
+
+And for what
+
+class I'm making this posterior I'm making this procedure for male So that is why I need to extract this male
+
+male key
+
+and once I extract this male key I will be having one more dictionary and from the dictionary I will extract the height
+
+Okay, so I will extract the height
+
+because I'm computing the likelihood of height once I extract the height, what I need to do is I need to compute or I need to extract the first element for the mean okay, so I will do something like zero and let me copy this particular expression and let me paste but in place of zero I will do it for a one and now the process is quite repetitive. I need to do this three times. First for weight and next for food sighs
+
+meal food sense
+
+okay. So we are we are we are getting three light loops, okay? Where I have to change these numbers. So I need to change from height to weight from height
+
+to food size.
+
+All right, other things looks good. Now what I need to do is I need to return a probability How am I'm going to do that I'm going to multiply this likelihood by prior. Now, this likelihood will be computed by multiplying these three individual likelihood and that is why we took the assumption of independence features were assumed independent That is why we are able to multiply these three numbers.
+
+Now let us quickly copy paste this
+
+all right, and finally we are going to be multiplying it with prior
+
+All right, so finally one once we return this we are having this function which is going to take a new height, weight and food size value and it is going to predict
+
+the new
+
+The probability rather I should say the posterior probability of that particular that particular person whatever person we are passing the data off and corresponding to that person it is going to predict the posterior probability and based on that we can decide now I need one more function which will which will give me the posterior of female That is why that is how we will be able to compare those two probabilities and we will be tell whether which one will be will be chosen because obviously we will choose the maximum one okay. So, again a posterior female we have just we have just copied the earlier function and change the name of the function has posted a female prior will be same and in place of this male we will add the female
+
+Okay, so now in place of this height is alright so, I have done I have just done a mistake I need needed to pause. Wait here, and food sighs it was just taking the scene.
+
+Document Okay. Now it is correct. Now let me do the same for weight
+
+and food sighs okay. So, these parameters will be changed in place of males parameter I will extract the female rest will be seen
+
+let me change it for this also
+
+okay. So I hope this particular thing okay yeah one more time we needed to change here also. So, one more mistake I have done. So, this is what we do when we are doing lots of copy pasting which is not quite advisable but since there were only three or two classes already That is why I copied and pasted So, but in real life, it is not advisable to copy paste things because there are lots of chances of making some serious mistakes.
+
+So let me quickly look at this particular function again. So that it makes sense or other I should just add female.
+
+All right, so I think it is going to work properly now. All right, so we are having posterior a male and posterior female. Now what I can do is I can take a new sample. Okay, I can take a new sample, like
+
+and let me take a new sample like this. Let me take height as I don't know, what should I take? Let me take it five feet six inches. Okay, and let me take a weight of
+
+150 and let me take a food size of it.
+
+And I'm going to predict what our knives are good some things this particular person belongs to, in which category male or female
+
+All right, so we have got our new person
+
+And new sample sorry. And now what I'm going to do is I'm going to be calling this particular posterior mean function posterior
+
+mean function. Now, to call this posterior mean function, I need to access the height weight and full size How can I access it I can access it using new samples. So I will say new sample and I will access height
+
+I will do new sample
+
+and I will access rate and similarly, I will do new sample and I can access full size.
+
+All right, so this is going to give me male probability probability post or other I should call it posterior male probability.
+
+And let me copy paste this
+
+posterior female probability.
+
+Okay, and rather than calling posterior
+
+mean I'm going to call posterior female this time okay. So, we are having this prove abilities okay it has successfully there. Now, let me create a list called labels, the first label is male and the second label is
+
+female. And let me call let me create a list of bands the first value corresponding to male will be posterior male probability
+
+and posterior female probability
+
+All right, so we are having this, these numbers and now let me print
+
+the new
+
+sample belongs to
+
+what class I will call labels, and I need to call np.org max. Now it is going to calculate the maximum of these two numbers and it is going to give me the index of this list. Okay, so let's
+
+On this function, all right, so it is saying the new sample belongs to female. All right, so let's change the numbers a little bit. And let me call this height as 6.2. And let me increase the weight, let's say 120 or other 170 and food size, food size should be 10. Okay, let's see. Yeah, this time this person belongs to me. So, I hope this particular implementation of Naive Bayes algorithm or other I should call it Gaussian like Naive Bayes algorithm makes sense. So now, let me move back to the slide. And now let me show you how does this particular class in SK learn works? So Gaussian Naive Bayes class in a scalar. So for implementing this for actually looking at this particular class, I need to import it first. So I will say from sk learn.ny with
+
+Kimbo
+
+Gaussian Naive Bayes
+
+Wait a second
+
+Okay, why does not loading okay yeah, so, sk learn from SK learn dot naive this
+
+import
+
+Gaussian rapists. So again the process is quite similar to other classes in SK learn the first step is to make our empty or rather I should say initialized empty class instance. So I will say Gaussian and B and I will call it gv which stands for Gaussian by the 90s or rather I should say GNP and I need to fit GNP.
+
+But to fit it, I need to have X and Y. So let me do this first of all and let me extract x and y. So I am
+
+I have this data, but I need to first of all, extract the height weight assigned in this x variable. So I will say x is equal to data, and I will extract height,
+
+weight,
+
+food size, okay, but to extract why I could have just just extracted the person But to do that, we what we need to have is we need to have this person,
+
+person column in this data frame in the form of ones and zeros. So let me quickly
+
+convert it
+
+in that form. So, to do that, first of all, I have to initialize a label method.
+
+I will call it zero.
+
+We'll call it one and I will make a new column
+
+We'll call this particular column label. And
+
+what I'm going to do is I'm going to extract the person and I'm going to map it to
+
+this label method. Okay. So we have this label column and now I can extract this. So we are having x&y. So now I can fit this particular class Yup. So, our class is working now, and we cannot predict
+
+using some values, so, let me operate it from the on the same example that I predicted using my implementation. So I took height as 6.2. So let me create an create a NumPy array. So new x
+
+and p dot carry, I will save height is 6.2. And wait is 170
+
+and food sizes 10 and I'm going to
+
+reshape it to negative one to one okay. So, now let me call it on this particular
+
+example All right. So, we are getting 111 that means, we are we are predicting it belong we are saying that this particular example belongs to one and one is corresponding to female okay. So, it is not working properly. So, I think I did not specify this correctly, let me let me do one thing, let me just pause the X the input this time it is working so, yeah so, zero is corresponding to meals and one is corresponding to female So, that that is how it should work. So, I think New dot x is not how it is going to work. Okay. So, so, I hope it makes sense this particular implementation and how we can implement it in ourselves also and we can also take help from a scaler
+
+Obviously, if you're trying to implement it really quickly on real world problems then the scalars implementation is advisable okay. So, now let us move on and I have created this a small data set for you and in this particular data set what I want you to do is I want to I want you to make
+
+an AI based algorithm, but with a different likelihood here I used Gaussian implementation of likelihood but you need to use a you need to think about this particular problem and you need to see which particular likelihood should you use considering we have already discussed in what scenario which likelihood is supposed to be used. Okay. Okay and further I have also given you one more task, you need to go to kaggle and use you need to search for this particular competition called cura insincere question classification. And for this particular data set, what you need to do is you need to have
+
+Get a multinomial Naive Bayes algorithm and you can use SK learn for this, you can just
+
+instead of
+
+instead of Gaussian NP, what you can do here is you can call multinomial okay and you can fit this particular thing the way we have fitted
+
+we have fitted this Gaussian, okay.
+
+Okay, so I hope this particular video makes sense and everything that I discussed in this particular video makes sense. So thank you so much for watching the video and have a nice day.

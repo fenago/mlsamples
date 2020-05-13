@@ -1,0 +1,369 @@
+Hello guys, welcome to this video. In this video we are going to be discussing about linear regression or more specifically, we will be actually demonstrating 
+how does linear regression works by coding linear regression algorithm from scratch in Python. And further, we are also going to check our answers and rather 
+I should say, we are going to match our answers from the answers that we will be getting from the library scaler. So, let us get started. So, to start off, 
+first of all I would like to discuss what are the various things I am going to discuss in this particular video. So, the agenda for this video is as follows. 
+So, there are six things that I want to discuss with you. So, to start off, I'm going to briefly talk about what is linear regression and how does it work. 
+And after talking about linear regression for some time, I'm going to be talking about some of the real life examples and
+
+Use Cases of this particular algorithm. So, in a real world, you can find many numerous examples of linear regression algorithm. 
+So in the second part of this video, I'm going to be talking about this only. And after talking about real use cases of linear regression, 
+I am going to be taking a example, which is going to be an example which I have created by myself. And that example is a example based on a
+ toy data set for house price prediction. So based on that toy, this data set in the fourth part of this video, I'm going to be coding the 
+entire linear regression algorithm in Python. Okay, and once we get our answers, we are going to be matching those answers with the library 
+implementation, such as SK learn. So we are going to be matching our own answers that we have got from our algorithm that we coded from scratch, 
+and we are going to be matching those answers from the answers that we got
+
+From the from using SK learns library. Okay, so after doing that the sixth part of this video will will be having some tasks for you is basically 
+I will be giving you two tasks. So I hope you're, you're excited to watch this video. So let us move ahead
+
+Okay, so let us get started with the first part of the video. In this part I'm going to be briefly talking about what is linear regression okay. 
+So linear regression is a procedure, which enables us to find a line four 2d data which is best among all possible sets of lines. Now, notice this 
+particular statement for 2d data, because a line is said to be aligned for 2d data only. If our data is say for example, 3d 4d or some other higher 
+dimensions, then we cannot call linear regressions of fit as line we will call
+
+That particular
+
+that particular equation that we are going to be fitting in those higher dimensional hyperplane and hyperplane is just a fancy way of saying line 
+in a higher dimension okay. So, I hope it makes sense, but one of the nice things about linear regression is it is quite extensible or rather 
+I should say, it is quite extensible in the way that once we understand how does linear regression works for 2d data, we will be able to understand how does 
+it work for 3d, 4d or even any data? So, the main thing that we need to understand is how does it does it work for 2d data, once we are comfortable coding, 
+how linear regression will work for 2d data, we will be able to code any higher dimension algorithm also. Okay, so let's now move on.
+
+Okay, so once we understand the theory behind 2d linear regression, so this is this slide just discusses and emphasizes what
+
+I have already discussed in the previous slide that once we are comfortable with 2d linear regressions theory, we will be able to generalize 
+and we will be able to work with higher dimensions also okay once feel but we should be comfortable with 2d linear regression first. 
+So, this is one of the fundamental aspects of linear regression that we need to understand how does linear regression works for two dimensional data.
+ Now, here if any of you guys are not familiar with what is what do we mean by two dimensional data, then to actually give you a very small definition 
+then I would say that two dimensional data is a data involving only two variables, whereas, three dimensional data is a data involving three variables.
+ So, it is quite clear from the very name itself. Okay, so, in this particular video, I'm going to be a take. I'm going to be taking a particular data set 
+and using that data set you will understand that there will be two only two variables
+
+In that data set and in that data set, since there are only two variables, we will call that particular data set or 2d data set or other two dimensional data set. 
+Okay, but the results are quite easily generalizable as I have written here. So it can be easily generalized to more higher dimensions. 
+Okay, so let's start to talk about an example. Okay, first of all, before we actually take an example, I would like to first of all talk about how does a 
+2d line looks like? So a 2d line? Again, I'm saying this to you that a 2d line will involve two variables, one variable will be represented as x and the
+ another variable will be represented as y. And there are two sets of constants that we need to figure out from the data. And those two sets of constants 
+are what defines a particular equation. So this particular equation is defined by these are two sets of
+
+these two sets of coefficients. This answer
+
+And the C. So, these this m, this M has a special name associated with it, it is known as slope of the line. And this m is actually a number 
+which decides whether this line is going to be steep or whether it is going to be flat, whereas C is a Y axis intercept of this particular equation. 
+Okay. And y and x are actually the symbols for representing our data.
+
+So, I hope it makes sense to you, okay. So, for example, consider an example where I'm trying to predict the price of a house based on number of rooms. 
+In that case, my wife will, my wife might be representing price of the house, whereas my x will represent a number of rooms and I might be interested and 
+looking for an equation, which will be looking something like price is equal to m times number of rooms.
+
+Which I have returned here plus c. So, essentially what we are looking for in this particular example is we are looking for these two constant constants m and c. 
+So, that is what we are looking for in a linear regression. So, I hope it makes sense to you. So, once we understand that Now, the next thing that we need to understand 
+is, how do we actually get our computers to
+
+get to that best values of MNC. So, this is what we are going to be learning now. So, whatever is displayed on your screen right now, is a sequence of steps that 
+we might follow in order to program a computer to learn the best set of lines. Again, I have already discussed that a line is characterized by two values which 
+which are m and c. M stands for slope, C stands for intercept. These two values are the values that we need to compute and our
+
+There can be infinitely different a number of values that that might be you know, that might be that we might use for a particular line which one will be best. 
+So, to get to those best values of MNC what we do is we follow a sequence of steps that constitute what is known as algorithm and this particular series of steps 
+of involving these three points is our what is what constitutes a steps of linear regression algorithm. So, let us get started and study each one of these points
+ one by one. So, before I actually I understand, I read this first point I would like to tell you one thing that computers are pretty good at performing,
+ performing large amount of tasks in a very short amount of time. So, what we do is we are trying to use that capability of computer to solve
+
+This linear regression algorithm, we know one thing that we want best values of MNC. Now, what will be the best values of MNC though the use of mn 
+MNC will be best, which fits the set of points set of line as best as possible and how will we how will we know that our line is best? If that line is best, 
+then that line will be as close as possible to set of points. Okay? So, what we do is, we first of all randomly initialize any value of MNC it simply doesn't 
+matter whether those MNC value make a line which is perfect or not, we just initialize any value to MNC. And once that value has been initialized, we get a 
+line we get a line in the form of y is equal to
+
+mx plus c y is equal to mx plus c you get the idea right. So, we are getting this particular form and once we initialize these values MNC but that are
+
+Fit obviously will not be better, because we are just taking any random everywhere okay. So, once we have decided that we are going to choose a particular 
+value of MNC The second step is to decide how many times we are going to update these values and that of that term will be known as number of iterations. 
+So, next step is to decide how many times we are going to update values of them okay. And once we have decided that say for example, I am interested in 
+updating these values 100 times or 1000 times or even 10,000 times or one might update these values one lakh times. So, it all depends on on what type of 
+problem we are having. Once we have decided that what we are going to do is we are going to repeat these three steps, these three service steps. And in 
+these three service steps, what we are essentially doing is we are first of all are taking random data from x y. Now, here x y can be anything for a for 
+our particular example, since we're only
+
+Studying 2d data, we have only taken two points x and y. So, what we will be doing is we will be taking a random point from this set of points Okay, this will become 
+clear once we studied the data toy data set of house price prediction, but as of now, just understand that we will take this random data point. Now, this random data 
+point has one x and one y okay. So, using this x we are going to plug this x into this equation based on these random values of MNC okay and once we plug these values, 
+we will get a Y and that y will be known as predicted y. So, in the second step we are going to get a predicted y okay. So, in the third step what we will do is we will 
+compare that predicted y to this actual y So, this is our actual bi This is our predicted y from the equation. So, once we get that get that predicted y and the actual y 
+we are going to compare this so what is the best way to compare two sets
+
+Do I want my predicted value to be as close as possible to the actual value? So I, what I essentially want is the difference between this predicted and actual value 
+should be as close as possible to zero. So if this difference is very large, then I'm going to update the values of MNC by some amount. Okay, so essentially 
+what I'm trying, what I'm trying to make you understand here is that the update part will
+
+take into consideration this difference between actual and predicted y. So this this difference will be multiplied by something known as a learning rate. 
+And based on that, we will be updating these values what values are we updating we are updating MNC. Now after updating these values, we are going to be again 
+going to the first step, but since we have updated these values of MNC, the equation
+
+Y is equal to mx plus c will be updated and based on that our prediction will be updated and again and the values of MMC will be updated. So, 
+this cycle will continue on until this number of iteration has not been completed. So, I hope this is small discussion on how does linear regression works 
+algorithmically on paper makes sense to you. In later slides, we will be teaching up an example and we also we are also going to be coding this particular 
+example from scratch in Python.
+
+So, let let us now move on. So, the procedure that we just discussed is what is known as linear regression algorithm. So, we just discussed this linear regression 
+algorithm on paper. Now, in later slides I am going to show you how does this particular piece of piece of algorithm looks like in a pseudocode and once we look at 
+the pseudocode we will
+
+To be able to understand how we can actually code this particular thing in Python, okay. And further the answers that we are going to get from our Python we are 
+going to actually be validating that particular and kind of checking those answers by using an inbuilt library in SK learn
+
+and that library is known as linear model and from that library we are going to be using a function and that function will tell us whether our answer that we are 
+getting matches with our implementation of linear regression okay. So, we have just finished with the first part of the video. So, what we were discussing so 
+far was this is more discussion on linear regression. So, this is the first part that we have just completed. And now we will be covering the second part which 
+is real life examples and use cases of linear regression algorithm, okay. So let us move to that slide. All right. So use cases of D
+
+irritation. So, there are plenty of use cases, I was simply not able to think of all the use cases that that can you don't have in real world. But what
+ I have tried to do in this particular slide is I've tried to include as many use cases as possible in this particular slide. So, the first use case is 
+prediction of future revenue or sales. So, many companies use linear regression to predict their revenue or sales based on some features like advertisement, 
+okay. So, based on this particular use case, I have also included a task for you in the end of this particular slide, okay, once I code this linear regression algorithm, 
+I have added a task for you based on this particular use case. Okay. The second use case is predicting the electricity consumption by consumers. Now, note here that in 
+all of these use cases, the type of the variable that we are predicting is of continuous type fairly routine.
+
+number of variables, well the number of values that the variable can take we we cannot count to those variables. So, those variables are known as continuous variables.
+ And the third example is prediction of price of house based on its various features. So, we are going to be coding on this particular example, in in this video and in 
+the fourth use case we have added marketing market effectiveness. So, various forms use linear regression to measure market effectiveness also, we predicted risk value 
+of a customer, usually this particular use case is related to a bank, the banks use a linear regression to measure and predict risk when you have a customer so, 
+that they can be proactive and take intermediate intermediary actions against those those persons who are at high risk. And the sixth example is predict prediction 
+of stock prices. Okay, usually this comes under the time series integration. Okay, so I hope all of these you use
+
+Cases of linear regression made sense and you also are interested in some use cases of linear regression.
+
+Let us now move on
+
+all right. So, this is the example that we want to code in this particular video. So, have a good look at this particular example, what I have done is I have created
+ this more data set toy data set you can call it where I have added two variables hence, this particular data is a two dimensional data and in this data we have got
+ a feature which is a number of rooms and we have got got one more feature which is a price okay. And what we are interested in is a model which will be which will
+ let us predict the price based on number of rooms. So, given number of rooms we will be able to tell what is the price of that corresponding house. So, this is
+ what we are going to be looking so after plotting this data set on Tuesday.
+
+Plain This is the plot that we are looking for and on close inspection we are able to kind of see roughly that this is the kind of linear regression model that 
+we are looking for we are not looking for this line why because the distance between this point and this line is quite huge whereas, on this line this this one
+ The difference is not that much so, that is why we prefer this this particular line okay. So, let us now move on
+
+all right. So, before actually going to the Jupiter lab environment and actually understanding what will be the code of this particular example, what I have
+ done here is I have added this pseudo code of for linear regression. Now, how to write a pseudo code for linear regression, it is not that difficult. What
+ I have just done is I have taken this piece of piece of text and I have converted
+
+This piece of text into symbols in code, okay, so that it's easy to understand to someone who knows a little bit of programming. So the first one, the first
+ step, what I've done is I have a fixed number of iterations. As you can see here. I fixed number of iterations. I've initialized M and initialized C. 
+So I've taken some random values for m slope and C intercept. And then I've looped through how many times number of iteration times so I've looped through it, 
+and then I have a randomly initialized random x and tenable. Okay, so I have taken some random bunch of points from our data. Okay, so based on that those two points, 
+I have used random X to get the prediction from those random M and random C. Notice here I am getting a prediction right. Now, this is a prediction value, and what is
+ the actual
+
+When this is our actual way, so, this is our actual value and this is our prediction, what we will be doing is we will be comparing these two values and based on these
+ two values we are going to be updating or m and c, but notice here I have not added a learning rate here. So, I should have added learning rate here also.
+ So, learning rate I should have initialized to some values usually learning rate is a small value. So, what we do is we take actual y minus a prediction.
+ So we are taking this on a difference and if both of these values are same, then this difference will be actually close to zero. And this multiply zero multiplied by
+ anything will essentially be zero. So it will have no effect. So if our model is good, this MNC will simply does does not change. Okay, so this is the idea of of our
+ pseudocode so you hope it makes sense.
+
+And further into Step four, notice after the loop ends
+
+Now, what will happen is it will happen all over again and again. And hopefully eventually after the end of this loop, these MNC would have been updated so,
+ many times that the MNC will be perfect Okay, hopefully, we can hope this if the number of iterations are very large and if learning rate is small, then most
+ of the time we are able to get the perfect value for m and c. So, I hope it makes sense. So, I hope you were able to follow through and understand everything
+ that we discussed. so far. We have not written a single line of code yet. So we will be going to that now. So let's uh, let us get started with code coding and
+ let us turn that pseudocode to actual working of code, okay. So what we are going to be doing is we are going to be actually turning that pseudocode into an actual code.
+ So let me move on to the Jupiter lab environment and
+
+Inside this Jupiter lab environment, what I am going to do is, I'm going to first of all open a new Python notebook.
+
+And once this, I'm going to select Python three obviously.
+
+Alright, so once this Python notebook has been selected, the second thing is that that I am going to do is I'm going to first of all
+
+write the data set. So I'm going to make some variables to store our data. So, so let us first of all, make, let us first of all, look at our data set. 
+So what was our data set? So this is our data set. The X is obviously number of rooms and prices, something that we would like to be able to predict. 
+So I'm going to make two variables here.
+
+I'm going to make number of rooms, which essentially is a list if you look at it, this is a list of seven values. So what I can do is
+
+I can make a list
+
+of values from one to eight since pythons by 10 does not include the last value, so it is going to make a list of one to seven values. Okay. 
+And next, I'm going to I will have to add some values of price manually. So, let me do that very quickly 155 201
+
+and 260 and 310349 390
+
+and 465. So, once our data has been entered, we are going to run this particular cell and after running this particular cell, we have our input and output variable.
+ So we have our x variable and Y v, but, so what is our pseudocode? Now let us look at our pseudocode what are the first steps so the first step that if
+
+We would like to do is we would like to first of all define number of iterations and learning rate. So, these are the few points that we are going to define.
+ So, let us define learning rate to be, usually it is better to start with 0.01. And let me say number of iterations, I'm going to stored it in the variable and it does,
+ and I'm going to pass 1000 or maybe 10,000 to it. And then after that, the next thing is we have to initialize some random MNC. So we have to initialize some random
+ and random see, okay, so this is what we are going to do. So for to do that. What I'm going to first of all do is I'm going to import a module called random.
+
+Okay, and I'm going to quickly show you how does random module works. So let me call a random method or random function from this random package or a new module.
+
+Run this particular function. Notice what is the output of this it is 0.084. Let me run it again. Again it is giving me some other numbers. Now what this random 
+function does is it gives us a random numbers from zero to one. Okay, so it can give us any number from zero to one. Okay, now let me explore one more function 
+from this random module called random key. And
+
+what a random int will be able will let us do is we will be able to draw random numbers from
+
+between from between two numbers. So, if I'm interested in drawing a random number from one to nine, okay, and here, both the numbers are inclusive means
+
+fun, both one and nine can occur in random. So if I hit Enter, it is giving me a random number of it. If I hit Enter again, it has given me the random number of five.
+ So these two functions random and random interview
+
+Going to use from the random module. Okay, so I hope it makes sense. So using this random function, what I am going to do is I'm going to start with slope or 
+I will also add em to it. So slope will be random dot
+
+random, and I'm going to say intercept.
+
+For other see
+
+random dot random. So what I've done is I've initialized the M NC to a values from zero to one, okay. So obviously, these values are not the best values.
+ Now what are we going to do now we are going to go inside the loop. So let's go inside the loop. So for iteration in
+
+range of
+
+number of iterations, so number of iterations are 10,000. Okay. So we are going to go inside. Now we are going to be using this random function and the
+ reason that we are going to be using this random
+
+function is to get access of this number of rooms and price list. Okay, so let me first of all code this particular point, and then I'm going to explain
+ what are we actually doing here. So let me do a random index. So I'm, I'm making a random index. And I will do random dot randint. And I will start from zero this time,
+ because the reason is that in Python indexing starts from zero. And I'm going to go all the way to the length of price. Because the length of price both price and number
+ of rooms will be seen. That is why I'm going all the way to length of price. Now notice here that I have I have already told you that this random function can have 
+random numbers from one to nine and both inclusive. So that is why I'm going to subtract one two, because since pythons indexing starts from zero, then if I go from 0123456
+
+So the last index is six. Whereas if I call the length of price, then it is going to give me seven That is why I am subtracting one to eight. Okay, once
+ I once I have made this random index variable using this random index video, I can I can make a variable called current price, or rather I should say actual price.
+
+And then we will be having predicted price. So actual price will be price. And I'm going to access this random index, I'm going to access the price from
+ this random index. And I'm going to say current
+
+current number of rooms.
+
+Again, I'm going to do the same thing number of
+
+rooms and I'm going to access this room number of rooms from this random index. So we now we have a pair of x&y and that is our objective in the second step. So
+ in the loop, we have
+
+To get access of this xy pair that is what we have done here, okay so we have our God the a pair of actual price and current number of rooms. Now using this
+ current number of rooms what we can do is we can get predicted price
+
+predicted price, and how we how we will be able to do the predicted price, we have slope, okay, so I'm going to do slope m multiplied by current number of foods,
+ and I'm going to paste that here and plus intercept C. Okay, so I've just, I've just used these values that we have got
+
+from this random initializations and we have assigned this value in predicted price. Okay, now, now we have actual price and predicted price. The last step is
+ to actually from the pseudocode
+
+last step is to actually update these two ends. Okay? So what I am doing now is I'm going to update em or rather I should say slope and because we have added
+ a slope m in W, we have added m in the variable slope and instead of only m, okay, so let us update these, this slope m first. So in this view in this particular
+ video, what I'm going to do is, what I have to do is I have to do actual y. Okay, so this actual y, I'm going to subtract
+
+or rather I should paste, copy and paste,
+
+actual price
+
+and
+
+predicted price. And I'm going to multiply learning rate
+
+which we have initialized 0.01
+
+And I'm going to multiply current number of rooms which is current x, okay? And I'm going to do the same for
+
+intercept See, but this time we will not be having current number of rooms.
+
+Let me copy paste this from here, up to this part.
+
+Okay, so now hopefully, this will be able to get our best m and c values. So let me quickly run this particular code.
+
+Okay, so this code successfully ran you can see here. Now what I'm going to do is I'm going to print slope and Okay, so I'm getting a value near to 48.48.
+ Let me print intercept
+
+from getting a value near to 104. It is approximately Wednesday.
+
+to full notice here it is approximately 104 because it is approximately 103 point nine six. Okay, so now that we have got this value of slope and Slope Intercept
+ See, using these two values we have got our model and from this model what we can do is we can get our predicted price. So any price for example, if
+ I'm interested in knowing the price of a house with eight rooms, what I can do is I can multiply it by slope m
+
+and I can add
+
+intercept seats.
+
+So with a with a house with eight rooms, the price will be approximately 491 and it makes sense from here also. Okay, so I hope this particular code made sense to you.
+ And now what I'm going to do is now I am
+
+To demonstrate this same linear regression algorithm, but with an inbuilt library, or rather, it is not an inbuilt liability, but it is an inbuilt function from a
+ package called SK learn. So, to do that, what I'm going to do is I'm going to import a function
+
+from SK learn
+
+dot
+
+linear model.
+
+I'm going to import
+
+linear regression. Okay. So let me do that. And
+
+let me quickly make an instance of this linear regression.
+
+And
+
+let me pass
+
+Okay, so what I'm doing now is I'm calling this fit method of linear regression instance of this linear regression class and I will be calling this method on the
+
+These two variables, but currently these two variables are in the form of a list. So this list is not what this linear regression accepts. So we will have to convert
+ these lists into NumPy arrays. So what I'm going to do is I'm going to import
+
+NumPy. And I'm going to convert
+
+current number of rooms or other I should say number of rooms. So earlier we have, we have had a number of rooms. So number of rooms, but this time I'm going
+ to call it an NP version of number of rooms. And I'm going to convert this into a NumPy array, and I'm going to pass the current number of rooms sorry, rather,
+ I should pass number of rooms and I'm going to reshape it to a
+
+2d array. Okay, so I'm going to do the same with price also.
+
+Surprise, but a NumPy version of price.
+
+And then going to pass the NumPy list. And again, I'm going to D shape it. And this time I'm going to call
+
+this fit method with the NumPy versions of number of rooms and price. Okay. So, let me run this particular code. And once this code has been run, what I can do is
+ I can get access of
+
+coefficients and intercept by by accessing the attributes of this linear regression instance of this linear capital linear regression class. Okay, so I'm going to
+ see coefficients. So if I hit Enter, so you can see it is approximately 49.89. Earlier we got 48.4, which is really close.
+
+Now, let me see the intercept value.
+
+Again, this time also we are getting 104 point seven votes for something. So let us try to change the name
+
+Number of iteration to this particular code and let's see if this code updates the value or not. So, let me run this particular code once more and let me okay.
+ So, this has successfully ran again let me print slope and now this time also we are getting a value approximately close to 49. And let me print intercept x, 
+but the value of intercept is quite close to the value predicted by linear regression from our SK learn class. Okay. So I hope this little code coding exercise
+ made sense to you and you were able to follow through everything that we discussed in this particular small coding exercise, okay.
+
+So, let us quickly track our progress and let us see where are we in our discussion in this particular video on linear regression, so this was our aegeon done list.
+ And we were able to understand what is linear regression we took some real life examples.
+
+And use cases. We also took an example toy data set example. We coded the linear regression in Python. We also checked our answers. And we concluded that our 
+answers were quite close with the answers that were provided by a scalar library. And finally, we are at the final step in which I'm going to share some tasks with you.
+ So there are particularly two tasks that I'm going to share with you. So let me move on to the
+
+last slides.
+
+Okay, so we have coded the linear regression. Now let us check our answers. Obviously, we have checked our answers. Okay. So what I want you to do is I want you to
+ replicate that same exact procedure that I did, I just did on the house price data, but I want you to do the same exact procedure on this advertisement and sales data.
+ Now on this data, you have to code them
+
+Linear Regression algorithm from scratch, and then you have to check your answers from the library linear model from this, this package called a scalar. 
+Okay, so you have to check those answers, and you have to make sure that answers are really close. Okay, so this is the first task. And the second task is in
+ this particular task, I want to share a very real world task to you, what you need to do is you need to go to this website called kaggle.com. 
+And on this website kaggle.com you will be able to get all sorts of different data sets, what you need to do is you need to go to the search bar and you need to
+ search house price price prediction challenge and from there you can download the data set of house price prediction and that data set will not be this simple that 
+I have taken here in this particular slide. In that data set, you will be having more variables and a one price. Okay. So in that example, what
+
+I want you to do is you I want you to replicate this linear regression for that data with multiple features. Okay, so these are the two tasks that I want you to do.
+ So I hope you will be able to do these these particular tasks. So thank you so much for watching this video.

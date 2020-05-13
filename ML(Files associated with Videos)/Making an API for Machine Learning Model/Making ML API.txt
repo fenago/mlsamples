@@ -1,0 +1,527 @@
+Hello, guys, welcome to this tutorial on how to make an API from your machine learning models. So in this tutorial, we are going to be talking about what is API and 
+how we can use an API concept to make a machine learning API and share those API to other programmers. And we will be understanding what do we mean by sharing our API 
+to other programmers? And why do why should other programmers care about our API? Okay, so these are all the things that we will be discussing with
+
+this particular tutorial. And also, I would like to tell you one thing that this is a hands on tutorial. In this tutorial, I'm going to be building an API for a machine 
+learning model, which is trained in SK learn, and the model will be SMS spam detection model. So I'm going to make an API. And once that API is ready, I'm going to be showing
+
+How you can test that API using an online tool called request bin. Okay, so I hope you are as excited as I am. So let us get started. So the first thing that I want to 
+talk about in this particular video is what is the overall broad agenda for this video. So there are nine broad things that I'm going to be talking about in this video. 
+One by one, let me quickly discuss and go over each one of those things. So the first is
+
+exactly what is API and why should we use it? Okay, so this is the very first question that we will be answering. And then we will be looking at some of the use cases of 
+machine learning API's that are currently used in real world. And we might find some inspiration from those API's. And the third agenda for this video we'll be model 
+building in a scalar. So we will be going over what is the exact procedure
+
+Have model building in a scalar library. This will help us in the Step five, which is actually a step of coding as SMS spam detection model. So, step three and step 
+five are actually related. And in between, we have a step of, we have a, we have ad ag. Now what is flask? So in this particular part of video, we will be understanding 
+what exactly is flask. So flask is a webs web framework in Python, which allow us to make an API
+
+using Python. So we will be exactly looking at how we can accomplish it using flask. And in the sixth step, we are going to be looking at how we can save our model. 
+So in the fifth step, we will be coding a model and once that model has been trained and fitted, so usually in real world, what happens is our data sets are quite huge. 
+So we don't want to train up
+
+particular machine learning model again and again. So we want some capability of having that model and storing that model into memory so that we don't have to train it 
+again. And again, what we can do is we can simply load that saved model. And we can utilize that same model to make predictions. So that is what precisely we are going 
+to be doing in the sixth step. And all of this, I'm going to actually showing you in a Jupiter lab environment so that you get an idea of how you can actually how you 
+can actually do that yourself. Right. So this seventh step is implementing the API in flask. So this is the step for this, for which this whole video is all about. 
+And finally, once our API is ready to use, we are going to be testing that API using a request bin or tool. And this is an online tool which allows us to make a POST 
+request and you will be understanding what exactly do we mean by post
+
+request. And finally, I'm going to give you a small task. And that task will be related to what we did in this particular video. So please watch this video very carefully, 
+so that you get an overview of what exactly we will be going. And also so that you will be able to do the tasks that I'm going to share with you. So, this is the task that 
+this so this is this will be the step in which I am going to share a task with you. So I hope you are excited. So let us now move on.
+
+So So the first question is what is API?
+
+So first of all, let us understand the full form of this particular award API. API stands for application programming interface. Obviously someone who is listening to or 
+hearing this term for the first time
+
+we'll we'll have some hard time understanding this full form of
+
+VBA. But what I want to do is I don't want to actually explain you what is an API, but rather I want you to, I want you to understand what is UI? Is UI stands for user 
+interface? And you need to understand what do we mean by user interface. So usually, the browser that I'm using right now is a user interface for browser, the code behind
+ this browser, I don't have to see. So that is the concept of user interface. User Interface makes the life of user of a particular application easier. So notice this 
+particular point. So whenever I'm using a particular application, I'm usually using a user interface application. And I don't have to look at the code behind that application. 
+What I need to see is I need to see this user interface. And I don't need to worry about what's going inside that application. Right. So this is the concept of user user.
+
+interface. Now let me talk about application programming interface. So just like user interface makes the life of user of application easier. In in the similar manner 
+application programming interface is a program which makes the life of other software developers easier. Now, what do we mean by that?
+
+You guys must have heard about this library called SK learn in SK learn, we have got several functions for fitting and building machine learning models. Now, have you 
+ever thought that how these these functions might be created might have been created. So these, these functions might have been coded from scratch, but we don't have to 
+worry about that. What we have to worry about is how we can utilize those functions. So for example, if I have to build a linear regression model, what I need to do is 
+I need to just import the linear regression function from the scalar library, and I can just pause the video
+
+Word arguments in that function, and I will fit the model. I don't need to think about how exactly all these things work from the inside. So as a software developer, 
+so if I consider myself a software developer, I have just used an API. I have just used a linear regression API because I don't care what exactly is going on inside this 
+linear regression function. What I care is this function linear regression, which has been implemented by me, its documentation is easily available on website, 
+I can just look at its documentation and I can probably use this particular application programming interface. So I hope you understand the concept of application 
+programming interface and user interface. And also you need to understand the difference between these two very clearly user interface, you can think of user interface 
+as something that is for more general audience whereas application programming interface is only used for so
+
+software developers, software developers use API's to enhance their application capabilities. And I will exactly be coming on to how Application Programming Interface 
+fit into machine learning API's. So, I will be coming to that also. Okay, so let us now move on to further slides.
+
+Okay, so now i have i've said here that API can be of two types. We can we can have web API's. And we can have other API's. What do I mean by Web API? So, and 
+I also added this statement that almost 90% so whenever I am talking about API, most of the time it is understood that I'm talking about web API's because most 
+of the time API's application programming interfaces are used in context of web API's. But there are examples where we might be talking about other API's and 
+I have just given you anything
+
+Example of other API's when I said that I might be using a linear regression function from SK learn, that is also an example of API. But that API I'm using, in 
+the sense of other API's. I'm not doing any requests here. And when I'm saying I'm not doing any request here, that what I mean is I'm not using a web API, 
+because in Web API, we're making a request to a particular API. So we we get a URL, and we make a request to that particular URL to get some content or to post 
+some content. So there are two types of VPS that we can have we have we can have get a content and we can have post content. So I hope this makes sense to you. 
+So we have we can have get g4 get mp4 post post. Okay, so these two forms of web API's that are currently out out there. Okay. So I just wanted to share this with you. 
+I hope it makes sense to you
+
+Let us now move on. So now I'm going to be talking about use cases of machine learning. But
+
+before I do that, I want you to pause this video and actually understand and make sure that this concept of API makes sense.
+
+I will be talking about what exactly do we mean by machine learning API in our later slides, but as of now, you just have to make sure that application programming 
+interface is distinct in your mind, then we can move on to the next part of the video, which is use case of machine learning. So, I hope you have understood the concept. 
+So let us now move on. So what are the use cases of machine learning API? So API is Application Programming Interface. Now, what happens is, whenever I have trained a 
+machine learning model, which took me several hours to train, now, that model, what I can do is I can train that again, but obviously that would not be efficient and 
+effective. So what I want to do is I want to save that particular train model in my memory so that I can
+
+That model
+
+for later use in the similar manner, what if other software developers are interested in my machine learning model that I have just trained, for example, I have trained 
+a machine learning model to identify faces in a in an image. Okay. Now, other people might be interested in that feature. And they might be thinking that, what if I can 
+use your machine learning model? So in that case, what we do is we create a machine learning API. So so I hope the concept of machine learning API's is now clear to you. 
+So machine learning API is just just a service that we provide to other software developers in the form of API's in the form of web services, so that we can share our
+ machine learning models to other software developers. So let us quickly discuss are some examples of examples and use cases which are currently in the real world.
+
+Which are being used heavily. So the first example is Amazon machine learning API. And then we have a got several, the several of competitors of Amazon like IBM Watson, 
+Microsoft Azur ml API's. And we have got a Google NLP API Google Vision API. And we have got many more such API's. So what these API allow software developers, for what 
+these API's allow software developer to do is, software developers can call these API's and accomplish a particular task. For example, a software developer is interested 
+in predicting whether a particular text is spam or not. Now he can do two things. First, he can code and train an entire spam detection model from scratch in his own preferred 
+preferred language. Or rather, what he can do is he can call this Google NLP API by calling it the spam detection module and he will be able to
+
+Run this particular API in within maybe five to 10 minutes. So I hope you get the idea by using the API. It makes the software programmers life easier because they are 
+building product and they don't want to spend time on building and training machine learning models. So in the form of API's, what have what these API's allow a software 
+developer to do is they allow software developers to boost their productivity and enhance their work, right. So I hope these use cases made sense. So net loud now let us 
+move on. Okay, so now I'm going to be talking about the model building procedure in SK learn library. So SK learn is a library in machine machine learning which is very 
+popular in machine learning field, and it is a library of Python. So with this slide, what I want to do is I want to talk about how to actually train a machine learning model 
+and why I have included this slide is because we will be training on machine learning
+
+model in SK learn and we will be saving that model in our Jupiter lab environment. So, let us quickly talk about how do we do that? Okay, so the first thing is obviously we 
+get the data, we clean the data and then we pre process the data. Now,
+
+this cleaning and pre processing steps differs from data to data because cleaning will not be same for each type of data. So, again, the type of data that we have a cleaning 
+will depend on that only again pre processing is also depending upon the data set. And but these two methods will be there for almost all of the machine learning models, or 
+almost all of the data because we have to fit and by calling the fit method, what we are essentially doing is we are actually training our machine learning model and by 
+calling a predict method, we're using the modal. So essentially, why are we doing
+
+Creating this machine learning model we are creating this machine learning model to kind of predict something right. So, by calling this predict method what we are doing 
+is we are using our model okay. So, I hope this process is clear. And again these three steps are depending upon the data, the data set that which that we will be discussing 
+in this particular video will be a text data in which we are going we are given SMS of various telephone and we have to classify whether that particular SMS whether a given 
+SMS is spam or ham spam means that SMS is inappropriate whereas ham means that SMS is absolutely appropriate okay. So, I hope this makes sense. So, let us now move on.
+
+So, now we will be understanding what is flask Okay, so flask is a special Python package which allows
+
+Python programmers to build web applications, okay? And further through web applications, it allows Python programmers to make API's also. Okay? So now, with flask, 
+we can make two different types of services, we can make web applications, which will provide a kind of user interface to user. Or we can make API which will, which 
+will provide an easy access to say, for example, machine learning model to an application programmer, or rather a software developer. Okay. And I'm seeing here that 
+it is a micro web application framework because it is very lightweight. It is not too heavy. So there are alternatives to a flask in Python like D Django, or rather, 
+in short, it is known as Django, but the jank compared to Django flask is very lightweight. Okay, so you don't need to worry about these small details. What do you need 
+to worry about in flask
+
+How we can actually create a web application or web service in the form of API using flask. Okay, so let us exactly talk about that how we can create a flask Web API.
+
+Okay, so now let us talk about how does flask work. So we will be talking about how does flask work by making a very small of flask application. So let me quickly head 
+over to Jupiter lab. And let me create a new Python notebook. And the idea is that we need to be able to create this flask application very small flask application which 
+will which will just print hello world or to the browser. So the first idea is obviously to install flask
+
+pip install flask and also with flask I want you to install one more library which is called flask and group
+
+And the reason that I am installing this library is because flask allow us to create local host servers on our computer. But since I'm using cloud environment, so on 
+cloud environment, there is no such thing as local host, local host files. So that is why we need to somehow be able to run our applications on a cloud. So flask and 
+grow allow us to
+
+generate a temporary temporarily URL and our application will be hosted on a on that temporary temporary URL that will be provided by flask and group. 
+So let me quickly hit enter and install these two applications. And once these two applications have been installed, what we can do is first of all, we have to install 
+from flask, import flask and also from flask and Group import run within group.
+
+So I will run this application, we then without calling this run with and group, so you, you get the idea of what exactly I'm talking about. 
+So then I am going to make a flask instance
+
+by passing the name of the script, and I'm not calling run with and grow at this point of time, what I have to do now is I have to point a URL of this particular application 
+instance. So what I'm going to do is it is going to point to the home URL, and I have to pass the methods. Remember, in the previous slides, I was talking about GET and POST 
+methods. So in flask methods can be passed in this list. So right now I'm just passing get method. But for the API part, we will be passing POST method because API is a post 
+operation because of
+
+We will be posting some data in the form of input and we are expecting some output in the form of in the form of some, some predictions, right. So now that we have created 
+this as our decorator, now I want to point a function to this doubt this route
+
+this this application route. So I will say this is an index function, and I will quickly return this string hello world.
+
+Okay.
+
+All right. So once we run this, what I can do is if
+
+name is equal to main, which is a usual Python application running procedure, I will say app dot run. And if I hit Enter, notice what happens. So it is giving me this local 
+host URL. But notice if I copy and paste this URL to my browser, then what this is going to say is the
+
+icon cannot be reached. And the reason that it is saying me this because when we go to this localhost URL, what we are essentially doing is we are looking for some servers 
+in our computer, but this server has been generated on the cloud. So that is why this particular browser is not able to this is not able to detect this a URL. So what we want 
+to do is, first of all, interrupt this current set, and after interrupting, what I want to do is I want to add this line, run with get and group.
+
+And I'm going to pause this app instance, in this function. So let me run this again. And let me run this particular thing again.
+
+Now notice what happens. So now it is giving me a temporarily temporary URL. And what I can do is I can go to this particular URL in the new tab.
+
+Okay, so now notice, our hello world application has successfully run
+
+So with this particular temporary URL, now our application is hosted on this URL. As long as this server is running, the moment I interrupt this cell and I stopped this cell 
+from running and if I reload this application again, notice this is going to say not found, why because that temporary URL has been interrupted. So I hope this basic 
+application made sense. Let me quickly head over to the slide.
+
+And let me know again read this, how does floss work? Obviously, I did not read it earlier, but let me know again and try try to see whether you understood or not. 
+So first of all, we imported class, okay. Then we made an application instance as app is equal to flask of name and then we pointed appropriate route. So here we pointed 
+to the home route, and we made a view function in the form of index function. And after defining the method type, we defined the
+
+Methods get and finally we ran the application. So, I hope it made sense, how does flask work? So, now let us move on. So, let us code a very basic HelloWorld flask 
+application which we have already done with this particular URL which we have stopped also okay. So coding SMS spam detection model. So, what is the procedure of coding 
+the spam detection model? So, the procedure is as follows. The first thing is that we need to have a data for data what I have done is I have gone to kaggle and I have 
+downloaded this SMS data from kaggle. So, this SNS data consists of around 6000 rows. So, in other words it consists of 6000 SMS and their corresponding categories in the 
+form of whether that that SMS is spam or not. Okay, and the second step will be a maker model in the form of pipeline. Okay And finally, we are going to fit the model
+
+Once the model has been fit, we can use the model by calling is its predict method. Okay, so this is the idea. So I'm going to go to the Jupiter lab environment. 
+And I'm going to execute these four steps to make a spam detection model. So let us quickly do that.
+
+All right, so this was a notebook for our, our, our flask application, very basic flask application. So let me head over to
+
+new notebook.
+
+And in the new notebook, before I actually do that, notice, there is a spam dot CSV file in my directory, and this app spam dot CSV file is what I downloaded from the kaggle. 
+You can do that too by going to kaggle SMS data set.
+
+Once you go to this particular site, the first site is what I have used in this particular tutorial. So you just have
+
+To download this particular data set by hitting this download button, okay, so I hope you will be able to do that. So once we have this data, what I want to do is, 
+first of all, I want to import this. First of all, I want to import pandas with which we can get the data in our Python working environment. And then we will be using 
+PD dot read CSV. And I'm going to say spam dot CSV. And further, I'm going to pass the delimiter
+
+which is comma, and I'm going to pass encoding which is Latin one. For Okay, let me run this application. Okay. And I'm going to check the data by calling its head attribute. 
+And notice there are unnecessary columns, unnamed two, unnamed three and a name of food. What I will be doing now is I will be getting rid of these three columns. 
+So first of all, let me print all the columns of this data
+
+Let me call the drop method of the D this data. And I'm going to I'm going to pause this unnamed this three variable names, this T column names.
+ And I'm going to say access is equal to one by passing x is equal to one, what I am trying to say is I want to drop columns, not rows. So if I had past zero then 
+I am appointing two rows. So let me run this to notice now we have got the data. And now we have to assign this data again back to data. Okay, so now our data is a 
+little bit nice looking. Okay, so obviously, the first thing that we need to do is we need to make a label mapper and by calling by by saying label mapper, what 
+I mean is I need to create a mapping of spam and ham to a numbers. So I might say, ham corresponds to one or maybe zero, or spam corresponds to one. 
+So what I will do is I will call
+
+Label mapper
+
+and I will make a dictionary. And I will say if it is ham, I will say zero. And if it is spam, I will say to one
+
+and once that is done, I will make a new column, which will be label number.
+
+And what I'm going to do is I'm going to take this v one corner
+
+and I'm going to map this v one column with this label number.
+
+So, if I hit Enter,
+
+we will have an extra column for let me run this code again. So I hope you understood this code. So now ham corresponds to zero spam corresponds to 
+one so we have got this data.
+
+So, also we have to modify these texts also because we cannot feed this text in our machine learning algorithm, but we
+
+We'll be taking some another approach we are not going to clean this text like this what we will do is make a pipeline using a scalar what pipeline allow us to do is it 
+allows us to sequentially run many things and by sequential running What I mean is it will first clean the data What do we mean by cleaning or other I should say it will 
+first reprocess the data by pre processing What I mean is it will convert this text into some sort of easy to understand representation Okay, so, first of all let me extract 
+this text
+
+from here.
+
+So, data dot v2 and let me say label is equal to data dot label number.
+
+Okay, so let me hit enter. So, this text will work as x and this label
+
+Number one workers why so why something that we would like to predict Okay, so now, the next thing that we want to do is we want to import the necessary modules from SK learn.
+ So, from SK learn dot feature extraction. So, what I want to do is I want to extract features from this v2 column and this v two column is a text column I want to extract 
+features because I cannot feed this text as it is in the machine learning model because machine learning model in SK learn only expects numbers. So I have to do some feature
+ extraction. And by calling this feature extraction dot txt, I'm going to import
+
+Count vectorizer
+
+Let me see if it is auto filling or not count vectorizer and I'm going to import first of all let me import this. Okay, so there is no module as feature extraction. Okay,
+ so I missed this
+
+Added
+
+okay so it has successfully imported it. So, from SK learn
+
+again let me copy this particular code
+
+Ctrl C
+
+i have to import TF IDF transformer. So, what these two functions will allow us to do is they will transform this text into numbered forms. So, I do not I will not go into 
+details of how these works from inside, just as of now understand that these two will actually kind of transform this text. Okay, so, once we have this idea of transforming 
+this text what I want to do is I want to also import from SK learn dot linear model.
+
+I'm going to import a model logistic regression because it is a classification. Hello guys, so sorry for the interruption after importing these two Count vectorizer and 
+TF IDF transformer. What I've done is
+
+I haven't also imported this logistic regression and this pipeline class. And what this pipeline class will allow us to do is, this will allow us to fit these three 
+classes sequentially. So we don't have to a one by one call Count vectorizer, TF IDF transformer and logistic regression one by one. So, what we can do is, we can just 
+fit using this pipeline all of these three things sequentially. So, for doing that, what I will do is I will create a variable called model using this pipeline instance. 
+And pipeline will be a list of all the classes that I want to fit. So, it will be a list of all the classes and each disk, each element in the list will be made up of one class. 
+So the first class will be countable. So the name of the contract will come as the first element of the first tuple and the actual clause.
+
+will come as the second element okay. So in the similar manner, I am going to do it for TF IDF
+
+okay so once TF IDF has been done so what I can do again TF IDF transformer, I can call, and after that I can call CLF, which is standing for classifier, and here I'm going 
+to say logistic regression. Now, this is a nice and easy way of actually making this model model variable because it will allow us to fit all of these three things, we don't 
+have to do them separately. So, let me hit Enter. And what I can do now is I can call this fit of fit method of this attribute and what this will do is it will fit first 
+Count vectorizer on the text. And once that has been done, it will it will Tran transfer or transfer or transform the output that we get from Count vectorizer to tf IDF 
+transformer and the
+
+output of TF IDF transformer will be fed to logistic regression. So I'll call it on text and label. So I will say text and label. And once this is done, so let me run this 
+particular code. Okay, so you can see it has successfully ran. And you can see the summary here. And what now I can do is I can call the predict method of this model class. 
+Okay, so to call the predict method, I can call it like this, but I need to have some SMS as as a way to predict that right? So what I can do is I can simply take this 
+particular text and see its prediction only to kind of just quickly get started with the model and building the API version, okay. So, what I will do is I will do something 
+like data dot index location, and I will say something like zero to 10. And if I hit Enter, so what it has done is it has given us four
+
+10 rows of the data and what I can do is I can simply take the v2 variable, and this v2 variable I can call on model dot predict. So model dot
+
+predict.
+
+And if I hit Enter, then it is giving me predictions in form of zeros and ones. Now what I can do is I can map this particular.
+
+So I have to map it have in hammered spam. So for that earlier, we created this label mapper. So let's first create before actually I actually do this kind of thing. 
+Let me quickly make a reverse label mapper, reverse
+
+label mapper. And in the reverse label mapper, I'm going to make a dictionary of value
+
+colon key
+
+three key four
+
+key value
+
+in label mapper dot items.
+
+So with this particular code, what this will do is it will make our the reverse label mapper. So let me print reverse label mapper.
+
+Okay, wait a second Ctrl C.
+
+So let's hit enter. So you can clearly see it has successfully done what we designed earlier ham was key, but now zero is the key. Now what we can do is we can save the 
+predictions in a variable called predictions.
+
+Okay.
+
+Okay, so predictions are like this, I want to map it back to him and spam. So how will I be able to do that? For that, let's create a data frame.
+
+Yup, so let's create a data frame. And on this data frame, I'm going to make a column prediction. And I'm going to pause this predictions.
+
+Okay. And once this is done, I'm going to extract the prediction column. And I'm going to map this reverse map.
+
+Reverse.
+
+If I hit Enter, notice this these predictions which were in numeric values, they were transformed into this hemin spam. So I hope this model building process 
+makes sense to you. So now let us go back to the slide and see what else we can do. So we, we got the data, we got the data from kaggle
+
+kaggle website kaggle is a repository of data sets and competitions, data science company
+
+We made a model using pipeline, we fitted the model and we've successfully use this particular model. Now let us move on and see, what else can we do now that we have created 
+the model, we should now move on to saving the model so that we don't have to train it again and again. So notice what happens if I have to use this particular model. 
+So I have to go through the system again and again. So what I would be interested in doing is I would be interested in in somehow saving this model variable in in my local 
+file directory. So how I might be able to do that for that. There is a function in a scalar
+
+called job lib. So first of all, what I need to do is I need to import job lib.
+
+From the externals module of a scalar and once that is done, what I can do is I can call this job lib dot
+
+dump
+
+And inside this dump, I need to dump what I need to dump the model. And
+
+I will call this model what I will call this model model .pkl stands for pickle. So notice right now there is no file named model dot pickle The moment I hit this particular 
+code and I run this particular code notice what happens.
+
+So new file will be created. So it is not it has not been created as of now. Okay, yeah, so it took some time. So now our model dot pickle file has been created. 
+Now what we can do is we can load this model dot pickle file by doing something like so I can I can probably open a new notebook.
+
+And in a new notebook, what I can do is I can import from a scaler
+
+dot externals.
+
+Import job lib,
+
+and
+
+job lib dot load. And I can do this model dot pickle.
+
+Okay, so if I hit Enter, I have this model, but I need to assign it to some variable. So once we get this model variable, we can call this model variables predict and fit 
+method. So I hope it made sense and everything regarding model, see how to save the model and how to load the model makes sense. Now we are going to be using this particular 
+saved model to kind of make an API with which other people will be able to use this particular model. So right now, only we are able to use this particular model. 
+If, for example, other software developers are interested in using this particular model, then in that case, we can share it using an API. Okay, so let's go back to the 
+slide. So now that we have
+
+Understanding of API. So we know how does an API work, we know how to create a basic flask application. We also understood how to save and load the model. 
+
+Let us work on creating the application. So creating the actual API. So before so the final step will be to test the API. But before that, we need to have an understanding 
+of how to actually create an API. So to create an API, I'm going to make a new notebook.
+
+Okay, so first of all, let me quickly import all the necessary modules. So from
+
+flask import flask,
+
+and further I have to import request and JSON file. json fi is a some more do law class, which will allow us to return the response in a JSON format. json is a format, just 
+like Python dictionary, which allows exchange of data between two websites to application programs. Okay, let me also import pandas as PD
+
+and
+
+import
+
+from SK learn dot externals
+
+let me import job lib so that I will have an excess of model. And let me also load that model job lib dot load. And let me call modal model dot pickle file. Okay, so let's 
+run this particular application. And further we forgot to import flask and group which will allow us to host our web application or API temporarily to a particular URL. 
+So n group from flask and group I have imported run with flask
+
+Okay, so we are going to
+
+run with flask.
+
+Run with flask and group sorry.
+
+All right.
+
+So now we will be making a flask instant app instance.
+
+And then
+
+run with
+
+and grow. And I'm going to pass this app instance to this particular variable. And now let us do the main part which is creating the route. But this time I'm going to route 
+it to forward slash predict, okay. So, because we are interested in making a prediction route, and unlike last time, this time we will be making a POST request. So that is 
+why we have paused paused as a method list. And we will be creating a function called predict. What this predict will allow us to do is, first of all, it will take the data 
+that has been entered by the software developer who is using my application. So whoever use is using our application is entering some JSON data. So what I will do is I will 
+call this URL
+
+request of library of flask library and I will call it JSON attribute and I will access the data so data
+
+to be
+
+to be entered. Okay. So this is the data to be entered. So this is a JSON formatted data Now, from this data it will be a JSON format data. Now assume that this is this 
+this is a Python dictionary and there is a key text in this particular Python dictionary. What we can do is we can say required text that we have to predict. 
+So, required Tech's will read this text so we have got access of the text variable. And once we have the required text, what we can do is we can make a data real quick.
+
+And in this data frame we will say text column
+
+and in this text column I'm going to pass this required test
+
+Ok. So, we have got this data and we have already loaded our model I can call the model and check the prediction. So model dot predict.
+
+So, model dot predict I can pass data to it and I can get the excess of the first word and the reason that I am getting the first value because there is only one text, 
+so, there will be only one prediction. Now, I need this prediction in the form of ham or spam. So, for that I will just copy and paste the external reverse mapper that 
+we have created.
+
+Okay earlier we created a reverse mapper.
+
+So, let me
+
+okay so this is our label mapper.
+
+I'm going to copy this
+
+Ctrl C.
+
+Okay, so, then after that we have
+
+our reverse
+
+Level mapper
+
+and we are going to paste it here. Okay, so we have got our reverse level mapper. And with the help of reverse level mapper, what we can do is we can do something 
+like prediction or text.
+
+And we will call reverse linear mapper, reverse label mapper, sorry. And I will say prediction. So, in this text, I will get either spam or ham. Now, 
+I need to return this response to the user whoever has posted this request request dot JSON. Okay, so I am going to do that using JSON API because a JSON API as 
+I've discussed earlier, that JSON file is the only version by which we can exchange data on web. So I will say prediction
+
+and I will pass the value as your
+
+text is your text. SMS is
+
+is
+
+And I will add to it prediction text.
+
+Okay, so I hope this makes sense. So let me run this app okay. So it is giving us an error
+
+got new Run button.
+
+Oh sorry. So it does not have got run it is app dot route.
+
+Good.
+
+Okay, so I hope this will run now. So yeah, so now we are going to run this particular app if name is equal to
+
+let's run this app. So it has successfully started running and it is
+
+Hosted currently on this website. Okay, so what is the next step, next step is to go to request bing.com. And right now the server is running. So we can make requests using 
+this post request that we have passed. So I'm going to go to request bing.com.
+
+So let me go to this website. And what I can do is I can paste the URL of this, this temporary website, I'm going to copy this particular temporary URL, and I'm going to 
+paste this but this is not going to work since I have clearly stated that the route that I want to predict, so I'm also going to add, predict after it. Okay, and once this 
+has been added, what I need is I need to also add a JSON format and that JSON format needs to have a text key. Okay, so here, I can add content.
+
+And I can say something like text
+
+And inside this text I can say I can write an SMS like
+
+you
+
+got
+
+you got of free
+
+recharge
+
+for 2000 rupees
+
+okay. So this is my input content, okay. But yeah so the method is right so we are making a POST request. Okay, so I hope this will work. So let me send this particular
+
+request and let's see okay. So, the prediction that we are getting is your request is and notice of this particular server would have responded. So here we are seeing on the 
+logs that we are making a POST request, so we can check for other texts. So let's check for some data that we had worked with earlier. So let us see.
+
+So earlier we had a data dot
+
+Let us see let us quickly print the head okay. So, let me first of all check for this particular text. So I will do data
+
+data dot I lock and I will extract the second row and the second row
+
+I will extract
+
+Okay, so, the second thing that I want to do is I want to extract the v2 column. Okay, so we have got this text and I'm going to copy this particular text from here and 
+I'm going to paste this particular text in this tool is in this online tool that we are using
+
+Okay, so let me get rid of this and also this. So let me make a POST request again.
+
+Okay, so again, the
+
+the text is
+
+Ahem. So again, on here, we can notice here that we are getting, we are making a POST request. So I hope everything about this video made sense to you. And you were able to 
+follow through this whole video. So now finally,
+
+if I look at the agenda for the video, so we have talked about API and why should we use this particular API API concept to share our machine learning models. 
+And also we talked about API in the context of machine learning. We also discuss how to do model building in escolar. Then we talked about what is flask and how we can 
+code a SMS data spam detection model, we coded that in SK learn, we we learned how we can save the model and load the model, load the saved model. Okay. We also implemented 
+the API in the flask. And finally, we tested the API
+
+Using the question button, right now you need to remember that this, this particular tool will only work as long as this server is also running. And further, if you are 
+running this server locally, then this tool is not going to work because this tool is expecting a URL which is hosted somewhere online. Okay, so I hope everything about 
+this video made sense. Finally, I have a task for you. And the task is that
+
+you need to replicate the same exact procedure for something as for some some other model like linear regression, so this is a small task for you. So I hope you will be 
+excited to complete this particular task. Thank you so much for watching the video. Have a nice day.
+

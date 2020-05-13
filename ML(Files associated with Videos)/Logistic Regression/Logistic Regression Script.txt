@@ -1,0 +1,367 @@
+Hello guys, welcome to this new hands on lab. In this hands on lab we are going to be discussing about logistic regression. So, most of the part of this video will be devoted to hands on exercises and hands on coding on this topic called logistic regression. Okay, so, I hope you get the idea and I hope you are as excited as excited as I am. So, let us get started.
+
+So, before I actually discuss any topic or write any piece of code, I would like to first of all discuss about the aging of this video and what are the various pieces and components that we are going to be discussing. So, the first thing is,
+
+we are going to be discussing very briefly about logistic regression. And I want to discuss very briefly this topic because I want to spend most of my time on coding. And then I'm going to be discussing about one of the most important of
+
+piece of logistic regression called logistic or sigmoid function. And I'm going to be talking about how these things are related. Then we will be studying What does cost function mean in the context of logistic regression? And finally, we will be understanding how does this particular algorithm work very briefly, and then that working we will be writing in the form of a pseudocode pseudocode helps us in writing actual Python code. And once that is done in in some subsequent steps, we are going to be writing out this logistic regression algorithm from scratch. So, what we are essentially going to do in that step is we are going to be turning this pseudocode into this actual implementation of Python. And before I do that, I will be taking up an example of non loan default oil data set. Now, this particular data set I have created by myself to kind of demonstrate how does does this particular algorithm
+
+homework, okay, so,
+
+then we will be plotting this particular data set in matplotlib. matplotlib is a library in Python.
+
+And again, we are going to be coding the algorithm from scratch in Python. And then we will be looking at the logistic regression class in SK learn, which is a prebuilt in a scalar library, which we can install in Python programming language. And finally, in the last two steps, I'm going to be sharing some tasks with you so that you get a feel of how is it like to work on real world problems, okay. So, I hope you are excited. So, let us move on to the first step. What is logistic regression? Now logistic regression is an algorithm which is used to solve a binary classification related problem. Now, some of you who have studied linear regression might feel a little bit weird because linear regression and logistic regression both have regression in it but
+
+logistic regression what it is doing is it is solving a classification problem not a regression problem. Now, the name of name logistic relation comes because of some historical reasons, we cannot do anything about it, but, the fact is that logistic regression is used for classification problems or more precisely binary classification problems, then obviously, we can extend it to multiple a class problems, but for the time being we will be sticking ourselves to binary classification problems, okay. Now, it is called regulation for some historical reasons, so, we are not going to be bothered about that. And also it is called logistic. Why does we call it logistic? And why does linear regression called linear regression? So, I'm going to be talking about this particular this particular behavior in some later slides. So, for the time being, let us understand that logistic regression is called logistic regression because we use a function called logistic function which is also known as sigmoid
+
+function what this function does is it takes an input and that input can can be any real number no real number can be any number from negative infinity to positive infinity, okay. So, it can be any number and what it does is it maps that number in the range of zero to one right. So, I hope you get the idea. So, let us see how does this particular function looks like. So, this is the graph of the function and that graph is quite intuitive, because on the x axis, you can see the ranges from negative 10 to 10. Obviously, we cannot plot negative infinity to infinity. That is why due to the space limitation and because posit negative infinity is a very large number which we cannot even think of. So, you can clearly see what it is giving us is a number between zero and one. So what we are doing is we are taking an input in the form of x and we are turning that input in the range zero to one now how does that
+
+A mathematical representation of that function looks like so, this is a function it takes an input set or you can think of that as x also and we calculate this strange quantity and what this strange quantity is going to give us it is going to give us a number between zero to one. Now, here is an exponential number, which you don't need to worry about at this point of time just understand it is a mathematical construct and we are taking the power of that mathematical constant by multiplying negative one to the input. So you can clearly see here negative of Zed okay. So, I hope you get this particular function. So logistic sigmoid function, we are going to be talking about how this particular function is used in logistic regression. Okay. So, let us talk about that difference which I have already earlier discussed that what is the difference between this linear and logistic function. Now, in linear regression, if some of you guys have studied linear regression, what we do is, we take the linear combination of ways
+
+And observations, or in other words, we can call observations as features also. So what we do is we take a linear combination, and by when I say a linear combination, what I'm essentially doing is I'm just taking the dot product and dot product I'm taking, I'm taking the multiplication of the corresponding elements, and I'm adding all those elements that I'm getting, okay. So, obviously, the shape or the size of this weights vector and this observation vector will be seen. That's why there's such a thing will be possible. So, if I take linear combination, then what I will get is a deal number. And that is what we precisely want a linear regression because linear regression solves a regression task and regression task has to do with something called continuous valued variables, okay. So we are essentially trying to predict a continuous valued variable in a regression task, but logistic regression is used for classification task, so we cannot tell
+
+Have a real valued output, what we want is we want a binary classification, we want to either predict the presence of something or the absence of something, say for example, I'm taking a text, I want to predict whether whether the text is spam or not. So I only have two possible numbers, I don't have multiple possibilities, like real numbers. So that is why, what I want to do is I want to map that real number into a function which might give me some sensible results. So what I do is I take a logistic function, and I map my real number whatever this linear combination gives me to the number ranging from zero to one. Now, this zero to one How can I view this zero to one I can view this particular zero to one as a probability of belonging to a particular class, if it is closer to one, then it is more likely that the class will be corresponding to one and if it is closer to zero, so we kind of define a threshold
+
+Like we for example, might define a threshold like point five, anything which is greater than point five will belong to the class one and anything which is less than point five will belong to class zero. So, I hope you get this particular point. So, let me move on to the next function. So, next thing is cost function or optimization function. Now, this is a function, which we want to optimize or rather minimize. Now, this cost function is also known as error function. Now, this function is what we are trying to minimize. Now, how do we compute this function mathematically the details of this particular topic will be out of the scope scope of this particular video, but for the time being, I want you to look at this particular expression. So, I have not added any mathematical symbols except this law. Now, the reason that I have not added any mathematical symbols because mathematical symbols tend to make people get scared of these particular concepts. So, what I want you to do is
+
+I want you to just look at it and read it okay. So, what we are doing is we are taking the actual prediction and we are taking the log of the predicted value by our model okay. So, this these are actual labels and these are log of predictor labels and we are taking the negative of it okay and then we are taking one minus actual prediction and then we are taking log of one minus predicted okay and when we compute this particular expression, we will be getting a vector of values. Now, what we want to do is we want to take the average of those vector values and we will take that particular quantity as cost. Now, some of you who have studied linear regression, linear regression also involves a cost function, but that cost function looks quite intuitive. In the linear regression what we do is we try to minimize sum of squared of errors. And the reason that we are trying to minimize some of the squared of errors in linear regression is because we are trying
+
+To find the best fit line and best fit line will be that line which will be as close as possible to the points okay and the line which will be as close as possible to the points will be that line for which sum of squared of error will be minimum. So do not get discouraged if you don't understand it, because that this point is only meant for those people who have some who have studied linear regression, but why does this cost function? How does this particular cost function makes sense? So,
+
+obviously, this particular class is a hands on class, but let me go over this particular point very quickly. Now, it has to do with convex functions. Now earlier in linear regression, when we take sum of squared errors, what we have is we have a convex function and convex function or a function or a special type type of mathematical function, which are guaranteed to have a minimum value. We can prove it mathematically but you don't have to worry about that.
+
+You just need to understand that a convex function is what is a function for which we can compute minimum values. But in the case of logistic regression, since this behavior is changing earlier in linear regression, we will just take a linear combination now, we are also transforming that linear combination by taking logistic function. Now, what happens is, it is not no longer convex function if we use the same same error function that we used in linear regression. So, that is the reason we come up with this particular cost function. And this particular cost function makes sense if you understand it from the example but I don't want to go over that particular point in this particular video. I want to just code things in this particular video. So, I hope you get the point. Now, let us talk about how does the algorithm work. So, I have divided this whole algorithm into a bunch of steps. So, the first
+
+step will be to define the sigmoid function and the sigmoid function is the same function that we discussed earlier in the first slides. So, this is the sigmoid function and the second step is defining the prediction function. So, once we have the sigmoid function we are going to be defining the prediction function. Now, how are we going to make the prediction obviously, from sigmoid function okay and this prediction function in the case of linear regression is just a linear combination of observations or features. Now, we are going to be defining the cost function and cost function we have just discussed. Now, in the step four, we are going to be initializing random weights, number of iterations to perform and learning rate. So, these are the some of the parameters that we are we are going to be initializing in almost all of the machine learning algorithms. So, logistic regression is no exception. And finally, in Step five, what we do is we repeat number of iteration number of times
+
+And we do the following ok. So, we do the following two points. The first point is we get the prediction based on the input and the current weight. So, whatever current weight we have initialized right now, using that current weight, what we are going to do is we are going to get the prediction on inputs. Now, this time we are not looping over the data set what we are instead doing is we are using this current weight on all the inputs simultaneously, we are taking this current weight and we are using it with all the inputs and we are getting prediction on all the rows. So, what I'm essentially trying to say is we are not doing it for a specific rule but rather we are doing it for all the rows in our data set.
+
+And finally, we are going to update the wheat by using simultaneous update. So, this is what
+
+what I meant in the first step. So, we are just doing this simultaneous update and that simultaneous update. I will show you one more
+
+More time when I'm going to be coding and I'll point this particular point when I get to that point okay. So, I hope you get this particular point. Now, let us
+
+look at the pseudocode. So, I have just what what I have just done is I have converted this this word based algorithm to pseudocode and in pseudocode again you can clearly look at it we have defined sigmoid we have defined prediction function, we have defined cost functions we have defined calculate updates. So, this is this will calculate the update for a particular iteration Okay. Then we are going to be defining learning rate number of iteration and we are going to be getting X and Y now this x y will be obviously x will belong to feature and y will be the actual label that we have. We will be initializing titano Tita and weights are quite interchangeable, you can use either one of them and then we are going to be looping
+
+think through how many times number of iteration number of times and in each iteration what we are going to do is we are going to be calculating update using this calculate update function and we are going to be calculating loss and loss is essentially what is known as cost or error. So, we are going to be using cost function for that and finally, after calculating loss we are going to be updating Tita. Now, how are we going to do that, after calling this calculate update, we are going to be given an update value. So, we are going to be using that update and we are going to be multiplying that learning it okay. So, finally, after the loop ends, hopefully we would have caught the right values. Now, it is that easy. We will not be expecting this best values in the first attempt, what we are essentially trying to do is we are trying to minimize loss. So we will get that though that value of kita for which loss is decreasing. So after
+
+every iteration loss should decrease otherwise we will not choose that particular data for which loss is increasing or is having some unwieldy or random pattern okay. So, we want that pattern to be decreasing that is when we are going to be taking up that particular loss. Okay. So, I hope you got this particular pseudocode and let me move on to next next slides. And in the next slide, what I have done is I've just
+
+have just displayed that data set which I have created this toy data set and this toy data set is corresponding to loan default data sets. So, you can think of this particular data set as belonging to a bank and the bank might have had record of income and total asset value of every individual in the past and bank also might have the info information about whether that particular corresponding person has defaulted or it has he has not defaulted.
+
+And obviously, we can clearly see a pattern income greater than 30. And our set total value greater than 600 are in the non default category and earlier and otherwise they are in the default category. So, this particular data set is what I'm going to be working on. So, now, that we have talked a lot about this particular logistic regression and
+
+and the algorithm of this particular algorithm, now, what I want to do is I want to start the coding process. So, I would like to first of all start this coding process by first of all plotting this particular data set, because plotting is very important and you need to have this understanding of how to how to correctly plot the data. So let us do that.
+
+So to do that, let me quickly head over to Jupiter lab environment and let me load a new Python three notebook and
+
+What I have done is I have had I have I am having this particular demo data sheet one dot CSV. Now this data is corresponding to this slide. So, first of all let me take this notebook and rename it
+
+let me rename it logistic regression
+
+okay and in this particular
+
+notebook first of all I am going to import
+
+import matplotlib.pi plot as PLT and further I will also have to import
+
+pandas as PD. The reason is that I will need to load this particular data set and let me also load NumPy as NP okay.
+
+Let me load data set
+
+and let me call it demo.
+
+Okay. So, we have got this suggestion and let me look at this particular data. And yeah, you can clearly see the first thing that I want to do is I want to first of all quickly change the label of this particular column. So, let me do that. So data dot columns.
+
+So, we are getting these columns. What I want to do is I want to create a variable called label mapper. And in this label mapper, what I will do is I will, I will say defaulter,
+
+and I will call it zero. And I will say, known or other I don't know, what was the value so let me quickly see, what was the value so data dot
+
+data dot head, and let me look at first eight values.
+
+So it was non default. So known
+
+default and let me call it one. And I'm going to say label, create a new column called label. And I'm going to
+
+take this particular
+
+take this particular column last one. So data dot columns, I'm going to extract the last column. And I'm going to map this particular corner using this label mapper. And now let me look at this particular data set.
+
+So basically, we are having this label column with zero as default, and one as non default. So now to upload this particular data, what I want to do is I want to make two different data frames. So data frame one is equal to, what I'm going to do is data data, data dot columns. So I want to filter out
+
+where it was defaulter
+
+and Ctrl C Ctrl V and let me make data frame to where it was non default or
+
+known. Default.
+
+Okay, so let's see. So we have caught dear one
+
+okay. So we are not getting the correct result. Let me see. So we have to get data Okay, so yeah, I got it. So let me extract the last column first.
+
+Let's see. So, this time I think we will be getting the correct answers.
+
+So we have a word what we are doing is we are saying data. Wait a second.
+
+We are taking data dot columns.
+
+Why it is not working? So data data dot columns we have extracted the last two last column and we are saying if it is equal to let me print df two
+
+okay so it is also not working
+
+okay let's let's do one thing.
+
+Let me just copy paste this.
+
+Let me get rid of this thing for the timing.
+
+Okay It is not working. So let me see why it is not working
+
+data
+
+Severe getting this
+
+getting this to know I want to extract
+
+okay yeah so we are getting
+
+now I don't know why earlier it was not working
+
+Ctrl V so it is dear one now it will be df two but this time I want to take non
+
+default
+
+so df one let me make sure it is working or not
+
+okay df two is still not working
+
+Yeah, so this time it has worked. So we have created these two data frames, two separate data frames. Now what we are going to do is we are going to be plotting these two columns. Okay. So first of all let me do PLT dot plot, or rather, I should say PLT dot scatter, and I'm going to say df one, and I'm going to extract the first column of df one.
+
+And similarly, I'm going to take the second column of df one.
+
+And, in place of label I'm going to say this particular
+
+Graph belongs to defaulters.
+
+Okay, so I'm going to copy and paste this code, but instead of tier one I'm going to say df to df two. Okay. So here we have we are going to say non defaulters. And further I'm going to save PLT dot legend. So I'm going to specify the position of legend I'm going to say location is equal to best. So wherever you think it is best place it there are only so let me quickly call PLT dot show. And you can clearly see we are getting the graph as desired. And these blue dots refers to the points corresponding to income and a set of those who have defaulted. And the orange orange point corresponds to those who haven't who have not defaulted. And we can clearly see a trend that blue points are in the lower
+
+Left and orange points are on the top right. Okay. So now that we have successfully plotted the data, now what we are going to do is we are going to be coding this particular algorithm from scratch in Python. Okay, so for that, I'm going to refer back to this pseudocode. Now this pseudocode clearly explains each step in a quite detailed manner. So I'm going to be referring to this particular pseudocode only. But before I actually start coding, I want to quickly talk about one important function in NumPy called alpha. Now, this alpha function is provided in NumPy. Now what this allows us to do is it allows us to multiply two vectors by another vector or multiply one vector with another a two dimensional vector or multiply two matrix two dimensional matrices. So it is quite handy function and this function I'm going to be using quite quickly
+
+extensively in this particular implementation. Okay, so let me quickly show you how does this particular implementation work. So for that, I'm going to create a demo data one, and I'm going to call it NP dot, let's say
+
+array. And I'm going to be creating an array
+
+of two rows and three columns. Okay, so let's print D one. And so if I check the shape of this D one, it is two by three means two rows and three columns. Let me create one more data. And this time, I'm going to do it in a reverse manner. Or what does that mean? I'm going to be having two columns and three rows. So two, three, and I'm going to say,
+
+four, five, and five, six. Okay, so let's check the shape of the two.
+
+Okay, so we are getting three commas. Now what do you think if I do something like this
+
+What do you think the value of this operation will be? No one is having a shape of two comma three and D two is having a shape of three comma two if you are familiar with matrix multiplication in in your algebra classes, then this is going to what this is going to do is it is going to cancel these three common because the first matrix or first areas, number of columns should be equal to secondaries number of groups. So, so here it is getting satisfied. Now, what the resulting array will look like is if you release these two points, then what we get or what we left, what we are left with is to two, so the remaining area will be two So, let me hit enter and you can clearly see the remaining areas shape is two. So, let me quickly demonstrate this particular thing by d3 calling d3. So, I'm going to say d3 dot shape and we are getting to shape so, I hope this particular alpha
+
+operator as we call it,
+
+In Python makes sense. And let me quickly demonstrate one more example. Let me make a 1d array this time. So I'm going to say D, D four, and P dot array, this time I'm going to call 123. Okay. So, let's call np.or sorry D four dot shape, and this time this particular area is a 1d array that is why we are not getting the second dimension. And we can clearly see that it This area has got three values in it. Now what I can do is I can say something like two multiplied by or rather two alpha, D four, let's see, let's see what we get. Okay. So we are getting matrix multiplexer. So input input operand zero does not have enough dimension. So, in this case, what we are getting is we are trying to multiply two by this array. We are we are not able to do that. But instead let's create a one another one year with same ship. Okay, so I'm going to say four or five
+
+Six this time let me run this particular cell.
+
+Okay, now what I'm going to do is watch this, I'm going to call this on D four. Now, notice what happens. Now, what it is giving us is 32. If you look at it from the very first time, you will feel quite surprised as to what exactly it is doing, what is what is it doing is it is doing something known as dot product. So, if we are passing two 1d arrays with same number of dimension what it is going to do is it is going to take the dot product and it is it is quite sensible because we can use this alpha operator for doing dot product and at the same time for doing matrix multiplication as we have done earlier. So, this particular function is quite handy. And if you guys are still not sure of what dot product is what dot product has done is it has multiplied these corresponding elements one multiplied by four
+
+Multiplied by five three multiplied by eight and the resulting area has been added all the elements in the resulting area. So I hope this alpha operator made sense. Now we are going to be starting with the implementation. Sorry, guys. Sorry for the interruption, the reason it got interrupted because I lost my connection to the Jupiter notebook. And because of which I had to run all the cells in the notebook again. So I'm going to be continuing from where I left. So, I was talking about this operator called alpha in NumPy. And I also discussed how this operator works in NumPy. I hope this particular operator makes sense. So now we are going to be starting with the implementation of logistic regression. For that, what I want to do is I want to refer to this particular
+
+pseudocode, one by one we are going to be implementing each one function. So first of all, let me implement this sigmoid function. So sigmoid
+
+function is the function clearly stated here. So let us quickly define the sigmoid function.
+
+It is going to take the input Oh Zed, and it is going to return something like
+
+I'm going to use NP dot exponential, and I'm going to call minus that. Okay. So I hope this particular function makes sense. It is quite easy. And okay, sorry. Yeah. So I forgot to add 1.0. So let's run this. Now, we have implemented the sigmoid function, the second function, then we need to implement this prediction function. And what prediction function will do is it is simply going to take the multiplication of this x matrix and this treat a vector or weights vector and it is going to come up with a matrix. Now it is going to come up with a linear combination, but this linear combination is not what we are interested in is in logistic regression, we are interested in the
+
+sigmoid of this linear combination that is why it is called logistic or sigmoid regression. So, what what we are going to do is we are going to be simply taking up the multiplication and we are going to be calling the sigmoid function okay. So, let's implement this particular
+
+this particular prediction function. So, prediction
+
+it is going to take x it is going to take take theta and it is going to return what it is going to return sigmoid of what it is going to return sigmoid of x multiplied by theta, okay. So, I hope it makes sense. Now, what we can do is, we can go to the next step which is cost function. Now, for cost function what we need to refer to is we need to refer to this particular formula. Now, notice here this actual is nothing but why, why is what y will be, y will be our actual labels and predicted will be
+
+The prediction that we will get okay. So, obviously, this cost function will take two arguments it is going to take the prediction and it is going to take the actual value so we are having a prediction and we are also having these y values so I hope it makes sense so, let's quickly make this particular function. So, prediction and why and what we are going to return is we are going to return this particular expressions average first of all let's code this particular expression then we will think about the average. So, so, first of all we take the actual So, we we take the actual which is why and we take the negative of it and then we call the log of a NumPy library and we call prediction on it okay. So, this first part is done, okay. So negative of actual and log of predicted. Now we are going to be coding this part. Okay. So we are going to be doing minus one
+
+minus y
+
+and we are going to be doing alpha okay instead of a star we should have done alpha okay. So, one minus y and alpha and again we are going to be calling and P dot log and one minus prediction. So, this part has been completed okay. So, once this part has been completed we get a number okay we get a vector sorry but this vector has been converted to a number using this particular alpha okay. So, what now what we can do is we can take the bracket and we can divide this particular sum by the number of elements in the vector, how many numbers this particular vector will be having it is going to be having say m numbers
+
+okay. So, let us say it is going to have m numbers and what does this end represent me is the length of this period predictions
+
+Okay, now, we can what we can do is we can return this function. Now, here, this particular function will work, but what happens is this NP dot log sometimes
+
+rather Sorry, I should say if this prediction or this one minus prediction gets to zero, then it might have some
+
+bad consequences to our example. So, to show you that, let me call this NP low on zero. Now, notice it is going giving us this warning of divided by zero and it is giving us this output of negative infinity. So, obviously, it is not going to work with NP with zero as input. So, to solve this particular input, we are going to be adding a very small number, which is not going to have that much effect on law to this log input.
+
+Okay, but we need to declare this particular small,
+
+small number
+
+So, we are going to be saying key one divided by
+
+one lakh. So, we are going we are saying that this is small number is one divided by one lakh. Now, what this will do is if prediction is zero then this small number will make it very very small. So, in this way this law function is going to work okay. So, we have defined and we have defined epsilon and we have defined this particular function so, let's run this particular function All right. Now, the next step is
+
+to code this calculate update. So, let us do that. So, what this calculate update is going to do is it is going to
+
+it is going to calculate the update off
+
+of a loop So, inside loop we have to update our key data. So, for each data we need a different update. So, that is why we are making a function. First of all we need a prediction and how are we going to get the prediction we are going to be calling this particular function which is prediction
+
+function on X and theta.
+
+Okay, once we get this prediction, we want to actually return the update.
+
+Okay, but first we have to calculate this update, obviously, it is going to be average and I'm going to take the transpose of x, and I'm going to say a prediction subtracted by y, but rather than multiplication we should use alpha that is why we are discussed alpha earlier. Okay, so we are going to be returning this update. Now, you might find it confusing. Why did we take this transpose? So let me quickly show you why this transpose is that makes sense? Okay, so let's call data dot transpose. Now earlier, this data had 14 rows, but now it is having only four rows. Now. The reason
+
+We are transforming our data into this shape is because now it is having 14 columns okay. And this particular difference will also be having 14 rows and that is how is alpha works alpha is expecting that in the first argument we are having equal number of rows or so whatever number of number of columns we have in the first argument that many number of rows should have in the second argument that is why we are doing this transformation or other transpose. Okay, so let's run this particular function. So, we have got this update. And finally, we have to initialize these parameters. Let's do that very quickly. But, okay, yeah, so first of all define learning rate.
+
+So let's define it 0.01. Let's define number of iterations for the timing. Let's define it, let's say 50. And let's extract
+
+Why?
+
+x&y because the next step was to extract the x and y.
+
+I'm going to say the last column that I'm interested in because last column is corresponding to the labels and let's get the Tita values and theta values will be random values. Let's get random values from negative one upon and P dot square root two two. And the reason that I am taking two here is because we have a we have two features. That is why we are taking to here and how many numbers we want. Between here between these two numbers. We want three numbers to four features, and one for intercept. Okay, let's run this. Okay, we have still not declared x now x is what x is.
+
+x is a matrix, which will be having 14 rows for x
+
+three columns, two columns for two features, and one column for a feature with all ones in it. So for that, let me make a one array. And that array will be having a shape of our data
+
+dot shape and zero because data dot shape zero will get me access of how many rows are there in this particular and I'm going to reshape it to make it two dimensional so that I can concatenate back to the data Okay, negative one to one
+
+all right. So, let me print this. So we are getting this error. Now I want to concatenate this error to let me print it here. Data dot I lock all rows, first two
+
+columns. And if I print it like this, we are getting a data frame but what rather we want a NumPy the presentation so we are
+
+Getting this Okay, so let me get this and let me call these two
+
+inner tuple.
+
+And I'm going to call a function called NP dot concatenate.
+
+And I'm going to
+
+call this function and I'm going to pass
+
+a parameter called one and this parameter is telling this particular function is that combine these two areas on columns, okay. So, all right. So we are getting this edit and we are we will be calling this array as capital X. Okay, I hope it makes sense.
+
+All right. So we have this x we have this theta we have our learning rate and we have gotten this number of iterations and finally, what we will be doing this we will be
+
+starting a loop for iteration in four
+
+I should say for i in
+
+number of iteration,
+
+or other range of iteration.
+
+First of all, the first step is to calculate update. Okay, so for calculating update, we have this function. So let's call this function on
+
+theta, x and y. So this is going to return me update.
+
+I'm going to access this update as this.
+
+And the second step is to compute loss. If I compute loss, and if I didn't use it, the only storage that would be worthless, that is why I'm creating an empty list. I'm going to append this loss, whatever loss I'm going to get from this cost function.
+
+Now this cost function is expecting two things, predictions and why. For predictions, I can
+
+Use this prediction function. So I will say prediction is equal to
+
+prediction function.
+
+And I'm going to call this on X and theta. And I can pass prediction and y, y i have already accessed here. Okay. And finally I can update this Tita using this system to turn negative is equal to update. So theta negative is equal to update times learning rate.
+
+Now, what we want to do is I want to cut this code and I want to paste it right here. The reason is that because each time kita will be initialized, and Keita will be updated here. Otherwise, some times what happens is
+
+we
+
+we put this particular code update code in some, some some other cell, then what does that do is it keeps on updating kita without even reinitializing. Okay, so let's move on.
+
+This particular code All right, so, we are getting an error called m not defined and the reason is that we have not defined m in here. So, let's define it very quickly in this particular function M is the length of the
+
+any way you will So, we can take the length of first shape of X or rather y length Oh boy, okay. So, length of y, let me let me let me quickly do one thing.
+
+Let me check whether this length is giving me the desired output or not
+
+all right. So it has given me the desired output. So I have taken this length here. And now we can successfully run this particular code, all right. So now we should be getting this data, you can clearly see we are getting this data, but how we will we will make sure that our learning process is working properly. So to
+
+Make sure that we need to check the loss. And we need to make sure that this loss is continuously decreasing in each iteration, if it is not decreasing, then we will have to tweak this alpha and this number of iterations. So let's quickly
+
+let's quickly create a system of plotting this loss. So that we will be have we will be having an idea of how does this loss differs. So, for that I have already imported this plot this plot plot plot functions called PLT using this plot function, what I can do is I can plot this loss and how can I do that I can do something like PLT dot plot. Now, to plot loss, I need to pass one more argument in the form of X for that I can create an list for i in range. And I'm using list comprehension and
+
+I'm just creating a
+
+List of bunch of numbers and the length of those numbers will be equal to loss. So let me show this plot to kind of see how does our plot looks like. Alright. So we are seeing that this All right, so that the reason is that we did not call this length argument.
+
+So let's run all right. So we have got, we are getting this wiggly function that is not looking like this loss is decreasing after every iteration. How can I fix that? So to fix this particular behavior, the first thing that we need to do is we need to change our learning rate. So let's add one more zero to it. And let's keep our number of iteration to zero. Let's run this particular code again. Let's run it again. And let's run this. Again, we are not seeing any improvement. So we have to improve learning rate a little bit more. So let's do that once again.
+
+All right. So this time you can clearly see
+
+Cost is suddenly decreasing after 10th iteration, and now the speed of decrease in the from from ninth iteration to 10th iteration was quite quite fast. But after 10th iteration It was quite slow. So let's do one more thing. Let's decrease this a little bit more.
+
+Okay, and apart from that, let's increase this number of iteration further. Okay, let me run this particular code again. And let me run it again. Let me run this particular code again. All right, so now we are getting this string behavior. So to tackle that, let's keep the the earlier learning rate and let's keep this number of iteration like this only. So let's run this again. So we are expecting so let's let me let me increase this to probably thousand
+
+All right, so we are
+
+Getting this strange behavior. So, you can clearly see that after a certain iteration it is not decreasing that much. So, it It shows us that the cheetah that we are we were getting in 100 iterations was probably correct
+
+All right. So, after 21st or 20 iteration, we are getting this repeated errors, which is not looking quite right. So, that shows us that 20 iteration is a is an ideal iteration. So, let me quickly set 20 to it
+
+all right but 20 is not giving me the ideal output. So, let's make it 100 again
+
+all right. So, as you can see it is a depending upon the initializations So, initializations also makes it the way it will be right So, I hope this particular small discussion makes sense. So,
+
+This, this, let let me do try out one more thing. Let me add zero and let me increase this number of iteration 2000. And let's see the kind of Alright, so as you can see it decreased it is decreasing all the way to to a 10th iteration. And after that the decrease is not that much. Okay, so we are getting some data, which I feel is our ideal data. Now, what we can do is we can call this prediction function on our x, let's call it and let's see, what are the predictions that we are getting for all input data.
+
+All right, and you can clearly see for the first few inputs, for most of the first few inputs, the values are less than 0.05 except this one, you can clearly see here
+
+less than 0.05, which shows that
+
+corresponding to these values, the prediction will be zero because earlier I discussed that the the
+
+the predictions if the if the probabilities that we are getting from the prediction function which essentially is calling this sigmoid function is less than 0.05 then sorry 0.5 then we are going to be predicting that particular number as to zero and if it is close to one which is there, you can clearly see, which is clearly showing because if I print data for initially for initial five observations we were having defaulters corresponding to which the label was zero and after six and you can clearly see here also after six, we are getting reductions close to one which shows us our model worked correctly or
+
+Right. So, now that we have implemented our
+
+implemented our algorithm from scratch, now, I need to show you how to work with logistic regression class in escalon, which is quite simple, because SK learn is is offering a convenient way of
+
+running these these functions which are quite easy to use. for implementing we had we have to do a lot of work but for using this SK learns function, there is not much work to do so from SK learn dot linear model, we are going to be importing
+
+logistic regression.
+
+And first we need to initialize logistic regression.
+
+And then we have to
+
+call the fit argument of logistic regression on
+
+on the features we don't need to add one here.
+
+Because one is added by default
+
+and we need to pause the labels for that we need we can just pause why because I specified data dialogues separately because I could not specify x here The reason is that x is having one unit, but logistic regression class will by default add one to it whatever is passed in place of this okay. So, so, it is it is fitting this particular it has successfully fit this particular model logistic regression now, let us call
+
+a function called predict probabilities
+
+predict probability now, this function is very much similar to our predict predict function because it is also giving us probability and I am calling this particular function to kind of see the output that we were getting in the output that that we
+
+Getting using this class. So I'm calling it on these same data, all right, you can clearly see we are getting this output. And
+
+for each row, we are getting one output. Now, you might be wondering that why are we getting only one
+
+probability for each row, but here, we are getting two probabilities for each row. And the reason is that this second probability is just one subtracted by the first probability. So we just have to take the larger one of it. So you can clearly see we are getting this product predict probabilities and you can compute your desired results from here okay. Once we have implemented our own logistic regression model, and we have also seen logistic regression models in action, using SK learn, now I need you to do a particular task. So this is a data set. This is
+
+A dataset of price rating and purchase or not decision, I want you to build a model logistic regression model from scratch the way I built it
+
+in this particular data set of loan default data set, and the second task is that you need to go to kaggle.com and you need to search for Titanic survival prediction. Okay, so this is what this is the one of the most popular competitions on kaggle website. Okay, so you need to download the kaggle download the corresponding data set and you need to
+
+call this logistic regression loss on that particular data set and fit the logistic regression model on it to kind of predict whether that particular person has survived or not.
+
+So, thank you so much. I hope you have been able to follow through everything that I have discussed in this particular video.
+
+Thank you so much for watching the video. Have a nice day.

@@ -1,0 +1,464 @@
+Hello Guys,
+Welcome to this new video.
+In this video, we are going to be learning about how to dockerise a 
+Machine Learning Model.
+
+So, let us get started
+So, the idea is that how I can share my machine learning models to the world. And apart from using a Dockerise to actually package my machine 
+learning model and share it with the world. Apart from that, we have got a few other methods. So, I will be discussing one such method. 
+In this particular video. So, let us get started. So, we will be understanding everything related to Docker and container. 
+And we are also going to be actually looking over, we just terminologies, that are important to actually understand and get started with Docker Docker 
+as quickly as possible. And there are lots of confusions when it comes to the concept of Docker and container. So, I will try to clear those confusions, 
+as much as possible. So, let us get really quick into the video. So, first of all, before I do anything. I would like to first of all, discuss what are the 
+important things that I'm going to be going over in this particular video. So, again, since we're discussing how we can Docker eyes our machine learning models. 
+We will be first starting with the concept of containerization. So, what is containerization What are containers. And how does Docker fit in that concept. 
+So we will be exactly going over that. And once that that is clear, we are going to be discussing how we can use other alternatives of containerization, 
+which are not that difficult, but they have their own limitations and advantages. So we are exactly going to be talking about alternative to containerization 
+in the form of API. And API stands for application programming interface, and we are going to be talking about how does containerization and API are similar, 
+and how they are dissimilar. So, sometimes we think that these two things are similar exactly similar but it's not like that. There are few limitations of each 
+of these platforms. Okay, then we are going to be going over a real life use cases of containerization. And there are various terminologies associated with Docker.
+ We are going to be going over that. And once these first four. Part of this video has been completed. And this this fourth part will cover most of the theory 
+behind Docker and containerization. I'm going to be starting with the practical aspect of it. So first of all we will be starting with installing Docker on our windows. 
+Okay, and your machine can be any other machine like Mac or Alliance.
+
+So we are, we are going to be discussing and seeing how Docker installation takes place. And once that is done, we are going to be discussing about some of the commands. 
+Some of the popular commands. So because there are hundreds of Docker commands, but only 20, or rather I should say only 10% of those commands are actually being used on 
+a constant basis. So we are going to be talking about those 10% commands which you need to remember, if you are want to quickly get running with our Docker. 
+And after that, we are going to be discussing how does Python and Docker work together. So, so far, with these six topics, we are only talking about the concepts and 
+how to install Docker. Then, in the seventh topic, what we are going to be doing is we are going to be actually discussing how does Python and Docker differs. 
+Okay. Once that is done, the second step would be to actually take an example. And that example will be a Hello World kind of example for Docker. 
+So what we're going to do is we are going to be making a Python program. And once that program is ready, we will try to Docker eyes that Python program, 
+so that would be a really simple program, but it will kind of show you how actually Docker ization and containerization takes place, or with the help of Dockor software. 
+Okay. And once that is clear, we are, we are going to be going over the actual administer, and which is a containerization of all machine learning model. 
+So what are we will be doing is, we will be training, a machine learning model, and we will try to containerize it. You might be wondering that since, 
+machine learning model is also a Python program. There are no there is no difference between these two steps. But actually, the difference lies in the form of requirements
+ and dependencies of the containerization on machine learning mode. Also, for a beginner containerization or machine learning model can be really tricky. 
+So that is why I am going to be discussing that topic first. Okay. So, Finally, I'll finish this video by discussing one task for you so that you feel comfortable 
+about the topic. So I hope you are excited to get started with the topic. So, let us quickly move on and start the topic one by one. so the first topic is What 
+is containerization in software development. So, first of all, let me talk about why I have written software development. Since containerization is associated with 
+software development because what happens is a particular piece of software is created on a particular machine, or, rather, I should say upon a particular software
+ operating system. So that is why all of its requirements and configurations and dependencies are associated with that particular operating system on which that 
+particular software has been created. Now what happens is, if someone who has created a software wants to share his or her software with the world, what will happen is, he will have he or she will have to replicate
+
+those steps that the, the person was developed the application has taken on his operating system on the, on the user's operating system too. So, that is the idea 
+that is the motivation behind containerization because in the containerization what we do is we package, all the configurations and requirement and dependency
+ files in a container so you can think of container as a bucket and inside that bucket we put the means software, with all of its dependencies. 
+So what we do is, we only share this container in some form to the user. So we share this container to the user, and what the user will do is, user will 
+download this whole container all at once, and hence, in this container all the configurations and Python files, exist. So we, the user will not need to 
+install all of these files on his own. Right. So this is the basic idea of containerization so let me read this particular slide. So containerization of a 
+software or often applications of tongue, which is a way of bundling and applications source code so what we are doing is we are putting all of the applications 
+source code, and its dependencies in one container. And so what we do is we bundle the application in one container right and the container can be run across platform. 
+But there has to be a way of running that container on the user's system. So, with containerization we have only one problem and that problem is how can we run containers 
+on the user's platform. And there is, without container, the user would have to think about all such things like how to, how to get source code source code he will be able 
+to get from the developer, but how to get the dependencies and all the configurations file are just right for the particular operating system. Okay, so I hope you understood 
+this particular point, so let us now move on. So why containerization now the, the, the question is why we are so, so bothered about containerization you might be able to guess from the name itself, we do containerization because we want to share our applications. Right. And we want to share that, as with as little effort as possible, so we don't want to have this hassle in sharing or application so that is why we want this, this containerization concept so we want a way of sharing our application with someone who's probably not interested in doing all sorts of different setup on his or her local system, for example, has created a games, and I wanted to share our I want it. I want the whole world to use this particular application. So, I will not bore the user by letting him is gone all such configuration files and all he will he is probably more interested in playing the game. So, that is why the concept of containerization is really important, ensuring of ensuring of software applications. Okay, so I hope you understood why do we use containerization. Now let us talk about Docker. Now, containerization is a concept, it's not actual software, whereas a software called Docker or 
+a platform, which enables us to do the containerization process is known as Docker so Docker is not like a concept, whereas containerization is a broad concept which is being 
+implemented by many software's, okay. So note here that a Docker is not the only platform to actually allow be a process of containerization so there are other software's 
+like VirtualBox vagrant and Cuba nets. So with these three software's you can do exactly the similar things that you can do with Docker.
+
+Okay, so, but Docker happens to be an industry standard, and it has got a good community support. That is why Docker is much more popular, and it has been in the business
+ for quite some time now. And that is why we can trust Docker and Docker is going to produce good results, because it has got good community support as well as good number 
+of people using it. And there are good, a number of updates also that are constantly being pushed out. So, these are all the reasons that Docker is quite popular in 
+comparison to other platforms. Okay. So let us now move on and understand some more epic explanation. So, this is a very quick explanation. I don't want to read it out,
+ you are just free to pause the video and read this particular explanation because I have already discussed a lot about this Docker concept and this containerization, 
+so you can date it out. Okay. Okay. So now that we have completed our first discussion. And that was the concept of containerization and Docker so we come, we're done 
+with the first point. And now we will be understanding how to actually use API as an alternative to containerization, so let us now move on. Okay, so what are we 
+essentially doing in containerization. We are essentially trying to get a way of sharing our applications, as easily as possible. Now, API what API allows us to do 
+is a API allow us to share our applications in the form of route. And, or rather I should say in the form of URL. So what I can do is I can provide the user of the 
+application, a specific URL and what the user will do is, he will just, he or she will go to that URL, and we'll be able to access the application. So API, you 
+can think of as an alternative to containerization what in the containerization what we do is we share the container with the user and that user needs to have an 
+ability to install that particular container on on his or her system. Whereas, on the other hand, he allow us to give a URL to the user with a URL, he can he or 
+she can go to that particular URL on his favorite, or web or favorite web browser, and from that web browser, he or she can eagerly use that particular application. 
+So, this is a, an alternative and I thought, it is a good idea to actually share this alternative.
+
+Now what are the disadvantages. The disadvantages of API in when it comes to containerization or when it comes to comparing it with containerization.
+
+You can think of api as providing URL. So what happens is, when we are providing the URL or to the user. All the application code configuration file, all the 
+dependencies exist on the server. Okay, exist it exists on the server of the developer of the application. So, what it does is it increases the load of the heavy 
+files on the server. Okay. And also, if we share API to lots of users. And if lots of users come and visit to that particular API at the same time, what will happen 
+is the load to our web application, or rather, our server will really increase. And in that, in that process, our servers might be. So these are the, these are all 
+reasons, which might be against the API, but still API is one of the wonderful ways by which we can share our application.
+
+Okay.
+
+So I hope this small little discussion, made sense. And you were able to actually understand the difference between
+
+containerization and ETL. Right.
+
+Okay, so let us now move on.
+
+Let us discuss some of the use cases of containerization and Docker. Now, this particular concept has got many use cases,
+
+because the use cases we are
+
+not able to think or we will not be able to think of much many use cases of this particular concept and the reason is that the definition is 
+quite clear that we are essentially trying to bundle our applications. So, in that manner. There are not many use cases which are quite popular 
+but still the very definition is is giving the containerization use case. Okay, so first is containerization of software meant for running only on 
+lineup so what will we do in the first status. We. There are many platforms like line x line x is, is a platform, which is set to be built for software developers because
+there are many applications which can only be run online next.
+
+But for example, a software developer has a has windows in their, in their machine. So what they can do with the containerization is they can install Linux 
+on their system in the form of virtual machine. And with that, what what they can do is they can run Linux and use Linux, just as it is installed on their system right.
+ So the second point is a Docker can containerize any software application and create a virtual machine around that. So, any application which is not compatible with 
+Windows, that can also be run, and for that matter any application if which is not compatible to a particular operating system can be run on that particular machine. 
+Okay, so I hope these few use cases made sense so you can read the remaining use cases so they are essentially trying to say that we can package our applications in 
+the form of container, using our Docker, and we can share with the world. Right. Okay, so let us move on to the second step, and the second step is, what, what are 
+the various Docker terminologies let me quickly go over these terminologies. Do not try to get confused, in the beginning that what are these terminologies just try 
+to understand and get an overall overview and overall feel of these applications. So the first term is image. Now, before I discuss image, let me first of all discuss
+ what are containers, I have already discussed container is a is something with which we can put all our applications code, and its dependencies its configuration files 
+into a kind of a bucket, and we can share that bucket to others. Now, how are we going to share that bucket with us. That is where image comes in so images are name, 
+specific to Docker. What image, allow us to do is image is something that we've built built on our system, and using image, we can run our containers, okay so container 
+is something like bucket and image is something like something inside which all of our applications code and dependencies exist. Okay, so we can run image we how are we 
+going to create an image that is the third part breed and image. And where are we going to write all the things that are there in the image that is the Docker file. 
+So, in the Docker file we created, we create a file, and it is a file, which specifies all the, all the dependencies and all the commands that will be run once this 
+image or container is started running. Right. And what is Docker Hub, so Docker Hub is a platform provided by Docker to host, all the repositories, or other all the 
+images. So, images, you can think of as a file, right. What happens is, for example, I need an image for opening up Jupiter notebook. So, what I can do is I can go to 
+Docker Hub, and I can
+
+search for Jupiter, and I can copy the
+respective code, and I can run that particular code in the Docker terminal, and I will be showing you how exactly Docker terminal is installed.
+
+But first you need to understand that
+
+what what is Docker Hub, so Docker Hub is a place for hosting all the images, so you can host your images locally, as well as globally, or rather, on cloud.
+ And with the help of Docker Hub. Okay, tag of images. So, every image will have a version associated with it. What is the version of that particular image, 
+so that version, version is essentially known as tag of images. Now, a seven point is Docker toolbox Docker is easy, easy to install on Linux but
+
+they're on us. Whereas,
+
+on the other hand, Docker is a little bit tricky to install on systems like Mac and Windows. So for those two systems, what our Docker has done is they have come 
+up with this particular piece of software Docker toolbox, we will be understanding how we can install this particular piece of software in data sets. 
+So this allows us to run Docker on on Windows, as well as Mac. So, this is pretty cool. Okay. The eight point is our virtual machine. Now virtual machine is a 
+name for a machine inside a machine, which is hosting some other applications so for example I am. I'm working with Windows, and I'm trying to get to Linux. 
+So what will. What will I do is I will open a virtual machine, and inside that virtual machine, I will create an instance of Linux
+
+machine,
+
+and with the help of that, I will be able to run Linux inside my windows so that that is the basic idea. And this concludes our discussion on Docker 
+terminologies and are now, or from the later slides, we will be actually exactly understanding what how we can actually install Docker and how to create a 
+Hello World app in Docker.
+
+
+
+Alright, let us start talking about how to install Docker, and in fact we will not be installing Docker Docker exactly because I am running on the Windows system. 
+And if you are on Mac, then this for this actually is same for you because, for Windows and Mac. There are no original Docker installation but but rather, 
+there is a there is a alternative way. So what we will do is we will actually install Docker toolbox. Okay, so there is a Docker installed Docker toolbox installed. 
+Okay, so we will be going to this particular page installed Docker toolbox on Windows. So let me go to that page. And there are few instructions. So if you are, 
+if you are interested you can read that particular instruction, but please make sure that you read the step one very carefully because it, it actually shows you 
+how you can check whether the virtualization has been enabled on your system or not. And it's actually pretty easy what you need to do is you need to open the task manager, 
+and using Task Manager, you need to go to performance, and in the performance you will be able to see what is exactly this process so notice your virtual virtualization has 
+been enabled. Okay, so I hope it makes sense. So once you read this particular instruction, you need to come to step two, and in the step two, that is the step one, 
+which our goal, which says you to go to toolbox releases, let me go to that, and it will point you to a GitHub page and you can download this. exe file. So, let me do that. 
+It will be of around 200, and these. Yeah, it is of 200 or 33 and this, so please install this particular application. And once that application has been installed. 
+What you can do is you can install this particular application, just the way you install any other application what you need to do is you just need to accept all 
+the default parameters. And once that is done, you will be you, you will be getting a Docker quickly start terminal. So, this particular. So, this Docker quickstart 
+terminal, or software you will be getting. So, once that is done, you can open that particular Docker quickstart terminal. So let me quickly show you how we can do that. 
+Okay, so Docker quick starts on Windows. So let's open this. And it is obviously going to take time, because the reason is that this particular piece of software is 
+actually quite heavy, because it runs in the background, virtual box, which is a software provided by Oracle, and this software is essentially actually trying to create 
+a virtual machine to run your Docker containers. Okay, so, let it run for some time. And till then, we can talk about Docker commands, so that we will be able to run 
+those commands in this terminal Docker kookiest or terminal. So the first command is Docker versions. Now, Docker versions will obviously allow us to check the version 
+of our Docker platform or Docker software, then a Docker images will list all the images that are currently present locally. Okay. and
+
+I have earlier discussed that using the Docker file, what we can do is we can build Docker images. So notice here, I have specified part of the Docker file. 
+So what we do is we specify Docker build, T, and we specify what are the interest. What is the name of the Docker file that we are interested in leaving, and 
+we will be specifying the path of the Docker file, that, that, that lays out all the instructions and commands in in how this particular Docker image will be run. 
+And once that once a Docker has been running so let me read out this particular. This particular code first. So what we are doing is we are running a Docker container 
+using its name, or its ID, so every Docker image will have a name and ID associated with it. So we can run a Docker container. By using either name or ID. Okay. 
+So finally, we are always specifying a method of removing an image. So what we do is we specify a Docker image rename or sorry, remove, which stands for RM, and 
+then we specify the name, and this this parameter is optional, what we do is we provide it only when the, the container, or the deletion of the container has been 
+stopped by some other process. So we add this tag, F, which delete it forcefully. So you hope you understand these particular commands. We will be actually showing 
+how these commands fit in with this particular with our example. Okay, so I'm going to be talking about that a sum okay so now this Docker has been successfully run. 
+So what I want to quickly show you the version of Docker. Okay so Docker version is 19.0 3.1. Okay, so it might differ in your case. And further, I can show you Docker images.
+ Alright so you can see, I have got a few repositories. So these are the name of the repositories. These are tagged, and earlier I discussed, you discussed with you in my 
+earlier slides that tags are essentially a name for the versions of the Docker containers and also have discussed that each Docker container or Docker image will have
+ associated with it, a unique ID and created, and what is the size of these Docker images. Okay, So I hope you were able to follow through. Right through right now. 
+So, now what we are going to discuss is we are going to discuss how does Python and Docker fit in together, so there is no much difference to what we have talked earlier 
+with Python and Docker what we can do is we can package, our Python programs using Docker containers, and we can build an image around that. 
+So, that is what has been discussed here and there is an alternative, we can share our Python programs through epi also as we have discussed earlier. 
+So these, this is what I want to discuss in this particular slide. And now what I would like to do is I would like to actually get started with the Docker Ising Python HelloWorld program, 
+and after that we will be tokenizing, a machine learning model. So let us quickly get started.
+
+Ok so let me first of all, open up the code editor. And inside the code editor, I want to make a very minimal application. And I want to run I want to be able to run that particular application.
+
+So let me minimize this screen a little bit.
+
+Okay, so, and also I would like to first of all, increase the font size so you have no difficulty. Going over going through this these codes. 
+So first of all, I'm going to be opening up a folder. So let's create a folder on the desktop called Docker
+
+HelloWorld.
+
+Okay, so I'm going to be selecting that folder inside this Visual Studio code.
+
+So, what I need to do is first of all I need to create a main admin application so main.py file. And inside main.py file. What I will do is I will just print. 
+Hello. And in this particular example I just want to show you the process by which we create all Docker eyes machine learning models, and in the same folder. 
+I want to create one more file, and that file will be known as Docker file. Okay. and sorry, let me rename this particular file, because you have to re name this 
+particular file. The way I have spelled it. Okay, so d should be uppercase and all other letters should be lowercase. Okay. And inside this file. We need to specify 
+few things. The first thing is, what is the base image. Every Docker image will have a base image on top of that image. Current image will be run, so I want to create 
+an image which will run this
+
+main.py file.
+
+Okay, and to actually run that particular image, I need a base image. Okay, so to run that particular image I need a base image so how can I do that. 
+So what I will do is I will add Python. And once that base image has been set. I can also specify the tag or the version associated with it. I will add slim. 
+The reason that I am adding slim, because
+
+this particular
+
+base image has already been installed on my system, so I don't need to install, I don't need to install this particular base image. Okay, now you don't need to worry 
+about this is because if this particular base image is not in your Docker, then what Docker will do is Docker will smartly pull up this particular image base image from 
+the Docker Hub repository, and it will do the job. The only difference is, it will do the job a little bit late because it has to install this particular extra base image. 
+And once that is done. What we need to do is we need to define the working directory. So we will say hello world.
+
+So,
+
+okay, now we have specified that we will create a directory inside this folder as HelloWorld. But we are trying to Docker eyes this main pipe. 
+So what do we need to do is we need to add this these files into this folder so we will say add all the contents of this file to this folder. 
+Okay, so this step has been has been completed. Now we need to specify the command. This command is a command that will be run once this container is run once this 
+image will be run in the form of container.
+
+So we will say, Python, so we will
+
+specify Python, and we want to run this over five. So, these two arguments in the, in the double codes will just be concatenated and we'll be done.
+
+Okay, so let me save this particular
+
+file,
+
+and then we'll go over to this.
+
+This Docker build command. Okay, this particular command, what I will do is, first of all, the first thing that I would like to do is, I would like to navigate to this folder
+
+that I've just created.
+
+I will say, users.
+
+And
+
+let's see list. Okay, so we will move to Docker HelloWorld. Okay, even list, then we will be able to see that we have got a Docker file which is specified the 
+instruction and main.py file which is actual file. Now what we need to do is we need to say darker. The tea, what is our, what is the name of the Docker image 
+that we want to do.
+
+Hello, world
+
+Docker. Okay, so this is the name of the image. And what is the part of the Docker file so Docker file exists in the same folder in which I'm running this particular 
+command, so I will enter this dot. Okay, so if I hit Enter notice a few things will start happening and what will be those few things. Those few things will involve 
+these steps. Step number one, getting this base image. Step number two, or setting this working directory step number three, adding these files, adding all the files 
+into this. And finally, specifying these commands, and you will actually see these steps are being executed, here also. Okay, so let me hit Enter, and please notice what 
+are the all the things that are happening. Okay. Notice what happens, so it checked is step one, it checked. Step two. Now, it did not take much time and the reason is 
+that Python slim has already been installed on my system. If it is not installed, then it will install that in your system from the Docker Hub repository. 
+And it will take some time and then it has added this working directory, it has added all the files of current directory to this working directory, and it has 
+finally associated this command. Now how can I check whether this repository has been created or not notice the name hello world or Docker, and we are going to 
+be listing all the images, and notice here we have a repository HelloWorld Docker and tag is latest, we did not provide any tag, so it assumed that the tag should 
+be latest, there is an image ID, and there is a creation date, and there is a size. Now you might be wondering why is this Docker file which only prints hello world 
+is actually having a size of approximately 200 Mb. The reason is that it is built on top of pythons slim pythons slim distribution, and that distribution is 
+approximately 200 entries, so that is why it is taking so much space. Now how can I run this particular image,
+
+it is very simple. I can just say Docker
+
+Docker run. And then I can specify the name of the image that I want to run or, rather, if I'm interested in. I can use to also specify the image. 
+So if I hit Enter, what will happen is this command will be executed, and this command is Python run main application. So, these are two commands will be concatenated and
+ will be done all at once. Okay, so let me run this particular file notice it has successfully opened HelloWorld. Okay. So I hope this HelloWorld Docker ization process
+ made sense. So in this example what we have done is we have created a very simple Python program, and with the help of that, We have also printed. We have also painted
+ the text hello world, to the console. Okay, and now what I can do is I can share this particular image to the Docker Hub repository. By signing into a Docker Hub so let
+ me go to Docker Hub. And if I go to Docker Docker Hub. What I can do is I can sign in. And then with the help of Docker push. I will be able to push this particular 
+repository or other image to Docker Hub, and with this. Any other people with whom I am interested in sharing my image will be able to pull this particular image. So
+ let me quickly show you how does that work. I will not actually show you how to push this particular image, but rather I didn't show you one image. So let me quickly 
+search for other Jupiter notebook. Jupiter notebook.
+
+Data Science notebook.
+
+Now, once you push your image to this platform. You will also be given a particular URL like this. Now, notice this command. 
+Joy users will be able to access your images with this particular command Docker pool Jupiter and data science notebook so with this particular command 
+you can share this command to your users. So they will install Docker, and they will enter this particular command so let me quickly show you how I can
+
+access this Jupiter notebook.
+
+That will hit Enter, and it will start installing this particular notebook to the system, obviously I am not interested in that I will stop right here because 
+it is going to install all these big files so I will stop right here, I will not let it happen. Okay, so you get the idea how does this, these things work. 
+Right. Okay. And also, I have just just read layers here, so I would like to go over what are layers in the Docker file, each line is actually on here. 
+And these layers are built one after the other. So first we create a Python installation we create a working directory, because if we don't create a Python 
+installation, we will not be able to run the fourth line. Okay, so you can think of each line in Docker file as a layer. Okay, so once that has been done, 
+let's move on to actually dock rising our Python machine learning program. So, let us get started.
+
+
+So what I will do is I will just turn that hello world example into a Docker Ising Python machine learning model example. So let me quickly do that.
+
+So, in this
+
+particular way, first of all, what I will do is I will import necessary libraries, so I will import from
+
+SK learn dot
+
+linear model import
+
+linearization.
+
+Okay. And also I'm going to import
+
+NumPy, and I'm going
+
+to import pandas.
+
+Okay. But other I should not import pandas because it is not required.
+
+Okay. Now I'm going to show
+
+you a very minimalistic example of a Docker rising a machine learning model. So let me create a linear regression class. 
+So I have initialized a linear regression class, and I have to call fit method on this linear regression class. And finally, I can print the T predictions of
+ this particular linear regression class so linear regression dot predict
+
+or inter predict, I will specify
+
+input, and I will make an
+
+input Edie. In,
+
+and NP dot array. And inside this, I am going to pass bunch of input, and I will reshape this particular area because num. This SK learn expects this array
+ to be in the form of minus one to one. So before that let me create some demo data, so I will say x is
+
+equal to
+
+and y is equal
+
+to. So in the x. Rather, I should make an array as well. So I will say
+
+dot reshape
+
+minus one to one. And
+
+let me copy this particular code. Okay, so let me pass bunch of values for x, so I will say 1234567. And I'm going to pass some values, 
+some seven values here also 12 1517 2024, and 36,
+
+and last
+
+value will be approximately 35 right. Okay, so we have got these two inputs and output, I'm gonna fix this linear equation class.
+
+Sorry.
+
+I'm gonna do this linearization class
+
+here, x y. Okay. And. Okay, so I am going to print some,
+
+Some outputs, the way to see.
+
+Alright, so let me print quickly. 12 1314 so I'm going to print three predictions. So let me quickly run this particular file locally first to make 
+sure that we are able to get the output. So let me run this particular code. Okay, it is saying, a NumPy has no attribute called average.
+ So we are getting an error. Okay, so I hope it will run successfully now, so let me quickly run this particular code again. All right. 
+So, as you can see we are getting three predictions. And these three predictions are actually associated with these three inputs. Okay.
+ So, corresponding to 12, we are getting this 52 point 14 and corresponding to 14 we are getting 15 9.7. So I hope you were able to follow through this creation 
+of small, very toy,
+
+machine learning model.
+
+And now what I will do is I will try to Docker eyes this particular fight.
+
+And this is actually quite simple,
+
+but
+
+since this default installation of Python, does not have SK learn and NumPy libraries. So what I need to do is I need to specify one more argument 
+called runt and inside this run I will pip install NumPy sci fi and scalar. Okay, scalar. And we have a we have created added this and let me change this 
+hello world to ml Docker. And I will change this to amend Docker as well. And I should probably have before running this
+
+code. I should probably
+
+upgrade this bit pip install up.
+
+Great.
+
+Let me quickly see the
+
+command of PIP great keep up to date.
+
+Let me go to this default update website.
+
+And
+
+so we are not able to get any command here, to kind of let them go to the second website. I'm not able to remember the second argument.
+
+They've been started install upgrade.
+
+I got it. So pip install upgrade. Okay. So, with this command. So these things will be run on layer as
+
+discussed earlier. So first,
+
+it will get the Python slim
+
+version,
+
+and then it will, it will set the working directory layer, it is going to add all the files, it is going to update the theme. 
+And then it is going to install the necessary model so this will be installed,
+
+which will be used in this particular file.
+
+And then finally, it is going to run this particular file. Okay, so let's quickly go to Docker terminal and inside Docker terminal,
+ let me list, this, this directory so again we are having only two files, and I'm going to say Docker build and all those these commands
+ if you fold it some time are actually listed on, on this presentation. Okay, so let me do me Docker.
+
+And, or rather I should.
+
+Yeah, it's fine, so I didn't put dot, because the Docker file exists in the same folder. If it is not in the same folder I will specify 
+the full path of the Docker file here. So, for the time being I will just say, dot, and if I hit Enter. Notice the first few steps will happen quickly 
+because Biden's slim version is already installed. And as I have shown shown you earlier also let me hit enter. Again you notice first three steps have
+ been done, and now it is upgrading Pip.
+
+So let it upgrade.
+
+Or rather, what I will do is because a Sai pi and SK learn libraries are going to take much take a few minutes, so I'll pause the video and I'll resume.
+ Once these libraries have been installed.
+
+Okay so notice these things, these are logs, so that you get satisfied. These commands are successfully ran and first installed NumPy, and then sy pi, and
+ then a scalar, and finally it executed the step six,
+
+which was this command Python main.pi file.
+
+And now we can list the images, again, by 20 images and sorry not Python images Docker images. Okay, so now we have got one more image which is Emory Docker.
+
+So let's run this particular
+
+Docker so Docker run, but this time let's use ID, instead of name. Okay, so I have copied the ID, so let me print, and notice what will happen. Okay, 
+so I hope you got this particular output, because we are we are executing this, so whenever this Docker image will be run the final command which is going to be
+
+going to be
+
+placed here with the command called CMD, and it is going to run in
+
+this form.
+
+Okay. And there should be only one command for every Docker file. Okay, so I hope you get the idea. And in this manner, you can Docker eyes any Python file, 
+just with these few procedures, and also. Apart from that, I would like to discuss one more thing, that, that if you want to share this particular image me
+ Docker to anyone, then you need to first of all, host or, or other post this particular image to some cloud service, or use the Dockers its own cloud service
+ Docker Hub, and pause this particular image on that cloud service. And from that, you will be able to point your users to that link. Okay, so that they can
+ also download this particular image.
+
+Okay, and they can
+
+store
+
+and run the programs that you have created
+
+on their own machine without actually worrying about all the required dependencies and configuration files, and notice also that this ml Docker is
+ quite large compared to earlier, which when we created this introductory. Wait a second. Yeah, so introductory image so introductory image was okay Why is 
+this so large, no no no. So I was, I created hello world Docker so hello Docker is actually only a 194, because it did not install any dependencies so this time.
+ We have also installed these dependencies that is why the size is quite large. So I hope you got this point, I'll stop this video right here, but before I do that,
+ let me quickly share this task with you. So the tasks are, first of all, install Docker toolbox for Windows. So you have to install a Docker toolbox for window 
+if you are on Mac, then install it for Mac, and if you are on Linux then you will have to. You will have no difficulty installing it okay because the installation 
+for Linux is not that difficult. Okay. And then we have got to run all that commands. So,
+
+earlier what we did was
+
+we listed all the commands for Docker. And what do you need to do is you need to run all these commands one by one to make sure that all these things work so this
+ is the second task for you.
+
+So first task
+
+done, second task done. The third task is replicate the Hello World image in Docker so the whatever we have done, you need to do it on your own. And finally,
+ rather than using the same machine learning model that I took which was a very simple machine learning model, you need to create this image that some of the machine
+ learning model of your own choice spam detection sentiment prediction etc
+
+and Docker eyes this particular model. And finally,
+
+which is a little bit advanced Docker is a flask application, and with the Docker ization of flask application the difference. The difference does not exist. 
+The only difference is, is specifying the port on which your flask application will be. Okay, so I'll stop right here, and I hope you got everything. 
+And you were able to understand everything that I have discussed in this particular video. Thank you so much for watching the video. Have a nice day.
+
