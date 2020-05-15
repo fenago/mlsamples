@@ -1,6 +1,271 @@
-All right, I think we are getting the error in the predict
+Hello guys, welcome to this new hands on lab. In this hands on lab we are going to be discussing about support vector machines. Now support vector machines is one of the classification machine learning algorithms. So, we are going to be discussing how support vector machines work and we will be more focused in implementation of support vector machines in SK learn which is a machine learning library in Python. And we are also going to be briefly touching upon how does support vector machines work okay. So, without further ado, let us let us get started.
 
-Okay, I get it. So, the reason that we are we are getting this error is because we we pass this class in the form of a string, but let us quickly map it so that we have the right kind of representation.
+So, before I actually discuss anything in machine learning, first of all let me do one thing, let me discuss the agenda of this video. So, the idea is that I want to go over what are the various things that will be discussed in this particular video. So, let us get started with this slide. So, the first thing that we are going to be discussing is we are
+
+Going to be briefly touching upon what is a merge support vector machines. So, we are not going to go too much into the details of the algorithm here, but we are just going to go over what are the broad perspectives for this particular algorithm in machine learning and then we are going to be briefly touching upon how does SVM work and this slide will tell you the exact mechanism that as VMs use, so, the idea is that we are going to be only discussing about the intuitive explanation of SVM okay. So, again we are not going to go over the mathematical details and then we are going to be discussing about two difference which will be clear once we discuss these differences and the difference that we are going to be discussing is linearly separable versus non linearly separable. You will know what are these terms when once we get to this slide
+
+And then we are going to be discussing about one more difference, which is the difference between support vectors and hyperplanes. And these terminologies are quite self explanatory and further, they will become more explanatory when you will look at the graph. So you don't need to get worried about how you will be able to understand these terminologies, these are quite easy. And if I talk about support vector machines in its mathematical sense, then I would say support vector machines is one of the most difficult algorithms to comprehend in its mathematical sense, but if you talk about understanding as VMs in intuitive sense, then it is one of the easiest algorithms to understand. So, if you try to go too much deeper into mathematical aspects, then obviously, you will face a little bit difficulty but the intuitive part and the way this algorithm works is quite easy. So, this is what I show in this video.
+
+ticular fifth slide as VMs as as margin maximization problem. So, with this particular slide I will exactly show you how does as VMs work and how can we understand them as a margin maximization problem. And further in the next slide, I will be laying out how exactly as VML will work and what are the various components that go into it okay. And I am going to be discussing about one disadvantage of SVM for large data set in this particular slide, what makes SVM difficult to scale for large data sets Okay. And then we are going to be practically implementing two different types of as VMs, one for linearly separable data and one for non linearly separable data. Okay. And both we're going to be doing in a scalar And finally, when I will be closing this video I would like to share one task with you so that you get a chance to
+
+To practice what you have learned in this particular video. So without further, without further ado, let's get started.
+
+Okay, so let us first start talking about what is support vector machines. So, as you can see from the slide support vector machines is one of the most earliest machine learning algorithms. And if I have to tell you the exact year in which support vector machines were developed, so, they were developed in 1960s. But they were they were not been able to implement this particular algorithm in computers. And the reason was that because the computational power and the resources were not efficient at that point of time, that is why it they will not never implemented that then, but its importance was realized in 1980s or 1990s. When they were able to they when when people were able to implement support vector machines in
+
+Computer and everyone got surprised when they were able to achieve performance which was equivalent to neural networks. So, that is one one thing. So, performance wise support vector machines is quite efficient, but there are a few aspects that we are going to be talking about in later slides. So, so, basically it is one of the earliest algorithms to be developed and and also if I talk about the mathematical perspective of this particular algorithm then it is one of the most difficult algorithms to comprehend because of too much mathematical details that is required to work in order to understand these algorithms okay. So, it is made up of three words, support vectors and machines. And rather I would say it is made up of only three words or two words sorry, because support vectors are always used in, in conjunction and machines is just referred as a
+
+as a means to convey a system Okay. Now support vectors means those vectors which support the classification process, we are going to be exactly looking at a What are support vectors in two dimensional case, when we will look at the difference between support vectors and hyperplane. So, let us now move on. So, brief overview of SVM. So, in this slide what I have done is I have just I've just float plotted this particular diagram and with this particular diagram, I just want to explain you the intuitive explanation of as VMs. So, now, assume this particular data set with two variables
+
+The first way you will will be x one and the second way you will will be x two
+
+okay. And this particular example, which are red, you can think of them as negative examples. And these particular example you can think of them as positive examples. Okay, now, this is a line this green line
+
+You can think of this this green line as a decision boundary. So, I will write this as a decision boundary
+
+Okay. Now this decision boundary what it does is it tries to separate this positive and negative examples as much as possible. Now, the way if I have to talk about the intuitive explanation of SVM then I would say it tries to make the difference or make the margin as wide as possible. Now, what do we mean by margin? Now, what SVM does is it locates, first of all it locates the the region where these two examples are separated and then it tries to draw to support vectors
+
+around this decision boundary
+
+sorry for the drawing. It should be Pilar and what
+
+tries to does is it tries to maximize this difference between this line which is a decision boundary and these support vectors now this decision boundary is what exactly known as a hyperplane now hyperplane you can think of as any plane or line which divides the
+
+positive examples from negative examples okay in higher dimension also this hyperplanes definition holds true in the similar sense so, but for the time being you just need to understand it for these 244 these are two dimensional example okay. So, here what you need to understand is how does SVM box intuitively Okay, so, so now, the question is how does SVM come up with this green line? Now, this is where the maths gets a little bit complicated. So, the way it computes this particular line is
+
+beyond the scope of this particular tutorial, but right now, just understand we will be touching upon this this particular reason why how are this SVM is able to figure out this green line in later slides, but for the time being, let's understand it intuitively. So, we we try to find this these support vectors okay. And these support vectors in the middle of these support vectors we try to find a line which is known as a hyperplane. And the way the way it or the way SVM find this particular green line is by maximizing the distance between these support vectors and this line. So, you will naturally understand that, if it tries to maximize this distance it this particular green green line will naturally be in the exact middle of this particular Street. So, if you can think of this as a street
+
+Then this green line will always be in the exact middle of this particular Street. So, I hope this particular small discussion made sense. Now, let us move on to next discussion, which is the discussion on linearly and non linearly separable data. So, the data that we have just discussed this particular data is an example of linearly separable data.
+
+The reason that we call this particular data are linearly separable data is because, we can find a line and visually also we can think we can see clearly that there is a line which clearly separates these two regions. But whereas, on the other hand if you look at this particular graph, which is on the right now here to separate these green sorry to separate these red and blue examples, you cannot find a line which does the job. So, if you think that this is the line
+
+That does the job then you are wrong because there are there are blue examples around here also. So, the only only classifier that we are able to find here is this particular circle and this particular circle is nonlinear in nature. So, that is what we mean by linearly and non linearly separable data. So, we can have linearly separable data we can have non linearly separable data by default as VMs works with only linearly separable data, but we have some something known as kernel trick with which we are also able to use it for non linearly separable data we are going to see the implementation in SK learn for both of these data types, but for the time being understand that we we by default we only have a case for linearly separable data okay. So, now let us move on
+
+okay now, let us understand So, what
+
+Do we mean by support vectors and hyperplanes we have already discussed these are this difference very briefly earlier. So, the hyperplane is essentially the line or plane which splits the regions. So, in this example, this green line is our hyperplane or in our earlier example, in the nonlinear case, this circle which we will draw which splits this data in two portions will be considered as the hyperplane okay. So, but what do we mean by support vectors So, support vectors as the name suggests or the vector points are the points those through which our support of sub our supporting line passes. So, this these two lines will be known as our supporting lines but what do we mean by support vectors support vectors are those points through which are two which are
+
+support line passes. So, from here you can see that these are this is support vectors, this is support vectors, this is support vectors. Now, there can be one more definition of support vectors A point or a data point which is most closest to this decision boundary or hyperplane will be known as support vectors. So, I hope this particular discussion made sense. Now, let us move on to the next discussion and the next discussion and this discussion is also something that we have briefly touched upon and the discussion is SVM as a marginal margin maximization problem. So, we can also think of support vector machines as a problem of maximizing this margin, which we have already discussed. So, essentially what we are trying to do is, we are trying to get this particular margin as large as possible so naturally in trying to get this margin as large as possible, the green
+
+line or hyperplane will end up in the exact between or in the exact
+
+middle of these two Support Vector lines Okay.
+
+All right. So, now let us talk about SVM algorithm, but remember this particular SVM algorithm is only for the linearly separable data. So, we will not be discussing how does non linear separable be working in exact mathematical details, but we are only going to be discussing this mathematical detail for linearly separable data and it will also be discussed in a very
+
+limited sense okay. So, let me get started. So, the first thing is a equation of the hyperplane So, what is the hyperplane hyperplane is a line which is which is used for making the prediction So, so this is the equation of the hyperplane and the equation is x dotted with
+
+W plus b. Now W and b are vectors that we learn from the data. So, W is weight weights vector B stands for bias. Now, this particular equation is the equation of
+
+equation of this green line or which is known as a hyperplane. Okay. Now, the equation of support vectors now what are support vectors support vectors are these two lines. So, this line and this line is support vectors. Now, what is the difference between these three lines, we have already defined the equation for this line. So, what do you think might be the equation for this line. So, we have already defined this equation for the middle aligned as x dotted with w plus b is equal to zero. Now, any line which is on the left of this hyperplane we'll obviously be taking the same slope and
+
+intersect, but we'll be having some different values. So, that is why we are two negative one and on the right we will be having positive one. So, essentially you can think of that is y zero is in the exact middle of one and negative one. So, these equations are for support vectors and this equation is for hyperplane. Now, to make the prediction what we can do is, this x is for the input input data that we will be having. So, once we have the input we will.it with W and W will be computed by some optimization algorithm and we add it to bias and again bias will also be computed from the optimization algorithm. So, we get a number now what we say is any number which is greater than zero, so, if we get a number from this computation if it is greater than zero, we will say this will belong to this blue example, and any number which which will be less than zero will be belonging to this
+
+Rate example. So, so, that is what is the idea behind this equation of a hyperplane. So, x is our input vector, what is our decision rule. So, we take the sign sign is essentially what we have just discussed, fee are going to be calculating this expression and we are going to be seeing whether it is positive or negative if it is positive, we are going to be saying it is belonging to the blue class and if it is negative it is belonging to the red class, how do we get W and V. So, to get W and B, what we do is we use what is known as optimization optimization. I'll go some more in particular if I have to tell you the exact method that we use to come up with W and B is known as quadratic programming problem, which is the beyond which is beyond the scope of this particular tutorial. But so, that is why what we do is we use the SK learns implementation of this particular algorithm which offers one of the most nicest implementation of this particular algorithm.
+
+Ok. So, I hope this particular discussion made sense. And now we are going to be talking about a little disadvantage which makes sometimes this SVM algorithm difficult to scale. Now, we know that a we understand that nowadays, the data sets that we are getting are quite huge and sometimes we get data sets which are in GBS one GB, two gb 10 gb hundred GB. So, though for those type of data sets, what happens is we we are not in a position to use as VMs The reason is that the algorithms that we use for coming up the value coming up with the values of W and t. So, we essentially what we are trying to do is that time that this algorithm takes is essentially taken to compute this W and B because we are we are using some optimization algorithms to come up with these values. Now, the time it takes is quite easy.
+
+Quite enormous. And if if the data set is huge, then it can get really time can get really huge. So, so what we do is we, we try to avoid using this particular algorithm for really large data set. But if somehow we have some super huge computers super huge computational power in those type of situations, we can obviously use as VMs.
+
+And, and one of the nice things about SVM is that once we have trained our
+
+algorithm, then we don't need to retain the data set in our memory we can just throw that data away we just need to remember this w vector and this B value and whatever new input we will get, we will take the dot product of that, that input with the blue and we will add it by a one sorry, by a B and V
+
+We'll make the prediction using the sine function. So essentially the only difficulty that we face while using Azure VMs is while training, if the data set is huge, it can get really tricky and it can get really
+
+time consuming for us to train this particular is good fun. So, I hope this particular small discussion made sense. So, now we are going to be discussing about how can we implement this particular algorithm in a scalar
+
+Alright, so the first the first method or first type of implementation that we are going to do in SK learn is SVM for linearly separable data. So for that, I have created two different types of data sets one for linearly separable and one for non linearly separable data sets. Okay? So for the time being, what I'm going to do is I'm going to just concentrate on linearly separable data set
+
+So this is the data set that I have taken. And I have got these are two x one and x two features. And corresponding to these two features, I also have this class positive and negative. So what I'm going to do is I'm going to head over to the Jupiter lab environment, and I'm going to make a new Python three notebook. Now notice here, I have already got this data sets in the form of linear dot CSV, non linear dot CSV. Okay, so let me rename this particular Python notebook First of all, and I'm gonna call this particular notebook as SVM. Okay, so let me first of all, import this data and for that, I'm going to
+
+import some necessary modules. So import pandas as PD.
+
+And I'm also going to be importing from import NumPy S and P and import
+
+mat plot lib
+
+dot pi plot as PLT. So these three libraries are what I need in the beginning. So I'm gonna run this particular cell. So I have successfully ran the particular at this particular set. So first of all I'm going to
+
+go I'm going to make a new variable for importing my linear dot CSV file. So I'm going to call this as linear is equal to PD dot
+
+read CSV. And I'm going to call this particular linear dot CSV and let's
+
+look at this particular data set.
+
+Okay, so we have got this particular data set. Now, before I do anything, what I would like to do is I would like to first of all make a function to plot this data set to kind of see how does linear separable and nonlinear separable look for these two type of data sets and before
+
+That actually, let us quickly
+
+import that linear nonlinear data sets also. So that we will be working with these two data sets simultaneously. Okay?
+
+I'm going to call non linear.
+
+Okay. And let's say nonlinear dotnet.
+
+Okay, so we have gotten linear and nonlinear. And now I'm going to make a function. Now what this function is going to do is it is going to take a data argument and it is going to plot that data
+
+appropriately. But this data is going to assume that
+
+it has two columns in the form of x one and x two and it has a class column with classes as positive and negative. Okay, so the first thing that I'm going to do this, I'm going to say PLT dot scatter
+
+and the first thing that
+
+I'm going to do is I'm going to plot data dot x one
+
+data
+
+or rather I should say
+
+first of all data
+
+x one or other I should say class.
+
+It should be boss football positive. And once I have got this positive class, I'm gonna extract this x one. And I'm going to copy this whole code to kind of paste it here. But rather than x one I'm gonna print I'm going to use x two
+
+and the final will be label
+
+in place of label I will say
+
+it is for positive.
+
+And let me let me correct the spelling. Okay, so I'm going to copy this particular line
+
+and the only two
+
+We'll be for negative,
+
+negative. Okay, and the next thing is PLT dot legend
+
+and location will be best. And let me do one more thing. Let me change the color. So for positive I'm gonna say it is green.
+
+And for negative I will say it is
+
+red.
+
+Okay, so let's hit hit enter PLT dot show after doing play appear to show. All right, so we have got this function, which is going to take our data argument and it is going to successfully plot the data. So let's call plot on our linear data.
+
+Let's run this okay, you can clearly see that we have got this linear data and as you can see, there is a clear line. So if you are not able to see let me draw this
+
+line. So, there is a clear line which separates this red of values and green values. So, I hope this particular thing makes sense that how this particular data is linear and let me call this plot with nonlinear
+
+and with low nonlinear, you can clearly see that we are not able to find a line which clearly separates this green and red points. So, if I draw something like this, then some points are there, some points are here. So, that is why we are we are able to see that one line is not a correct separation of this particular data set so, a line is not able to provide the exact separation. Okay. So, now that we have clearly made this function and plotted the data now what I need to do is I need to import from SK learn from SK learn
+
+Import SVM. So what I'm doing is I'm importing as VM class or other as VM is a module sub module of this SK learn library. Now further from this sub module, I'll have to use a function called SVC.
+
+Okay, so
+
+so let's, let's hit enter.
+
+Okay, so from SK learn import SVM done. And now I'm going to do is what I'm going to do is I'm going to make a classifier object, I'm going to say SVM.
+
+And,
+
+in this classifier, I'll have to fit this classifier, okay, but to fit this classifier, I will need to pass the x and y variables for all data. So before I do that, I'll have to
+
+I'll have to make X and Y very
+
+Okay, so what I am going to do is I'm going to make x linear. So first of all, we will be working with linear. And I'm going to say linear dot I lock index location. So all the rows, first two columns, dot values for NumPy representation
+
+and I'm going to say y which is going to be linear dot class, okay. And once this is done,
+
+let's call this fit on x and y.
+
+Okay, it is same class module object is not callable. The reason that it is saying is because I have just imported a module. Now I need to also call this function called rather this class called as VC which stands for Support Vector classifier. Okay, now it is going to work
+
+all right. So it is it is a saying these this this
+
+is the default parameters that it has taken. Now notice it is also giving us some warnings, but you just need to ignore these warnings, it is just some internal warnings that it is giving us. So, once this classifier has been fitted, how we will be able to make sure that our classifier is working properly or not. So to make sure that our classify working classifier is working properly or not, what I'm going to do is I'm going to make a 3d contour plot to kind of show the division that this classifier is making Okay. Now, that plot that plot creation is a tiring process. So, that is why we will be
+
+we will be learning how exactly does that control plot building takes place. So, so let us start creating that functions functions that will enable us to create a contour plot. So to make a contour plot, first of all I will have to
+
+Create some support functions. So let us do that. So first thing that I'm going to do is I'm going to create a function called make mesh grid. Now what this make mesh grid is going to do is it is going to take x&y now this x&y will be will not be these x&y but rather this x and y will be the x and y axis or rather I can also say x one and y x two. Okay, so I can also say x one or x two. Okay, so next what I'm going to so I'm just
+
+keeping it x&y and next I'm going to do is I'm going to pause it now this edge is the gap how much gap do I want between this x that I'm going to generate? So what I am essentially trying to do in this make mesh grid function is I am trying to create a dummy data for
+
+Creating this contour plot, okay, so what I'm now going to do is I'm going to define x minimum, which is going to be x minimum minus one, and I'm going to say x maximum, which is going to be
+
+x maximum plus one and next step will be y minimum,
+
+which is going to be y dot minimum
+
+minus one, y maximum,
+
+which will be y dot maximum, and it is going to be plus one. Okay, so these are initial configurations have been completed. Now, I need to create this xx and yy. And this I'm going to create using a function called NP dot mesh grid
+
+and P dot mesh grid. And so data import and NP Yeah, so we have this NP, so NP dot mesh grid, and this mesh grid is going to be
+
+pick list of two values two values. And what it does we'll do is it will create a mesh of those two values and it will refer return two values that we are going to be assigning to xx and yy. Okay? And further once these values have been created, I'm going to return these Xs NY. Okay. So, the first list will be NP dot range, and NP dot range will go from X min to x max. So I hope you are able to understand what exactly I'm doing. What I'm trying to do here is I'm creating a list of values between x minimum and x maximum and I'm making a gap of edge. Let's pause default value of edge say 0.02. Okay, so I'm making this list and I will also be making another list of Y values
+
+Okay, and instead of x minimum, I will pass y minimum and y maximum
+
+I'll pass edge again. So, this tool list of values will be will be made a mesh grid will be created in a mesh grid form and it will return two values x x and y y. Now, these xx and yy values will be used further in kind of creating a contour plot okay. So, let me create one more function which will plot the contour. So, I will say plot and this plot is going to take xx it is going to take y y and it is going to take the classifier, no classifier is is something that we have already fitted. And with this classifier what what this is going to do is it is going to take these two inputs xx and yy which we are going to be making from this make mesh grid function and it is going to be using this classifier to fit and to get a value of Zed and that Zed we will be projecting in the form of control
+
+So, the idea behind contour is that we are plotting a three dimensional plot in a two dimensional. So we are projecting that Zed downwards to kind of show that Zed on the, on the two dimension. Okay? And further, I'm going to be passing our axes argument on which I'm going to plot this country. Okay, so first thing is, I need this set. Now to get the Zed. What I need is, first of all I need to
+
+first of all, let me quickly show you what does this make mesh grid function returns. So what I'm going to do is I'm going to make xx and yy, and I'm going to pass make mesh grid. Inside this make mesh grid, I'm going to pass x and y. Now this x, let's print x
+
+Okay, so this is our x. Now we want to pass the first column, in the in place of first variable and the second column in place of say,
+
+In video, so, we will do something like all rows zero column
+
+all rows first column, okay. So, let's run this and let me print x x. Now, notice here this is our x
+
+and let me check the shape of this x. Now, this is this is a two dimensional array with this shape, okay. Now, what we need to do is we need to first of all
+
+flatten this particular array in one dimension. So, I have flattened this know this array in one dimension by calling rival. Now, I can do the same with y also. Now, once I have done I have flattened these two areas, the next step will be to join these two areas to provide the input to this classifier because this classifier has been trained in this type of data, okay, so this is the idea. Now, let me call this
+
+Particular
+
+this particular predict function of this classifier, and I'm gonna call this NP dot c of C attribute of this NumPy. And I'm going to be passing two arguments here. First is xx dot rebel. And the second is
+
+why why dot travel. Now what this is going to do is this is just going to concatenate these two areas. So let me quickly show you the output of this. What exactly this is going to do. So notice, it has just concatenated these two, and it has created these two in the form of x so that we can pass this in the predict and we get the desired results. So once we get the desired results, we want to reshape it
+
+in the similar manner. The way xx has been t shaped because we want x x, y, y and Zed to be in the same shape. And once we get the shape, we want to call the country
+
+To F,
+
+we want to call the contour
+
+contour F of axes.
+
+And I'm gonna pass xx, yy, and this set and I'm going to also pass female. But let's let's just not pause this email as of now, I'm gonna assign it to plot.
+
+And let me rename this function because otherwise plot plot cannot coexist. So I'm gonna call it contour,
+
+plot control access control, f x x, y y, Zed Zed, and I'm going to return this plot
+
+okay. So, let us run this particular function to kind of make sure that we are able to get the desired results. So I hope you are able to understand till this point of time
+
+so first of all I'm going on I am going to make fieger objects figure out
+
+object and then access object. Okay, so I'm going to do something like PLT dot subplots.
+
+And I'm going to pass one one, which means I want one row one column. So I only want one plot. Now this axis can be paused in this plot can't. So I'm going to say plot is equal to plot control.
+
+And,
+
+and in this particular plot control, I can pass this xx yy that I have created this classifier that we already have, and this axis and finally PLT dot show. Now notice I have not plotted the actual points x and y. But still, let's see what does this particular give us?
+
+It is saying Ctrl F is not available. Let's see. See Stuart.
+
+Okay, I misspelled this particular thing.
+
+Let me correct this
+
+okay now it is going to work
+
+all right, it is saying could not convert string to float.
+
+Okay.
+
+Cuz we're exactly are we getting this error?
+
+So, we have passed xx and we are paused why why and we are predicting this alright I think we are getting a error in the predict
+
+okay I get it. So, the reason that we are we are getting this error is because we we pass this class in the form of a string, but let us quickly map it so that we have the right
+
+right kind of representation.
+
 
 Okay, I'm going to say positive is is for zero and negative is for one, okay, let's rerun this whole code.
 
