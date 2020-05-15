@@ -1,0 +1,83 @@
+All right, I think we are getting the error in the predict
+
+Okay, I get it. So, the reason that we are we are getting this error is because we we pass this class in the form of a string, but let us quickly map it so that we have the right kind of representation.
+
+Okay, I'm going to say positive is is for zero and negative is for one, okay, let's rerun this whole code.
+
+Okay.
+
+Okay, let's see.
+
+Okay, yeah. So now it is working. But notice here that we are getting this strange shape. The reason is that we are we have not actually
+
+we have not actually plotted the scatter plot. So to do that, now what I'm going to do is I'm going to plot the scatter
+
+Plot on top of this graph, so I'm going to call a scatter.
+
+plt dot scatter. And in the PLT dot scatter, I'm going to pass first of all the actual data points. So what are my actual data points, my actual data points lies here in the x. And I'm going to say x, all rows, zero column, x, all row, first column, and I'm going to say color will be according to this y.
+
+Okay, now let's rerun this code.
+
+Okay, so what did I do? Okay, yeah, axis I should have an axis
+
+Okay, so we are getting this strange kind of plot. And the reason that we are getting this we don't need to worry about this particular plot at this point.
+
+Right, because the reason that we are getting this plot is because the classifier object that we created was created without actually parsing anything inside here, because by default, this classifier uses a kernel called RBF kernel. But this Colonel is for nonlinear separation. So what we need to do is we need to pass
+
+in the play in place of RBF, we need to pass linear kernel. Okay, so let's read on this particular code. Okay, so I have run, rerun the code and notice the warning also disappears. So let's now
+
+return the whole code.
+
+And notice what happens. Our plot now looks a lot nicer, nicer, because there is a clear separation between these classes. But these points are not clearly visible. So to make sure that they are visible
+
+What I'm going to do is I'm going to pass the map variable to this to this function axes Ctrl F. And I'm going to pass PLT dot cnn dot
+
+Okay, so let's run this particular code and I'm gonna pass this same argument
+
+in scatter also
+
+All right, it is saying okay, what it
+
+now notice the points are now much clearly visible. So, I hope you are able to understand this a small discussion on linear separability and how can we fit a linear separability case as VM in Python or in a scalar. Now, when I have created this mesh grid and contour function, the code for making
+
+One linear separation case is not that different and it is quite easier. So we have already imported the data set in this nonlinear variable. So let's make a new classification object,
+
+we will say classified two. And in this classifier two, what we are going to do is we are going to be making SVM dot SVC. But this time, we don't have to do Colonel is equal to RBF because the data set on which we are fitting this classifier to will be a nonlinear data set. Okay. So now, what we can do is we can do classify to dot fit, and we can pass accent by but this time x and y is similar to the x and y of the nonlinear case. So I'm going to copy this code
+
+and
+
+I'm going to paste it right here. Okay, sorry. I'm going to paste it right here. And in place of linear and one of call it nonlinear
+
+Okay remaining things will be similar and let's run this particular code. Alright, so we are getting this this warning again so let's now plot the control again I'm gonna copy this code. So, we are having fieger and access again not dots of plot we have plotted this contour, but this xx corresponds to this same
+
+same xx so let me call this xx again which which I can call right here.
+
+Okay make mentioned it now this is going to be taking this new x that I have just created in the previous cell. Okay, so in place of classifier, I'm going to say classifier to an access will be same. Okay, so let's run this particular code
+
+Okay. Now notice what is happening here. Now in this particular plot,
+
+this is what is known as
+
+nonlinear classification. Now, what it has what this particular SVM has done is it has created a blue region for all the blue examples or all rather I should say all the positive examples. So, these were the positive examples and for all the negative examples,
+
+it has created this circular thing, okay. So,
+
+I hope this is small discussion on how we can train
+
+linear and nonlinear as VMs in but in SK learn, okay, we can further tune this SK learn by doing all sorts of things. For that let me do one thing, let me copy this code so that we can get the output in only one cell. So now what I'm going to do is I'm going to do a little bit
+
+of this SVC so rather
+
+Then using this RBF kernel, I can use poly kernels know what this poly kernel is stands for is polynomial kernel.
+
+Okay, but with polynomial kernel I can also pass the degree of the polynomial. So let's start by the two degree polynomial, and let's see how does this these outputs start to improve, okay by changing the degree so let's run this particular code
+
+Okay, so notice here, now the regions are quite different. And we can clearly see that by using RBF kernel the desserts were looking quite impressive, but here we are misclassifying this point, this particular point, we are misclassifying these points, these points. So now let us see if we can change the degree and you can get better results. So let's change the degree to three
+
+It is taking quite a good amount of time because it is doing some sort of thing and I have already discussed with you that why it is difficult to use as VM as a scale because it takes time it takes good amount of time. So, it is still running. I don't know why it is taking that much amount of time. So let it run. So till then. So, I have already discussed as VM four linearly separable data in a scalar we have altered also discussed as VM for non linearly separable data.
+
+Okay, so, this is the data sets data data set that we have used. Now, finally, in the last slide, I want to share one task with you and the task is to participate. I want to encourage you to participate in our data science competition. Like you can go to kaggle COMM And you can pick up any classification problem and what you can do is you can apply support vector machines online
+
+That data set okay so it has successfully ran and now notice the type of region that we are getting. So if I change it for it from three to four, I will be getting some different outputs. But I will obviously not do that because the reason is that it is taking quite some time so that is why I will stop it right here. And I hope you were able to follow through everything that I've discussed in this particular video. And I hope you will be encouraged and be able to willing to participate in this particular challenge that I have given to you. So you need to apply this SVM on the data science competition that you will be participating on kaggle Okay.
+
+And thank you so much for watching this particular video. Have a nice day.
