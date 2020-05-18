@@ -1,0 +1,224 @@
+Hello guys welcome to this new hands on lab on and sample models in machine learning. So, particularly we are going to be studying one of the most popular and sambal models which is known as random forest model. So, we are going to be going from very basic and not going to go deep into the theoretical aspects of n someone models but we are going to be touching upon what is the and sambal model and what are the different types of this models and we are going to be coding this random forest which is one of the ends one of the many ensemble models and we are going to be coding this particular model in SK learn library. Okay, so I hope you are excited. So, let us get started with the video.
+
+Okay, so the first thing that I'm going to do is I'm going to
+
+Talk about the ag no of this video. So, the agenda is what lays out the plan of a particular video. So, the the idea is that first of all we are going to be discussing about what are and sample models. So, the first thing that we are going to be discussing about is what are and sample models and the second thing will be what what are the different types of n sample models okay. So, the this is this will be the second topic that we are going to be studying that is what are the different types of n sambal models, okay. Once we discuss what are the different types of n sample models, we are going to be discussing estimator in the context of ensemble models. So, estimators in the context of ensemble models, okay. And after discussing estimator in and sample models, we are going to be discussing about some real life use cases of
+
+And sambal models. So, we are going to be discussing about real life use cases of ensemble models. And once we are done with that we are going to be discussing about one of the most important challenges that we need to be always aware of. And that challenge is time constraint in ensemble models, okay. And this is one of the most important thing that we need to remember before we actually use and sample models for our projects. Okay, so, finally, we are going to be discussing about or what are bagging models and the reason that I'm going to be only discussing bagging in this particular video is because n sambal is in itself is a very huge topic. We have got two different types of n sambal models here.
+
+The first one is bagging and the second one is boosting. Okay, so the random forest is one
+
+The types of bagging and sambal models and we are not going to be discussing boosting models in this particular video. So, the whole attention will be on these bagging videos or other bagging algorithms okay. So, we are going to be discussing bagging for regression tasks and classification tasks, okay. And once we do that we are going to be laying out formally How does bagging algorithm works with an example of a random forest. Okay. And the final step would be to code this particular model in SK learn. So the idea will be to code random forest estimator in SK learn, but before I actually do that, I will also be coding a decision tree or other I should say, I will also be implementing the decision tree algorithm for the same
+
+data set that I'm going to be picking up
+
+And I am going to be measuring and matching the performance of both type of models, one decision tree and another random forest. So, in this manner, you will be able to see and judge for yourself that which one performs better. And finally, we are going to be talking about the optimization in our model. So, essentially what we are going to be doing is we are going to be taking up the model that we trained in our previous step and in this step and we are going to be taking it and trying to optimize it. So, what do we mean by optimizing that model. So, essentially what we will be trying to do in that step is to kind of improve its performance. And finally, once we are done with that, I'll have a task for you so that you will be in a better position to kind of
+
+called various different types of problems and using ensemble models or more particularly using bagging algorithms, okay. So, I hope you are as excited as I am. So, let us get started with the first topic, which is what are and sample models. So, so in this slide I am going to be discussing about what are and sample models. So to put to put it very simply, what we're doing and sample model is, we combine many machine learning models to come up with a more powerful result. So, the idea is that
+
+a weak learner alone cannot produce good results when we compare it with many weak learners. So essentially, what we try to do is, we try to combine many weak learners and what do we mean by weak learners here, vehicle learners are individual machine learning models and those individual missions.
+
+machine learning models are combined to perform better than alone then weak learner alone could have performed. So, this is the basic idea of
+
+this and sample models. Okay. So, let's just read this particular slide in in a very quick manner, so that we don't have to spend too much time on this. So, the idea is that we want to improve our models performance. So, one way to improve our models performance is is by doing what is known as hyper parameter optimization, okay. So, but, but the the the hyper parameter optimization is one of the one of the techniques, which in which we tweak hyper parameters to come up with best machine learning models. So, essentially what happens is, this particular task is
+
+Something that we don't necessarily always want to do. So, in those cases, when we we are not interested in doing hyper parameter optimization, what we can instead do to improve our models performance is combine many models and that combination of many models is essentially what is known as an ensemble models okay. So, in later slides, we will be understanding how exactly this type of thing works. Now, this particular slide talks about what are the different types of ensembles. Now, before we actually do discuss that, we would like to first of all talk about we use tree based algorithms and this tree based algorithms classification will clear your confusion regarding various different types of and sample models. So, essentially the first tree based algorithm that we think of is known as decision tree algorithm now,
+
+Decision Tree algorithm in itself is a very broad topic we are obviously not going to be discussing decision tree in this particular video, but understand that the ensemble of trees is essentially a motivated by decision tree only. So decision tree is a single model and sambal of trees is essentially, essentially combining many decision tree models many individual decision tree models, so we can combine them in bagging format, we can combine them in boosting format. Now, you will notice that I have highlighted bagging algorithms and random forests. The reason is that I'm going to be discussing that particular topic in this particular video. So, let me briefly talk about what bagging and boosting algorithms mean. I'm also going to be discussing these a little bit more in later slides. But essentially what we try to do in bagging is to create a
+
+A subset of our data in a bag and in individual bags, and for each bag, I train a different machine learning algorithm. And at the end, I combine all of the bags prediction. Okay, so we have got multiple bags and we combined each bags prediction. Now notice here one thing that two bags will not have any dependence upon each other. Whereas in the boosting algorithms, we do the same thing as bagging algorithm part in boosting algorithm to bags will have dependence upon each other. So essentially what happens is we start with a subset. We start with a subset of data, we get a prediction we train a model we get a prediction and we transfer that prediction into a second bag. Okay, then second bag repeats the same process. It trains the model and it works.
+
+gets the prediction and it transfers the
+
+prediction to the third bag. And this process goes on and that is why it is known as boosting algorithms because the second crease, second bags performance has been boosted by the first bags prediction. So wherever first bag went wrong, it was improved by the second bag. So this is the idea of boosting. Now boosting can also be done in two different types, we can have adaptive boosting and gradient boosting. Obviously, I'm not going to be discussing that in this particular video. So Let's now move on and talk about bagging algorithms and random forests in a little bit more detail. So, I have discussed that particular thing which I just discussed in the previous slide. So, this particular slide talk about bagging and boosting algorithm. So let me very quickly go over this. So what is ensemble and sample means
+
+Combining many machine learning models to come up with better results. So, what we are essentially trying to do is we're trying to come up with the best model, then what we could have done with the individual model. Now, remember this particular term which is known as Bayes estimator. Now, Bayes estimator is, is a estimator or is a model, which we could have used alone without combining many of them. Okay, so essentially what we do in in some ways I have listed here, I have a return here, sorry. So, we split the main data. So, we have a main data on which we train our model. So, we take that main data we split that into a subset of data. Now, the question arises, how many times I split this particular data, how many subsets I make of this particular data. So, well that is something we need to figure out by hitting trial, then, then that many different
+
+ml models will be fit on each subset. So, in n Zama, this is what we do, we first of all split our main data into some subsets. And then we fit that many number of machine learning models on each of those individual subsets. And to make the prediction to make the final prediction we combine each individual machine learning model that we trained to come up with the final prediction. Now, how can we combine many ml models we can combine it into forms we can combine either in bagging form or boosting form. So to combine it in bagging form, what we do is we have what is known as various different bags and how many bags Do we have. So the number of bags will be equal to the number of subsets that we have and each bag will be handling its own training, okay. And it will have no connection with with other bags training. So that is what is done.
+
+idea behind bagging whereas in boosting two bags, two subsets will have a connection with each other because one bags performance will be boosted That is why we call it boosting boosted by another bags, predictions and errors okay. So, I hope you got this particular slide. So, now let us move on and now let us talk about the concept of Bayes estimator. Now, whenever we talk about the ensemble models, we naturally have to talk about Bayes estimator. Now, the reason that we need to talk about Bayes estimator is essentially what are we trying to do in n sambal models we are trying to combine many machine learning models okay. So, we need to have a base estimator that we need to combine. Now, to give you an example consider I have decided that I want to combine hundred decision tree models. Now, here I am combining hundred decision tree models that means
+
+I'm doing an sambal and the base estimator base model will be decision tree. So I'm combining 100 decision tree algorithms and 200 decision tree machine learning models. So, those that that base estimator will be decision tree and how many base estimators I am considering I'm considering 100 days estimators. So, that is why I will have to split my main data into 100 subsets Okay. All right. So, this this model which we combine is called peace estimator. So, in sambal, we combine many models and what model we combine, so, it can be decision tree it can be logistic regression. Now, here, this point needs to be clear that we are not limited to combining this decision tree model. We can combine logistic regression or even we can combine decision tree with logistic regression. So, we could have a situation like this where we want hundreds
+
+bs estimators and what I can do is I can train 50 decision tree algorithms and 50 logistic regression algorithms. So, I hope you got this particular point. So, let me now move on to the next slide. Now, I'm going to be talking about some of the real life application of Ensembl. Now, to be honest, and sambal is not that much used in real world applications or other I should say it is not that much used in industry industrial applications. So, the reason that it is not used in industry replicates application is because you can think of ensemble models as producing as a as a mechanism of producing accuracy or producing models performance.
+
+Like forcefully, we are not able to get models performance by default model. So what we are trying to do is we are trying to combine many many decision tree models
+
+Just to improve our accuracy in real world scenario in in business scenarios, what we
+
+try to do instead is we try to come up with better quality data instead of performing this end sambal. So, essentially, this end sambal is good for improving the performance, but in industrial data in in business applications, it is not that much used, but it is most heavily used in online data science competitions, like the ones on kaggle. So, on kaggle you will find most of the competition winners who win the competition
+
+use these n sambal techniques to kind of combine many decision tree models to come up with best results okay. But whereas, the organization's do not use that much and sambal but is still there
+
+They are free to use it and if they have a they have lack of data they cannot add data to improve their performance then they can use an sambal model. So, these two important like real life scenarios that I wanted to discuss with you, okay. So, now let us move on to the to the next slide. And in the next slide I would like to also talk about time constraints in ensemble learning. Now, what are we doing in ensemble learning we are combining many decision tree models now or other we are combining many machine learning models, not just decision tree models. Now, what happens is, say for example, I'm trying to or I have decided that I want to combine 10 different logistic regression models. Now, do you really think that 10 diff combining 10 different logistic regression model will produce that much an effect? No
+
+The reason is that if we really want to harness the power of and sambal models, we have to take as many number of these estimators as possible, because the larger the number of estimators it is the better the performance of ensemble models. So, essentially, we want the estimator or rather a number of these estimators to be as large as possible. Now, when number of these estimators get gets really large, and they have to be large if we want better performance, and if they get really large, we have a constraint called time constraints. Now, this time constraint is what, what is imposed on us when we try to increase this number of these estimators really large. So, we have we have to make a trade off as to do we have that much amount of time do we want to spend that much amount of time on training this and sambal models
+
+Or rather Can we just
+
+get a good quality data and improve the models performance without performing this ensemble? So, this is a trade off that we need to do. Okay.
+
+So let us now move on
+
+Okay, so now I'm going to be briefly talking about how does bagging works for a regression and classification task. So, let me first of all briefly talk about the regression and classification task and how do they differ. So, regression task is a task where we try to predict a continuous value whereas on the other hand, for a classification task, we try to predict a categorical value. Okay. Now, if I talk about bagging, I have already discussed bagging earlier. But let me again repeat the explanation that bagging in in bagging essentially what we do is we have data
+
+Friend bag of models and two bags do not interact with each other this is the basic idea. So, they clean their own models separately and they do not have any concern with each other. Whereas in the earth on the other hand, we have boosting
+
+for for which we for for two bags they can contact with each other. And that is why they are called boosting because they boost each other's performance. All right. So, now, how does this regression and classification task works? So, I've just taken an example it should be quite self explanatory. So, I have decided that my base estimator will be decision tree classifier and number of these estimators will be 10. So, what bagging will do is, it will split the main data into 10 subsets and on each subset it will fit this decision tree classifier now, so for a classification tasks, so what we have is we will have 10 different sets of predictions
+
+From each, each of those 10 models, we will get a different prediction. So what we do is we combine each of these 10 predictions by what is known as majority voting. So, for a new input, I will pass that new input in each of these 10 different models, and I will get a prediction from each of those 10 models. And what I will do to make the final prediction is I will take the majority concept. So, for example, if out of the 10 models,
+
+eight of those models are saying that my input is is say, for example, is spam, whereas only two of those models are saying my input is ham or not spam. So, in that case, majority of the models are saying my input is a spam and that is what I'm going to predict. So, this is what we do in classification tasks. Now, let me talk about regression task really quick in the regression task, the example
+
+bulk can be predicting the price of the house or maybe predicting the fuel consumption of a country. So, again now, here this estimator has been changed, because we are not anymore talking about
+
+the regression task or other classification tasks. So, we have done or what we have done is we have taken this estimator as linear regression, we have said that the number of these estimators will be 10 again we will be having 10 subsets and from each subsets we will be having predictions, but this time predictions will be in the form of continuous value so, we will not be having a class value. So, to make the final prediction what we do is, we take the average of each of those 10 different models prediction. So, this is the idea behind a regression task. So, I hope you were able to follow through so far for bagging for regression and classification task. Okay.
+
+So, now, let us move on and briefly talk about how does bagging algorithm work for random forest and in fact, I have just discussed this random forest only because this is what is known as random forest. Okay. So, in random forest what we do is but the only difference in random forest or in any general bagging algorithm is that in random forests, we only can use Bayes estimator as decision tree. So, in random forest, what we have to do is we have to take this estimator as a decision tree only, we cannot take any other estimators in random forests, whereas in general bagging algorithms or we can take any base estimator was, so, the idea is pretty simple. Most of the things we have already discussed, so, we will be having a data set of the form x and y, where y can be either of categorical type or continuous type, okay, now, the reason is
+
+random forests can be used both for regression and classification tasks. Now, the first idea is initialize the base estimator, but for a random forest that base estimator will be always a decision tree. So, for random forests base estimator is always fixed. Now initialize and base estimator now and this estimator is denoting how many B's estimators Would you like to fit Okay, it can be 10 it can be hundred it can be thousand and later we will see that in SK learn library, this n base estimator by default takes a value of 100. Now, the third step is when we have decided how many number of these estimators we are going to fit, we have to split that data appears x and y into that many number of subsets and fit fit this base estimator on each of them. Okay, and finally, to combine the two come to to predict the new input we will be following the same
+
+strategy that we have discussed earlier okay. So, I hope you got this particular point. And now we are going to be talking about and sambal models bagging or random forest in scaler. So, let us head over to Jupiter lab environment and start talking about that.
+
+Okay, so I am on the Jupiter lab environment and what I am going to do is I'm going to first of all open a new Jupiter notebook.
+
+Okay.
+
+All right. So, first of all, let me quickly rename this particular Jupiter notebook. so that we are able to identify, so I'm going to call it a random forest.
+
+Okay, so the first thing that we need to understand is what are we doing? So we need to have a clear, objective and clear, clear purpose before we actually start coding. So
+
+What I'm going to do is I'm going to show you how powerful random forest model is and random forest as you as you might be remembering that random forest is just the type of bagging algorithms and bagging algorithms is the type of ensemble models. Okay, so how powerful random forest model is and how quickly random forest models can improve your models performance, but obviously, it comes at the cost of time constraint and we are going to be exactly seeing how long does it take to run a piece of code in a boat using individual models and by using this random forest models, okay, which is essentially a combination of different machine learning models, okay. So let us quickly get started. So the first thing that I want to do is I want to talk about the data set that I will be using. So first of all, let me do one
+
+So, let me import from
+
+SK learn
+
+import data sets.
+
+Okay. And from this data set so there is a news group data set that comes pre built with this library SK learn. So that data set can be easily imported and that is why I chose this particular data set. And this is a quite big data sets, because because the the news news group articles were listed in that data set and various tags are associated with each News, New it with each news article. Okay, so let me quickly show you how does this particular data set looks like? So what I'm going to do is I'm going to say data sets dot fetch.
+
+Okay, so 20 or rather, I should say fetch
+
+continue.
+
+Groups now here I can specify what is the subset that I want to extract. So, the subset that I want to extract is train and further I would like to train I would like to test my models so that is why I'm also extracting or test ok. So, I am having this train data set. So I will save it in a train variable and I will save it in that test variable Okay. Now,
+
+this train and test variable holds a dictionary of various different types of data types, okay. So let me quickly show you the type of train. So what kind of data structure is type so it is a util dot bunch. Now, essentially this util dot bunch is stored as a dictionary. So for for actually demonstrating you How does this work? I will quickly pin the keys of this
+
+Train. So, you can clearly see. So, this particular train variable has got keys named as data file names, target names target and description.
+
+But what we want to extract from this data is this data this data are key and this target key okay. So I will do something like x is equal to train
+
+data and y is equal to train or rather I should say x train
+
+and y train
+
+okay.
+
+Okay, so we have got this extreme and we have got this whitening. And so what do we what is the difference between this target names and this target? Let me quickly print this white ring first
+
+okay
+
+So, this y train is an array of some numbers, we are not able to exactly see or know what does these numbers represent. So, for that, what I would like to do is I would like to print this target key of this train video
+
+sorry this target names keys
+
+Okay. Now, things will start to make sense. This list is actually a bunch of topics, and this array is essentially the index corresponding to the topic. So, for example, I want seventh index. So, this seventh index topic will be this is rack dot autos. So this particular news article will be corresponding to autos so to kind of see how does this work I would like to print the first data. So I will say extreme
+
+and I will print the first article
+
+Ok. So, we are getting this article here. So, if you read this particular article, let me see if we are able to see anything related to autos Yeah, so, we are we are able to see this car or name. So, from here we can conclude that this particular article is indeed belonging to autos okay. So, essentially this is what we are trying to predict, we are trying to predict these many categories that I have just listed, let me list them again.
+
+So, these many categories we are trying to predict, let's quickly look at the shape of this particular train and test objects. So, I'm going to call length of
+
+x three. Okay, so we are having 11,000 different news articles in that training data set that we are going to be using to train our models. Now, let me quickly
+
+Do the same thing for test data sets.
+
+Okay?
+
+So I'm going to call it x test and y test y test will be used to kind of see the performance of our model that will be trained on this extreme variable. Okay? And rather than train I'm going to call it TEST
+
+TEST
+
+Okay, and let me call the length of x test and to kind of see how many news articles are there in x test
+
+Okay, so we are having around 7500 news articles. So with 11,000 articles, we are going to be training our models and with 7500 we are going to be testing our model okay. So, since you have already seen that the input that we are having is a text input and we cannot feed this text in
+
+Put to our machine learning model. So we need to do some computation to it. So we have to first of all process this particular text in some way by which we can feed this particular text into a machine learning model. So to do that, what we can do is, first of all, we can make up Count vectorizer of this particular
+
+this particular text, and how does that work? So, let me quickly show you how does that work. So, I'm going to do from SK learn dot feature extraction.
+
+So essentially, what I'm trying to do is I'm trying to extract features out of this text, and I'm gonna extract
+
+Count vectorizer Count
+
+vectorizer
+
+sk learn dot features feature extraction. Okay, extract
+
+Okay, so, we are having Count vectorizer and what I can do is I can make a CV class
+
+and I can do something like CV dot fit and transform
+
+and what this will do is it will take the text and it will transform it into what is known as bag of word models and what bag of words model does is it will it will try to it will not try to but rather it will transform this particular text into a big, big vector of numbers where each number will represent the count of each word. Okay, so let me quickly show you how does that all work? So, I'm going to call it on extreme.
+
+Okay, I'm gonna run this particular thing.
+
+And since I did not save it it is going to print Yeah. So, it is printing it in this form. The reason it is printing in this this form is because it is a sparse matrix and what do we mean by a sparse matrix? A sparse matrix is a matrix where most of the entries are zero. And and it should be true because a word which appears in this text will not appear in other text. So, what this CV dot Free Transform has done is it has computed a nice representation of this text in a non numerical form in a NumPy form and that NumPy form can then be fed to a machine learning algorithm.
+
+So, to understand or to make you understand the concept behind Count vectorizer it is quite easy. What we are doing in Count vectorizer is we are just making a vector offer text by counting the frequency of each word. Okay, so, this is what we need. But it turns out that there are some limits
+
+tations of Count vectorizer which I am not going to be discussing in this particular video, but there are some limitations and that is why we do one more thing we import let me copy this particular
+
+Ctrl A Ctrl C
+
+okay. So, instead of Count vectorizer I am going to know importing TF IDF transformer Okay. Now this what this TF IDF transformer is going to do is it stands for term frequency inverse document frequency okay. So, term frequency inverse document frequency and what this is going to take is it is going to take this Count vectorizer and it is going to further make another sparse matrix but this time this is sparse matrix that will be created by this TF IDF transformer will be a matrix which will account for word importance in a document so, do not worry about these things because this particular this particular video is not to explain you
+
+These transformers. So just understand that these things work for this particular video. Okay, so I've imported these two,
+
+these two transformers and that risers. And now what I can do is I can use these two actresses to kind of make a new Xtreme that I can feed in our machine learning model. But notice here I have not yet imported the machine learning model that I want to use. So let me quickly do that. I'm going to be importing two machine learning models. So first is from SK learn dot three import
+
+decision
+
+tree classifier, okay, and I'm going to be importing from SK learn dot and sambal.
+
+Import.
+
+I'm going to be importing random forest classifier, okay. So the reason that I'm importing both of them is because I want to show you
+
+Both of them in action. And I want to notice, notice that how decision tree classifier performs in a certain way and how random forest classifier improves that performance. Okay. So, since this process of
+
+calling Count vectorizer tf IDF transformer is quite tedious one to kind of get rid of that process, what I can do is I can import from SK learn
+
+dot pipeline, I can import pipelines. Now, what this pipeline allow us to do is it allows us to fit all these three classes in a sequence. So, we don't need to call each of these three classes one by one, and it helps us in cleaning, writing a clean code so that someone who is reading our code will be able to understand
+
+So I this C model is equal to pipeline. And this pipeline is going to take a list of tuples. And since I'm making three
+
+clauses here, so I'm having Count vectorizer, then TF IDF transformer, transformer and then my classifier that I want to use. So that is why I am passing three tuples. And each tuple will take two arguments. 
+
+
+The first argument will be the name of the class that I'm using. So, this is Count vectorizer and I'm using Count vectorizer okay and the second will be TF IDF transformer and here I will say TF IDF transformer and the third one will be classifier. So, firstly, I will show you show the process for decision tree classifier. So, let me call it decision tree and decision tree classifier is just have one single model, it is not an ensemble of models, so, I will run this particular code. Now, this model will just behave like a classifier, I can call fit method to this particular model. And I can pass extreme So, I don't need to you know, pause this extreme to first Count vectorizer and then TF IDF transformer and then in to the decision tree classifier. Now, this model pipeline will will make sure that It is paused in each of these three classes, okay. So, I'm passing x train and y train Now, let me run this particular code. Now decision tree is also quite heavy algorithm
+
+and since the data set involves
+
+around 12,000 rows, so it is going to take some time. So, let me run this particular code real quick. So, notice here it is running since it is showing us this start
+
+Ok. So let it run and
+
+Okay, so, it has successfully executed this command. Now, this printing this, this kind this kind of summary that is showing us that it has first fitted this Count vectorizer then TF IDF transformer and then decision tree classifier. Now let me test this models performance on all x test and we already have correct answers for those x test. So, we will be able to compare all models performance, so let me call model dot predict and I'm going to pass x test here, okay. So, let me run this particular code and it is going to give us some error, some area of values Okay. Now I can compare this area of values. So I can I can call it predictions. Okay. And I can say something like predictions is equal to is equal to y test. So I will get an error of true and false and what I can do is I can start Some this array to kind of sum the number of true cases in this array. So the number of true cases that we are getting soudan the number of correct predictions that we are getting is 4162. Now to get the accuracy, I can divide this particular number by the length of the array. So I can divided by y test. So let's see what is the accuracy the accuracy is approximately 55%. Okay, now this was the case with a single model, and that model was decision tree classifier. Now let's do let's repeat this process. But with with this time we are going to replace this decision tree classifier by a random forest classifier. Now, notice, earlier we talked about number of estimators this number of estimators so how are we going to specify that so Let me show you how we can do that. So let me copy this particular code. And let me paste it right here. And instead of model, I'm going to call it model two. And instead of this decision tree, I'm going to call random forest classifier. Okay. So, let me run this particular code and I can call model dot fit and it is going to take some time, but before I do that, I forgot to mention that in the random forest classifier I can pass this this estimator called number of estimators Okay. Now, how many estimators Would you like to pass to this particular classifier, so that we can pass here number of estimators which will be equal to let us say we are trying to pass 50 estimators, so we want to fit 50 total estimators, okay, so 50 decision tree will be fit in this particular case. Okay, so now I'm going to pass extreme And why train and let's hit enter. Now it is going to take some time. So let's wait and see how long does it take to run this particular code?
+
+Okay, so it has successfully pre fitted the, the model. Now what I can do is I can again call the same sequence of steps. So, first of all let me make predictions. But this time I'm going to call this predictions predictions. And instead of model I'm going to call it on model two. Okay, and now I'm going to Seeing these. Now notice here, okay, so this time it has not improved that much. And in fact it has not. Okay The reason this is happening is because I did not change this prediction. Let me change this prediction to prediction to that we did yeah, so you can clearly see the the kind of improvement that we are having from 55% to directly to 73%. Let me quickly do one more thing, let me quickly run this particular code, but this time I'm going to use instead of 50, I'm going to use hundred estimators and let me name it model three and let me do everything in the, in the single cell so that we don't have to run all these things again and again. Okay, so I'm gonna call model three
+
+dot fit
+
+And model three dot fit and I'm gonna call it on extreme why train and let me make predictions,
+
+predictions three
+
+and instead of model two and we now call it on model three and finally Ctrl C Ctrl V, and I'm going to call it accuracy okay and instead of prediction two prediction three will be there and let me hit enter. Now it is going to again take some good amount of time, okay. So what we are now trying to do is we are trying to optimize our models. So this is what we are what I meant when I wrote here, optimizing the models performance by tweaking a few parameters. Okay.
+
+So let's see how long does it take
+
+optimizations just doesn't mean doesn't mean that I have to change only this estimators parameters, I could have changed other parameters also, as you can see here, there are lots of different parameters like criterion, bootstrap maximum features. And these these parameters take all sorts of different values. And how will you know that Oh, how what are the different values does these hyper parameters take so in what you can do is you can go to a scalar library, you can go to scalars documentation and you can search random forest. OK, and you can go to this random forest classifier, and here you will be able to see what are the different values this criterion, hyper parameter, and you can also change by default, it is Genie, but what you can do is you can change it to entropy If your models performance improves or not, and now you can see all our code successfully ran and let me know a print the ACC. And you can clearly see this time we have seen the models performance increased by 2%. Because earlier we were getting approximately 74%. And we are getting here 76% approximately. So we saw our models performance improved by 2%. And that is what we mean by that is what we mean by optimizing all models performance. Okay, so this was a small discussion on optimizing models performance. And you can do that by tweaking other parameters. Like, what I can do is I can change this criterion variable to impure to this entropy, rather than Genie that it is taking by default. I can change other parameters also, like I can change maximum features from auto to square root because default is auto by default, it is going to take Okay, so let's go to the videos a genda. So what was the agenda of our discussion today? So we discussed almost all of the things in and sample models, we coded and sample model in a scalar. We opt in, we try to optimize our model, and we were able to optimize, we were able to improve its performance by 2%. And now what I want you to do is I want you all of you to take up a project or take up a competition, take part in come part in a competition, like gaggles competition, because and someone models are mostly, or other I should say, 99% of the time, the the models that are born on kaggle are using some sort of ensemble models. So I encourage you to take part in some of the competitions that are hosting data hosted on kaggle. Obviously, you won't be able to win Those are competitions in your first attempt, but you can try and see where where do you stand and you can improve and at a retreat that particular step and kind of see if you can improve your performance. Okay, so I hope you enjoyed this. Enjoyed this particular video and thank you so much for watching this video. Have a nice day.
