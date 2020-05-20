@@ -1,0 +1,288 @@
+Hello guys, welcome to this new hands on lab on neural network. In this hands on lab, we are going to be going over the basics of neural network and we are also going to be taking a pen example and we are going to be implementing a multi layered neural networks or rather I should say multi layer perceptron algorithm in SK learn in Python and apart from that we are also going to be looking at the
+
+multi layered regression version of
+
+that perceptron algorithm. So I hope you are excited and let's get started into the video. So, the first thing that I want to discuss is I want to go over what are the various components or other I should say, what are the various topics that we are going to be discussing in this particular video. So this is just an overview of what you will be
+
+introduced to in this particular video as we go
+
+along. So, first we are going to be talking about what is neural network and once we have an understanding of a very high level understanding of neural networks, the next topic will be to understand what do we mean by a nn and bn ns which essentially implies artificial neural networks and biological neural networks Okay. And then we are going to be looking at two structures. And those two structures are represent two different types of neural networks. The first structure will imply imply a single layered neural network and the second structure will imply your double layered neural network and here only I will also introduce you with the terminology called hidden layers and I will be going over how does neural network work in these slides only. And once we understand that, the next thing that we need to understand is how does activation functions are
+
+In neural network, so, activation functions are one of the most important concepts of neural network because they make neural network
+
+more attractive than other algorithms. Okay. So, the next thing that we will be going over is a forward propagation and backward propagation. And these two concepts are essentially the core of neural network and the way neural network learns its weights. So, the reason that it is able to the neural network is capable of learning to many complex which is because of this thing called backward propagation. So, we are going to be not going too deep into it, but we are going to be taking up a very high level introduction of what or do we try to accomplish in backward propagation. And then finally, we are going to be learning about how does neural networks differs from perceptron and we
+
+We'll be learning that actually they are quite similar in nature, only few slight differences occur in both of these type of different algorithm paradigms, okay, then for this part, so this is all about the theory. And from here onwards, we are going to be going over some of the practical aspects of neural networks. So, we first of all are going to be listing What are we going to code in this particular video in a form of pseudocode? And how are we going to train fit and test our models? Okay, so the next part that I'm going to be going over is some important parameters of multi layered
+
+perceptron or rather I should say multi layered neural network. So, I would be going over a few important parameters like what do we mean by activation functions which we have already discussed, which we will have already
+
+discussed in previous slides and we are going to be going over or what is known as the size of hidden layers and how many hidden layers should we have, okay. And after that we are going to be coding the multi layered multi layer layer perceptron in SK learn for classification task and regression task. And you need to understand that neural networks can be utilized for solving both type of task beat classification or regression. So, we don't need to be worried about whether it is going to be only used for classification or regression. No, it can be used for both type of task. And finally, I'm going to be going over a very important issue with the neural network implementation of SK learn so that you will be better equipped with using this particular library in your future projects. Okay, and then I'm going to be going over how to optimize my model
+
+For best performance okay and finally I will have a task for you and the task is essentially will be on the data set that comes pre built with the SK learn library. Okay. So, I hope you are as excited as I am and you are also interested in learning more about neural networks. So, continue watching.
+
+Now, let us move on to the next slide. So, the first thing that I want to discuss is our what is neural network. So, essentially, if I just have to define what is neural network then neural network is just a network of neurons okay. So, when when we are talking about the definition of neural network, we are not concerned ourselves we are not concerning ourselves with whether it is artificial neural a neural network or biological neuron, we are just saying neural networks and neural networks means a network of neurons, okay? And neurons is something that can either fire or not fire and so
+
+Initially, that behavior of neuron is what makes it really, really attractive. The reason that this behavior of firing and not firing makes a neural neuron neurons more attractive is because when we combine many, many, many neurons, then what happens is we can make, we can make computers to some really complex task by combining many, many, many neurons. Okay? And this is what exactly has been implemented in our brains by default. So we really don't know how it has been implemented in our brain. So we our brain is also having, you know, some some billion of neurons, and those billions of neurons fire and interact with each other, each other to to enable us to do some complex tasks that we wouldn't be wouldn't be able to solve without the help of neurons. Okay.
+
+So, I hope you got this basic idea of neural network. And further I would like to discuss what do we mean are bn N and N. So essentially, bn n is something we are by default equipped, equipped with. So we as a human are having this, this biological neural network. And essentially biological neural network means our network of neurons in our brain, so, we don't, we didn't have to accord this particular neural network by our own. So, if we have got this particular neural network by default, and then we have artificial neural network, an artificial neural network is essentially something that humans code to come up with better solutions to those AI problems which has not been solved so far with traditional algorithms. Okay. So the reason for popularity of neural network nowadays is because of the
+
+amount of data available and at the same time because of the ease of use of computational resources. So, we are getting computational resources at a very cheap rates now and that is what making a neural network more accessible to everybody and we are able to solve various tasks with neural networks. Okay, so I hope you got this small discussion. And further, I hope you will be able to understand what do we mean by a and b and bn is something we have, by default, we don't need to code a dnn in a computer. But whereas on the other hand, artificial means something that humans create for their advantage for their usefulness. So, that is why we are creating this artificial neural network to solve AI tasks. Okay. So, now, let me quickly review this particular structure for you first of all, and then I'm going to be going over each
+
+One component one by one. So, here there are three distinct things that you will be able to clearly see and those three distinct things are this input
+
+this hidden layer and this output. So, essentially try to visualize this particular neural network as a network with having three layers okay. So, the first layer and we will be having this second layer
+
+in the form of hidden layer and we will be having this
+
+output layer, okay. So, we are having these three layers stacked parallely to each other, okay. Now, always in every new layer neural network task, the first layer will be the input layer and the final layer will be the output layer and that makes sense, right because we might be
+
+V might be interested in getting the output of some input Okay. All right. Now, apart from those two layers, we might have something known as hidden layers and that is why I have I have called this particular algorithm a single layered neural network. So, this algorithm is essentially a single layered neural network. Now, let us talk about what kind of input we will be giving to this particular neural. So, essentially the type of input that we are going to be giving to this particular neural network will be a will be a
+
+you can think of this particular input as
+
+as having some sort of shape, okay. It might have some, say for example, 500 values so, I might pass 500 values as an input and
+
+I might get a one output and you can visualize this single layer neural network as a network for
+
+regression task because I am parsing input and I'm getting one out value. And when I'm getting only one value, essentially, I'm trying to predict a continuous output. Okay? And what the heck is this hidden layers? No hidden layers is something that is introduced in neural network to kind of learn some complex pattern in our data set. And that data set is essentially the input. Okay, so hidden layers, a mixed mixed neural network to learn some complex task and how does hidden layer works. So corresponding to each neurons, we have some weights associated with it, and how do we come up with those weights. So we iterate and we do this to do some kind of training to kind of First of all, we start with some random weights. And after initializing with random weights, we iterate and we see what kind of output we are getting and we compare those outputs with the actual law.
+
+And once we are not very near to that actual output, we try to update that weights that that are having corresponding to each neuron in each layer. So, in each layer and we update that particular input, okay. So, this is this is a very high level overview of this single layered neural network. And once you understand this particular high level introduction, you will be understand the next slide also because in the next slide what I talk about is essentially a double layered neural network, but here notice
+
+apart from like,
+
+contrary to this single neural network, I have explicitly taken this neural network as a classification problem. And I have also mentioned here that what the type of inputs that we are going to be getting, so, we will be having three features x one x two x. Now, do not worry about this plus one. This plus one is representing what is known as bias units.
+
+So we add this a plus one neuron in almost every layer. The reason for that is we don't want our
+
+ML our neural network to be biased. And this particular neural network is having two hidden layers, okay. And always remember that the first and last layer of a neural network will always be corresponding to input and output layer. Now, notice here that we are getting two outputs here. So you can think of these two outputs as the probability of classes. So we might be able to like,
+
+predict whether a particular email is spam or not. And these two circles might represent the probability of whether an email is spam or not. Okay. And the input that we are passing to this particular neural network is, is in the form of x one, x two and x three and for that particular example,
+
+The example that I took of predicting whether an email is spam or not, for that particular example, what we might expect in the form of this x one and x two and x three. So x one might have something like length of the text message or length length of the email that we are sending, or extra might have, how many free or how many words like
+
+you got free or this much amount are there in that particular email? So x two might correspond to that and x three might correspond to some other features. So based on these features, we are trying to predict whether an email is spam or not. Okay. So I hope you got this particular point. And again, the same concepts or concept of single layered neural network works here. So we are having some sort of weights associated with each neuron. And those weights are first initially assigned randomly, but as our neural net
+
+Network sees more data and as it does more training, it improves its performance okay. So, I hope you got this particular point. So, now, let us move on and understand what do we mean by activation functions. Now, I just talked one important point here that we have a corresponding to each neuron in hidden layer of weight associated with it, so, that we considered that weight as W and consider this input as x. Now, what we do is, we take the dot product of this x and W So, what we do is we compute what is known as x dot w. Okay. Now, once we compute this x dot w, we need to emulate the behavior of human brain, the way neurons work in human brain. The way it works is it either fires or not fire. But when we compute this x dot w, what we are essentially trying to compute is we're getting a real value of a deal.
+
+Number or rather I should say, in math, a real number is a number which can range from negative infinity to infinity, okay negative infinity to infinity means it can take any value with this type of approach, we will not be able to tell whether this particular neuron is firing or not. So, what we do is, we take help of what is known as a
+
+what is known as activation function. Now, what we do is we introduce a activation function and on this particular linear combination we apply that function consider the function is f. So, what I'm going to do is I'm going to apply this function f on this x dot
+
+w and I will get some output like whether it is zero or one where zero might represent it is not firing and one might represent it is fighting. So, I hope you got this particular point and
+
+The reason that we need activation functions. So, now, you will be in a better position to understand what why do we need activation functions. So activation functions are needed to kind of
+
+decide or emulate the behavior of neurons in biological neural network. Okay, so to decide that, well we have activation function in neural network, but this happens almost automatically for biological neural network and we exactly do not know how does that work actually, okay.
+
+All right. So now let me briefly talk about these two concepts called forward propagation and backward propagation. And these two are one of the most important concepts for neural network. And all the concepts that we have been talking about in this particular video so far, are actually combined together to come up with this whole study of his this whole field of neural networks. So
+
+Let me now talk about forward propagation. So what we do in neural network is we start with a bunch of data. And we start with random weights. Okay, and we take each input, so we might be having some 500 rows of data. So we take each row, we have paused each row in this input. And,
+
+and we kind of run these things in a loop. So what we are essentially doing is we pass this input here, and we have some random bits, okay, and we have some random weights. And based on those random weights and inputs, I've just shown you how we apply activation functions to fill these values, and we decide whether these neurons are firing or not. And we repeat that for all the hidden layers and we get our output. Now we get an output we also have a actual output in the form of voice, and then we compare these two outputs. Now, so far
+
+What we have just done is we have done forward propagation, we have forward propagated our data to the end okay and once we have got the output now, the output and this wire will enable us to calculate what is known as error and that error we are going to backward propagate. So, we are going to backward propagate and adjust these weights that we have randomly initialized to kind of get the best weights. So, the weights that we have initially got will be improved according to the errors that we are getting. So, we have these two notations of backward propagation and forward propagation, forward propagation is used for propagating the data to to the end of the neural network and to the end layer of neural network which is the output layer and we get the get the estimated output from our neural net growth is currently assigned weights and from those output what we
+
+We do is we compute what is known as error and we backward propagate that error to kind of tweak that feed a little bit according to the according to the size of error if the error is really huge we need to adjust the weights are really huge and if the error is really low, that means all weights are probably in a right going in the right direction okay. So, I hope you got this very high level introduction of forward and backward propagation, okay. So, now, let us move on and let us briefly talk about how does neural network differs from perceptron. Now, perceptron is an algorithm and it is actually one of the most earliest algorithm developed in the field of neural network or in the field of machine learning. And this is the algorithm which which was, which was a developed with and it is known as a new lead and unquote because the structure is same. So, structure is like this only for perception
+
+But for perceptron, we don't have this mutation of hidden layers, and we also don't have this mutation of activation functions. So, what we have is visualize this whole neural network without this hidden layer. So, we will be having input and output. So, what do we have for activation functions? Now, since we don't have any concept of hidden layer, there does not make any sense of having activation functions. So, we just have one function and that function is known as logistic function. So, based on that logistic function or either any other functions, what we what we do is sorry, it was it was not logistic function but rather a function which is called sine function. So, we just take the dot product of inputs and weights and we come up with whether that input bed whether that dot product is positive or non negative. So I just, I just corrected myself because it was not logistic. Okay. So perceptron in perception
+
+We don't have the concept of hidden layers and activation functions okay. So, these two concepts are actually introduced in the later advanced versions of perceptron which are called as multi layered perceptron and that is what we are precisely trying to code in this particular
+
+video okay. So, so, what is the agenda, the agenda is as follows. So, what we are going to be doing is we are going to be coding multi layer perceptron for both classical classification problem and for both sorry for both classification and regression problem. So, we need to have the data First of all, so, for that what we are going to do is we are going to be taking the data that comes pre built in the that comes pre built with the with the SK learn and for regression we have a we have a prebuilt data and
+
+sorry guys so much
+
+network connection got disconnected. So let me continue from where I left. So I was talking about the multi layered perceptron algorithm and I was discussing the agenda of the current video. So the agenda is to actually code multi layer perceptron algorithm. And I'm going to do that for both regression and classification problem. So to do that, first of all, we need a data. And what I'm going to do is for the regression problem, I'm going to take up the data set that comes pre built with the SK learn library and that data set is known as how stern or sorry a Boston house price prediction and
+
+for classification problem, I am going to be taking up my own data set for a loan default application. Okay. So let us get started. So we are going to be following these steps that are laid out here and we are going to be exactly
+
+exactly going one by one to kind of show you the steps that we have
+
+followed. Okay, so let us get started. So first, first of all, what I'm going to do is I'm going to head over to the Jupiter lab environment. And I'm going to create a new Python notebook. And I'm going to rename this particular Python notebook.
+
+So let me rename it as multilayered or other neural network.
+
+Okay, and the The first thing is, we need to the first step is we need to import these three libraries, or we might need some other libraries in future. But at this point of time, we just need these three libraries as of now, so let's import them real quick. So I'm going to do let me resize this particular.
+
+Okay, so let me import import pandas as PD. And also I'm going to import from SK learn dot neural network.
+
+Import
+
+multi layer perceptron that is
+
+MLP and essentially multi layer perceptron is equivalent to neural networks. So, you can call them interchangeably. So multi layer perceptron classifier and further let me copy this line of code
+
+and let me call it multi layered regression
+
+okay. So, let me import this particular these particular libraries. So, it is saying
+
+it is saying runtime warning. So, that isn't that it is saying runtime warning because some of our libraries are not not having the compatible versions. So, to kind of quickly see whether it is working or not, let me because these type of warning sometimes can be ignored, they are not that important always. So, and I am anti classify.
+
+Yesterday we are able to like read this particular
+
+class. So we don't need to worry about why this warning is popping up if you want to ignore these warnings, so what you can do is you can, okay, so I just ran this code once again, and these warnings just disappeared. So you don't need to worry about these warnings as of now. And let's let's import the data. First of all. So the data set that I'm going to use is this demo data set. And this demo data set is a data set of whether a person is going to default or not. And using this data set, we are going to be coding up this multi layer perceptron algorithm. So let us first of all import this data set in our Python notebook. I'm going to do PD dot read CSV.
+
+And rather, I should call it data classification. Okay. So read dot CSV, and I'm going to pass demo data
+
+sheet one dot CSV. Okay, and I also need one more data. And for that I'm going to import from SK learn
+
+import data sets. And this data sets I will be using for again it is saying or one more error. Let me rerun this. Okay, so again it disappeared. So now what I'm going to do is I'm going to load Boston data. Now cost and price data I'm going to be using for regression task. Okay. And as you might remember, this MLP multi layered perceptron can be used both for classification and regression tasks. So I'm going to save data sets
+
+and I'm going to say load
+
+load Boston
+
+Okay, so we are having Boston data. So from these data set, let me look at Boston price data. So this data set will be a little bit in the form of dictionary. So as you can see, it is in the form of diction
+
+Now, we need to get this data and this target attributes, okay? And we don't need these, these unnecessary things. So what we are going to do is we are going to make a variable called x, and I'm going to say a Boston price.
+
+And I'm going to call this data and I'm going to store y in the Boston price
+
+target. Okay, so we have got this x&y and rather I should call this x regulation and y regression. Okay, because I am also going to be making up x&y for this data classifier and let me print data classifier first to kind of see what kind of data set we are having for classification. So we are having this, these two variables and these two features and based on those two features, I want to predict whether a person is going to default or not. Okay, so let me make
+
+One more, we will like x for classification. And I'm going to say data dot, I look all rows I want and first two columns I want. And let me make wide classification and I'm going to call data.
+
+And I'm going to
+
+extract
+
+default
+
+or not. And I'm going to be mapping this default. The reason is that SK learn expects that you pass only numbers, not text. Okay, I'm going to copy this particular text, and I'm going to map it to zero. And I'm going to copy this text
+
+and map it to one okay. So, now we will be having alright so data are not defined. The reason is that because we should we should have paused data philosopher
+
+and
+
+Data classifier. Okay, so I hope you got this particular point. And the first two steps are now done. We have imported the necessity modules, we have imported the data. And the next thing that we need to do is we need to make the instance. Okay, so how are we going to make the instance. So for classification, I'm going to do classify it is equal to MLP classifier.
+
+Okay, notice I'm not passing anything in these classes. And I'm going to show you how you can pass some things to kind of change the configuration of your neural network. And I'm going to show that in the step of optimizing this algorithm. So in the seventh step, I'm going to show you how you might be able to change some of the configurations here. So for the time being, let's just stick to the default configurations.
+
+So I'm going to call MLP regression now
+
+Okay, and this classifier needs to be called in this classified data set regression needs to be called on this regression data set, okay. So, for the time being to make sure that we are working on one specific thing at a time. So, let me just focus on classifier for the time being. So, once we are done and we are able to understand how the classifier works, we will be moving towards a regression task. Okay. So I am going to do classifier dot fit. So this is the fourth step classifier dot fit, and I'm going to be passing x classifier and y classifier.
+
+Let me run this. Okay, so we have successfully fitted the MLT classifier, okay, so it ran really quick because the data set was really small. Okay, and let's, let's now go back to our pseudocode. So we call this fit method. We made the instance of these classes and we call the fit method. Now we want the predictions. So let's
+
+stole the predictions. So I'm going to say predictions
+
+CLF dot predict
+
+and I'm going to say x classifier
+
+okay. And I should I should call this predictions as predictions for classifiers
+
+ok. So, we have got the predictions. And let us now see what is the accuracy that we are getting because this is our sixth step, okay to kind of check the models performance. Okay, so to do that, what I want to want to do is I want to compare this predictions, classifier with the actual labels that we passed. So I'm going to do first of all predictions
+
+CLF is equal to is equal to so I am comparing these two areas, so it is going to return me an array.
+
+So let me copy paste this.
+
+It is going to return me an area of true true and false was the most
+
+Through we have, the better it is if it is false, then that means our model did not get that particular example, right. So if I sum this particular error, it is going to return me how many true it has got. And if I divided by
+
+divided by the length of the white classifier, I'm going to be returning I'm going to be returning the accuracy of this particular model. So the accuracy of this particular model that I'm getting as of now is approximately 71%, which is not that bad, but the data set was really small. Now, what we can do is the next step is to repeat the step from three iteratively to come up with the best model. So what do we mean by repeating the SR three? If I repeat this step three as it is 10 it is not going to improve the model because it is just going to give me the Give me the exact accuracy. Okay, so what do we what do I mean by repeating this step the the
+
+reason that I'm saying in the step seven that we need to repeat these steps is because we need to repeat these steps with different configurations to kind of see if we are able to get a better model. Okay. So, let me do that real quick. Now, how how will I be able to know what are the best configurations and that is something is the job job involved in the hyper parameter optimization. And to do that, we need to change different hyper parameters and what are those hyper parameters. So, these are various hyper parameters that we can choose. And if you would really want the list of those hyper parameters, you can go to MLP classifier.
+
+And there is a very nice,
+
+nice documentation provided by a scaler. So, you can see all the hyper parameters that you can change in this particular class. So, you can clearly see that you have got this activation this solver
+
+This alphabet size. So you have got all sorts of different classifier object,
+
+all sorts of different hyper parameters that you can change, okay. So, and you also can see what are the different values that these hyper parameters take. So let us focus on activation. And by default, this activation takes relu. And let let us change this activation to logistic and see if our classifier improves a little bit. So, what I'm going to do is I'm going to copy this particular code. And this time, I'm going to pause activation is equal to
+
+logistic. And I'm going to do all the things in one night so that we get the output in one line classifier dot fit, and I'm going to call this exact code
+
+and I'm going to call this executive.
+
+Okay, so now I'm going to be getting the accuracy in one line. So let's hit enter.
+
+Okay, super
+
+Time notice here that we are getting the the one accuracy one accuracy means we are getting almost all the examples correct. So, to to actually show you and notice here we have also got this convergence warning now, this happens when our optimization did not reach the convergence because we passed some sort of hyper parameters which they were not expecting okay. And so, so we will just better better pause this relu or other which we should try other also. So, let us try 10 edge
+
+damage Okay, so let's pause this okay again we are so so the best possible activation that we might or need here is relu. Now let us change this hidden layer sizes. Now this hidden layer sizes will be the tuple or list with each element in that tuple represent
+
+number of neurons in that particular hidden layer so if I pass
+
+hidden layers
+
+so hidden layer sizes and I can pass hundred and 50 now what I'm trying to say here is I want first hidden layer to be 100 to be having hundred neurons and the second layer to be having 50 neurons. So let's run this and see Okay, so this time it has actually decreased the accuracy. So I hope you you're getting this particular point. So let me know change this particular hidden layer size from 50 to the second hidden layer size from 50 to 10. Let's run this code okay. So we are as we are getting as we are increasing this so let me change it to 100 Okay, so around 50% so let me change it to 200 and 100.
+
+Okay, so again, it has it has given it
+
+As it started giving me the convergence warning. So now let me pass it a few few hidden layer neurons. Okay, so it is not improving its performance. Now, let's pause with 60.
+
+What about 70? And with 70 Let's pause 10
+
+Okay. So, this time notice here that we are getting some improved accuracy over the previous model. So, this is the steps that I have just taken is other VGS steps that are involved in coming up with a better model. And this is the, this is what I was, I was a to b to b i was interested in doing in this step called optimization of performance of noodle. I have still not coded this MLP MLP for regression, but I hope you get this particular point that how you can come up with the better models. You can also change further configuration So, let's
+
+copy this code and let's say I pass 1010
+
+no sorry not hundred 110 but 1010
+
+Okay. So, this time also we are not seeing any improvement let me pass 5050 Okay. So, this time we are again seeing some improvement. So, earlier we are the in the first attempt we got 71% and now we are getting 78% So, I hope you are getting this particular point as we are changing different configurations we are able to get some good accuracy okay. So, this is what is involved in this hyper parameter optimization. Okay, now the next task next thing that we are going to be doing is we are going to be repeating this whole step for the declaration also. And you can also pause this video and kind of try to repeat the exact same steps that I've just taken on this class.
+
+Fire all object on this regulation object. So pause this video and give it a try. Okay, so I hope you try this particular
+
+
+little task that I gave you, let me quickly do these steps.
+
+And what I'm going to do is I'm going to do a regulation dot fit, and I'm going to pass x regulation
+
+and y regulation.
+
+Now this is a no this is a
+
+regression task. So
+
+The variable that we are trying to predict is a variable
+
+of continuous type and that variable will take values ranging from negative infinity to infinity. So, for that we cannot use this accuracy measure so we need to import some other measures from a scalar library. Okay. So again it is saying some convergence warning and we'll try to fix that, but for the time being, let let us know import
+
+from
+
+SK learn dot matrix import mean squared error
+
+mean squared error I want to import because mean squared error is a measure which is used heavily in linear regression tasks, okay. So, I have created this regression Now, what I can do is I can pass two mean squared error, the true values and the predicted values. Okay, so, let's see how does this parameter takes so why true is
+
+The first parameter y predicted is the first parameter, the second parameter y predicted. Okay, so y true will be y regression. And to pass the true parameter, I'm going to do regulation dot fit to pass the predicted parameter regulation dot predict.
+
+And I'm going to pass x regression in here. Okay, so let's run this particular code, okay. So, we are getting the mean squared error as 26.05. And generally what we are interested in, in regression task is to reduce this mean squared error. So let us try to do that with different configurations. Okay, so I'm going to do a regression is equal to MLP regression.
+
+And
+
+let's, let's repeat these two steps here. So I'm going to copy these two pieces of code from earlier cells. So I have got this MLP regressor. So let me now or try other hidden layer, the
+
+We did here. So, let me try out different hidden layer sizes and I could have passed one more one more argument here and that will imply that I want three hidden layers okay. So, I hope you get this particular point. So, let me try out with 1010 hidden 1010 hidden the number of hidden layer neurons in second and third hidden layer respectively okay.
+
+Okay, so we are getting actually increased meaning squared, no problem, you don't need to worry about that because we are going to be trying to reduce that by changing some parameters like let me try out 50 Okay. So, with a second trial only we have managed to reduce this mean squared error and that is a best thing because that is the good thing because that is what is our objective we are trying to improve or other decrease this mean squared error. Let's try out with
+
+Hundred and 10
+
+okay so this time we are not in decreasing that much although we are decreasing from 24.68 we have managed to reach to 24.38 let's add one more didn't do unit with 10 and in the first hidden layer I am going to pass 100 units and in the second 50 and 10
+
+Okay so, this time we are good we have again managed to reduce this mean squared error significantly. So, I hope you are able to follow to follow through everything that I have discussed in this particular video. So, now what I'm going to do is I'm going to move on. So, this is I have already discussed MLP for classification I've already discussed MLP for medication, and also I have briefly touched upon optimization of performance of neural network. Now, I want to talk about one issue with SK learns
+
+Implementation of neural network. And that issue is it has a new GPU support and GPU stands for graphical processing unit. And what GPUs allow us to do is it allows us to fit neural network in a quicker and faster way. If a particular implementation has no GPU support, that means we will not be able to scale it to larger data sets. So if I am having a data set of say 10 lakh rows, or a one or 1 billion rows for that a scalar would not probably be the best choice we have would be better off by using something more trusted for these like TensorFlow and Kairos. But for a very small data sets like a data sets involving 10,000 or maybe one lakh rows, sk learn will work fine, but it is going to use the default CPU implemented
+
+So you will not be able to configure your GPU with these implementations. Okay, so I just thought that it would be a good idea to kind of tell you what exactly
+
+what why exactly like
+
+sometimes it might take, it might take more time to to train algorithms in scalar and using a scalar okay. Okay, so finally, we have come to the end of this particular discussion on neural network. And what I want you to do is create a multi layered perceptron algorithm on newsgroup data set. Now, newsgroup data set is a classification data set. And let me quickly show you how you can access that data set you can call something like news group.
+
+And you can say, data sets dot fetch,
+
+fetch 20 newsgroups, okay, so once you do that,
+
+you will have access to the data
+
+data which will be in the form of text, text articles, texts, news articles, and in target in target key, you will be having the the corresponding label and from those labels, what you can do is you can try to fit this MLP classifier, and that is your first task. And the second task will be to optimize its performance by tweaking various parameters like I showed you in the video that how you can change activation, number of hidden layers and number of neurons. So, I showed you all three of them in the video. So, you can try out them and try to reduce or reduce or other I should say, try to increase the accuracy because this is a classification problem. And if it was a regression problem, then you would have tried to reduce the mean squared error. Okay, see if you can figure out what other parameters are in MLP classified I also showed you how you can do that you
+
+Then go to this SK learn documentation. And you can look at all the hyper parameters that this MLP classifier takes. And you can, what you need to do is you need to try to figure out what are all those hyper parameters mean, and how you can come up with the best hyper parameters. So thank you so much for watching this video. I will stop right here. And I hope you have enjoyed this particular video a lot. And
+
+yeah, and I also hope that I have encouraged you enough to kind of explore this particular algorithm more, more and try to use this particular algorithm in your own projects. So thank you so much for watching this video. Have a nice day.
