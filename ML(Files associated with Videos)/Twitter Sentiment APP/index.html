@@ -1,0 +1,57 @@
+<html>
+<head>
+    <title>Twitter Sentiment Analysis</title>
+    <style>
+        form{
+            margin:auto;
+            width:400px;
+            height: 400px;
+            background-color: orange;
+            display: flex;
+            flex-direction: column;
+        }
+        form h2{
+            padding:0px 0px 0px 10px;
+            color:gray
+        }
+        form input {
+            height:70px;
+            margin:10px;
+            font-size: 20px;
+            padding: 0px 0px 0px 5px;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+        }
+        div {
+            margin:auto;
+            width:400px;
+            color:gray;
+        }
+        input[type=submit]{
+            background-color: gray;
+            color: white;
+            outline:none;
+            border:none;
+        }
+
+        input[type=submit]:hover{
+            background-color: saddlebrown;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Twitter Sentiment Analyser</h1>
+        <h2>Keep your number of tweet less than 1000</h2>
+    </div>
+    <form method="POST">
+        <h2>Enter the topic..</h2>
+        <input name = "topic" type = "text" placeholder="Enter the name of the topic..">
+        <input name = "number" type = "number" placeholder="Number of tweets to analyse.." min="50" max="1000">
+        <input type="submit">
+    </form>
+</body>
+</html>
